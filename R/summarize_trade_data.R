@@ -1,18 +1,18 @@
 
-suppressMessages(suppressWarnings(source("R/manifest.R")))
+suppressMessages(suppressWarnings(source("manifest.R")))
 
 # to start an in-memory database
 con <- dbConnect(duckdb::duckdb(), dbdir = ":memory:")
 
 country_ids <- 
-  read_csv("data/countries_codes_and_coordinates.csv") %>%
+  read_csv("../data/countries_codes_and_coordinates.csv") %>%
   janitor::clean_names() %>%
   select(alpha_3_code, numeric_code) %>%
   mutate(numeric_code = as.character(numeric_code))
 
 #Combine trade data from 2000 to 2020
 trade_data_all_years <-
-  list.files(paste0("../dataverse_files"), recursive = TRUE) %>%
+  list.files(paste0("../../dataverse_files"), recursive = TRUE) %>%
   as_tibble() %>%
   filter(grepl(pattern = "partner_sitcproduct4digit", x = value)) %>%
   filter(grepl(pattern = ".parquet", x = value)) %>%
@@ -21,7 +21,7 @@ trade_data_all_years <-
 
 allcountries_trade_df <-
   trade_data_all_years %>%
-  map(~arrow::read_parquet(file = paste0("../dataverse_files/",.x)) %>%
+  map(~arrow::read_parquet(file = paste0("../../dataverse_files/",.x)) %>%
         janitor::clean_names() %>% 
        # filter(location_code %in% c("USA", "CHN", "RUS", "BWA")) %>%
         as_tibble() %>%
@@ -72,28 +72,31 @@ deficit_plot <-
   guides(color=FALSE) +
   facet_wrap(~ location_code, ncol = 1) +
   ggrepel::geom_text_repel(data= top_bottom_df, size = 2) +
-  labs(x=NULL, y = "Trade Balance In Billions $",  title = "Trade Balance In 2020") +
-  ggthemes::theme_fivethirtyeight() + 
-  theme(axis.text.x = element_blank())
-
-#ggsave(deficit_plot, "output/deficit_plot_us_chn_rus.png")
-
-trade_bal_2020 <- 
-  ggplot(data = top_bottom_df, 
-         mapping = aes(x = partner_code, y = trade_balance, fill = hi_lo)) + 
-  geom_col() + 
-  guides(fill=FALSE) +
-  facet_wrap(~ location_code, ncol=1, scales = "free_y") +
-  labs(x=NULL, y = "Trade Balance In Billions $",  title = "Trade Balance Over Time",
-     caption = "Data source: \n2020 Median Household Income Data from the American Community Survey. census.gov/programs-surveys/acs/. \nEV coordinates obtained using the National Renewable Energy Lab API. developer.nrel.gov. \nEach dot represents a terminal of one or more EV chargers. \nMore details: https://github.com/LNshuti/tennessee-chargers-shiny") +
-  theme_bw() +
-  theme_tufte_revised() +
-  theme(plot.caption = element_text(size = 12, hjust = 0),
+  labs(x=NULL, y = "Trade Balance In Billions $",  title = "2020 Trade Balance",
+       caption = "Data source: \nAtlas of Economic Complexity from the Growth Lab at Harvard University.\nhttps://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/H8SFD2.") +
+  theme(plot.caption = element_text(size = 8, hjust = 0),
         axis.title.x=element_blank(),
         axis.title.y=element_blank(), 
         plot.caption.position =  "plot",
         panel.background = element_blank()
-  ) 
-ggsave(trade_bal_2020,
-       filename = paste0(repo_path, "/output/deficit_plot_us_chn_rus.png"),
+  ) +
+  ggthemes::theme_fivethirtyeight() + 
+  theme(axis.text.x = element_blank())
+
+ggsave(deficit_plot,
+       filename = paste0("../output/deficit_plot_us_chn_rus.png"),
        width = 8, height = 4)
+
+
+#ggsave(deficit_plot, "output/deficit_plot_us_chn_rus.png")
+
+# trade_bal_2020 <- 
+#   ggplot(data = top_bottom_df, 
+#          mapping = aes(x = partner_code, y = trade_balance, fill = hi_lo)) + 
+#   geom_col() + 
+#   guides(fill=FALSE) +
+#   facet_wrap(~ location_code, ncol=1, scales = "free_y") +
+#    
+# ggsave(trade_bal_2020,
+#        filename = paste0(repo_path, "/output/deficit_plot_us_chn_rus.png"),
+#        width = 8, height = 4)
