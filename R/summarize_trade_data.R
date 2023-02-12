@@ -80,7 +80,7 @@ deficit_plot <-
         plot.caption.position =  "plot",
         panel.background = element_blank()
   ) +
-  ggthemes::theme_fivethirtyeight() + 
+  ggthemes::theme_economist_white()+ 
   theme(axis.text.x = element_blank())
 
 ggsave(deficit_plot,
