@@ -98,16 +98,17 @@ product_details <-
   filter(grepl(pattern = ".parquet", x = value)) %>% 
   pull(value)
 
-allcountries_trade_df <-
+sitc3_product_labs <-
   read.table("../data/SITC_Rev_3_english_structure.txt", sep='\t',header=FALSE, skip=1) %>%
   janitor::clean_names() %>% 
   as_tibble() %>%
   mutate_all(as.character) %>%
   bind_rows()  %>%
-  mutate(code = stringr::word(v1,1), description = str_trim(v1)) %>% 
-  mutate(code_trim = str_trim(code)) %>%
-  rowwise() %>%
-  mutate(label = sub(v1, "", code_trim))
+  mutate(code = stringr::word(v1,1)) %>% 
+  mutate(label = str_trim(str_remove(v1, code))) %>%
+  select(-v1)
+
+write_csv(sitc3_product_labs, "../data/processed/sitc3_product_labs.csv")
 
 
 china_df <- 
