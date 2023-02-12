@@ -72,7 +72,7 @@ deficit_plot <-
   guides(color=FALSE) +
   facet_wrap(~ location_code, ncol = 1) +
   ggrepel::geom_text_repel(data= top_bottom_df, size = 2) +
-  labs(x=NULL, y = "Trade Balance In Billions $",  title = "2020 Trade Balance",
+  labs(x=NULL, y = "Trade Balance In Billions $",  title = "",
        caption = "Data source: \nAtlas of Economic Complexity from the Growth Lab at Harvard University.\nhttps://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/H8SFD2.") +
   theme(plot.caption = element_text(size = 8, hjust = 0),
         axis.title.x=element_blank(),
