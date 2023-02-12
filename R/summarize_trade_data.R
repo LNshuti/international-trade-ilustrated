@@ -85,7 +85,7 @@ deficit_plot <-
 
 ggsave(deficit_plot,
        filename = paste0("../output/deficit_plot_us_chn_rus.png"),
-       width = 8, height = 4)
+       width = 8, height = 6)
 
 
 #ggsave(deficit_plot, "output/deficit_plot_us_chn_rus.png")
