@@ -1,0 +1,5 @@
+library(tidyverse)
+library(DBI)
+library(duckdb)
+library(purrr)
+library(arrow)
