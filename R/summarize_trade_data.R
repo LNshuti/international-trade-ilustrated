@@ -104,11 +104,8 @@ allcountries_trade_df <-
   # filter(location_code %in% c("USA", "CHN", "RUS", "BWA")) %>%
   as_tibble() %>%
   mutate_all(as.character) %>%
-  bind_rows() %>%
-  mutate_at(c("export_value", "import_value"), as.numeric)
-
-  
-    
+  bind_rows()  %>%
+  tidyr::separate(col = code_description, into = c("code", "description"), sep = '\t')
 
 china_df <- 
   usa_chn_rus %>% 
