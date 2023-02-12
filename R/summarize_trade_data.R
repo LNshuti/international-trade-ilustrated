@@ -109,13 +109,27 @@ sitc3_product_labs <-
   select(-v1)
 write_csv(sitc3_product_labs, "../data/processed/sitc3_product_labs.csv")
 
+SITCCodeandDescription <-
+  readxl::read_xlsx("../data/SITCCodeandDescription.xlsx") %>%
+  janitor::clean_names() %>%
+  select(code, description, parent_code)
+
+write_csv(SITCCodeandDescription, "../data/processed/SITCCodeandDescription.csv")
+
 
 china_df <- 
   usa_chn_rus %>% 
   filter(location_code == "CHN") %>%
   group_by(sitc_product_code) %>%
   summarise(total_exports = sum(export_value)) %>% 
-  arrange(desc(total_exports))
+  arrange(desc(total_exports)) %>%
+  inner_join(SITCCodeandDescription, by = c("sitc_product_code" = "parent_code"))
+
+china_df_onelab <- 
+  china_df %>% 
+  group_by(sitc_product_code) %>% 
+  filter(row_number() ==1) %>%
+  ungroup()
 
 df1 = read.csv('https://raw.githubusercontent.com/plotly/datasets/718417069ead87650b90472464c7565dc8c2cb1c/sunburst-coffee-flavors-complete.csv')
 df2 = read.csv('https://raw.githubusercontent.com/plotly/datasets/718417069ead87650b90472464c7565dc8c2cb1c/coffee-flavors.csv')
