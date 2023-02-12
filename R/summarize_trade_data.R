@@ -101,11 +101,14 @@ product_details <-
 allcountries_trade_df <-
   read.table("../data/SITC_Rev_3_english_structure.txt", sep='\t',header=FALSE, skip=1) %>%
   janitor::clean_names() %>% 
-  # filter(location_code %in% c("USA", "CHN", "RUS", "BWA")) %>%
   as_tibble() %>%
   mutate_all(as.character) %>%
   bind_rows()  %>%
-  tidyr::separate(col = code_description, into = c("code", "description"), sep = '\t')
+  mutate(code = stringr::word(v1,1), description = str_trim(v1)) %>% 
+  mutate(code_trim = str_trim(code)) %>%
+  rowwise() %>%
+  mutate(label = sub(v1, "", code_trim))
+
 
 china_df <- 
   usa_chn_rus %>% 
