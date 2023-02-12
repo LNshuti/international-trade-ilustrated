@@ -99,7 +99,7 @@ product_details <-
   pull(value)
 
 allcountries_trade_df <-
-  read.table("../data/SITC_Rev_3_english_structure.txt", sep='\t',header=TRUE) %>%
+  read.table("../data/SITC_Rev_3_english_structure.txt", sep='\t',header=FALSE, skip=1) %>%
   janitor::clean_names() %>% 
   # filter(location_code %in% c("USA", "CHN", "RUS", "BWA")) %>%
   as_tibble() %>%
