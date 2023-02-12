@@ -84,4 +84,16 @@ trade_bal_2020 <-
   geom_col() + 
   guides(fill=FALSE) +
   facet_wrap(~ location_code, ncol=1, scales = "free_y") +
-  labs(x=NULL, y = "Trade Balance In Billions $",  title = "Trade Balance Over Time")
+  labs(x=NULL, y = "Trade Balance In Billions $",  title = "Trade Balance Over Time",
+     caption = "Data source: \n2020 Median Household Income Data from the American Community Survey. census.gov/programs-surveys/acs/. \nEV coordinates obtained using the National Renewable Energy Lab API. developer.nrel.gov. \nEach dot represents a terminal of one or more EV chargers. \nMore details: https://github.com/LNshuti/tennessee-chargers-shiny") +
+  theme_bw() +
+  theme_tufte_revised() +
+  theme(plot.caption = element_text(size = 12, hjust = 0),
+        axis.title.x=element_blank(),
+        axis.title.y=element_blank(), 
+        plot.caption.position =  "plot",
+        panel.background = element_blank()
+  ) 
+ggsave(trade_bal_2020,
+       filename = paste0(repo_path, "/output/deficit_plot_us_chn_rus.png"),
+       width = 8, height = 4)
