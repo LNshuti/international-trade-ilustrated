@@ -107,7 +107,6 @@ sitc3_product_labs <-
   mutate(code = stringr::word(v1,1)) %>% 
   mutate(label = str_trim(str_remove(v1, code))) %>%
   select(-v1)
-
 write_csv(sitc3_product_labs, "../data/processed/sitc3_product_labs.csv")
 
 
