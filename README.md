@@ -1,6 +1,4 @@
-# international-trade-ilustrated
-#### Summarize Eonomic Strength measured in terms of Deficits and Currencies
-
+# Summarize Eonomic Strength measured in terms of Deficits and Currencies
 
 **Data Source**
 ---------------
