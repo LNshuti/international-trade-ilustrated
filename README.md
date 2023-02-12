@@ -8,6 +8,6 @@ As in my [other work](https://github.com/LNshuti/LNSHUTI.github.io), I use the A
 **EDA: Exploratory Data Analysis**
 --------------------------------
 
-Below we plot trade relationships between the United States, China, Russia, Japan, and the European Union. For this plot, we sum data for the latest available year, 2020.  **Trade balance** is measured in **Billions US dollars**.
+Below we plot trade relationships between the United States, China,and Russia. For this plot, we sum data for the latest available year, 2020.  **Trade balance** is measured in **Billions US dollars**.
 
 ![](output/deficit_plot_us_chn_rus.png)
