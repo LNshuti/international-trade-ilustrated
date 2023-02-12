@@ -98,9 +98,8 @@ product_details <-
   filter(grepl(pattern = ".parquet", x = value)) %>% 
   pull(value)
 
-
 allcountries_trade_df <-
-  read_csv("data/SITC_Rev_3_structure_english.txt") %>%
+  read.table("../data/SITC_Rev_3_structure_english.txt", sep='\t',header=TRUE) %>%
   janitor::clean_names() %>% 
   # filter(location_code %in% c("USA", "CHN", "RUS", "BWA")) %>%
   as_tibble() %>%
