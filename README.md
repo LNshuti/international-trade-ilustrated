@@ -8,6 +8,6 @@ As in my [other work](https://github.com/LNshuti/LNSHUTI.github.io), I use the A
 **EDA: Exploratory Data Analysis**
 --------------------------------
 
-Below we plot trade relationships between a select group of African countries. For this plot, we sum data from 2015 to 2019. Note that the width of the edge represents the **trade balance** in US dollars between country x and country y for the given time period.
+Below we plot trade relationships between the United States, China, Russia, Japan, and the European Union. For this plot, we sum data for the latest available year, 2020.  **Trade balance** is measured in **Billions US dollars**.
 
 ![](output/deficit_plot_us_chn_rus.png)
