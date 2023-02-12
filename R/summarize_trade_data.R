@@ -87,6 +87,56 @@ ggsave(deficit_plot,
        filename = paste0("../output/deficit_plot_us_chn_rus.png"),
        width = 8, height = 6)
 
+################################################################################
+# China Export Details 
+################################################################################
+product_details <- 
+  list.files(paste0("../../dataverse_files"), recursive = TRUE) %>%
+  as_tibble() %>%
+  filter(grepl(pattern = "country", x = value)) %>%
+  filter(grepl(pattern = "country_sitcproductsection", x = value)) %>%
+  filter(grepl(pattern = ".parquet", x = value)) %>% 
+  pull(value)
+
+
+allcountries_trade_df <-
+  read_csv("data/SITC_Rev_3_structure_english.txt") %>%
+  janitor::clean_names() %>% 
+  # filter(location_code %in% c("USA", "CHN", "RUS", "BWA")) %>%
+  as_tibble() %>%
+  mutate_all(as.character) %>%
+  bind_rows() %>%
+  mutate_at(c("export_value", "import_value"), as.numeric)
+
+  
+    
+
+china_df <- 
+  usa_chn_rus %>% 
+  filter(location_code == "CHN") %>%
+  group_by(sitc_product_code) %>%
+  summarise(total_exports = sum(export_value)) %>% 
+  arrange(desc(total_exports))
+
+df1 = read.csv('https://raw.githubusercontent.com/plotly/datasets/718417069ead87650b90472464c7565dc8c2cb1c/sunburst-coffee-flavors-complete.csv')
+df2 = read.csv('https://raw.githubusercontent.com/plotly/datasets/718417069ead87650b90472464c7565dc8c2cb1c/coffee-flavors.csv')
+
+fig <- plot_ly(
+  type='treemap',
+  ids=df1$ids,
+  labels=df1$labels,
+  parents=df1$parents,
+  domain=list(column=0))
+
+fig <- fig %>% add_trace(
+  type='treemap',
+  ids=df2$ids,
+  labels=df2$labels,
+  parents=df2$parents,
+  maxdepth=1,
+  domain=list(column=1))
+fig <- fig %>% layout(grid=list(columns=2, rows=1))
+fig
 
 #ggsave(deficit_plot, "output/deficit_plot_us_chn_rus.png")
 
