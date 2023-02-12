@@ -12,3 +12,5 @@ Below we plot trade relationships between the United States, China,and Russia. F
 
 **Figure 1: 2020 Trade Balance**
 ![](output/deficit_plot_us_chn_rus.png)
+
+**Figure 2: China Exports**
