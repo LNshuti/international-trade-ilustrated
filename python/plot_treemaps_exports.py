@@ -39,8 +39,15 @@ plt.axis('off')
 # plt.savefig('../output/china_exports_treemap.png', bbox_inches='tight')
 
 # Select location_code and description
-df_styled = china_df.style.background_gradient(cmap='Blues', subset=['parent_code', 'trade_balance']).set_caption('China Exports by Product') 
-df_styled.render()
+
+# # Save the plot as a png file
+# dfi.export(df_styled,"../output/china_exports_table.png")
+
+
+# Save the plot as a png file
+#dfi.export(df_styled,"../output/china_exports_table.png")
+
+
 #dfi.export(df_styled,"../output/china_exports_table.png")
 #dfi.export(df_styled,"../output/china_exports_labels.png")
 
