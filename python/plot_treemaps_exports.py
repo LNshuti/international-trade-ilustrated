@@ -38,11 +38,6 @@ plt.axis('off')
 # # Save the plot as a png file
 # plt.savefig('../output/china_exports_treemap.png', bbox_inches='tight')
 
-# Select location_code and description
-
-# # Save the plot as a png file
-china_df.dfi.export_png('../output/china_exports_table.png')
-# dfi.export(df_styled,"../output/china_exports_table.png")
 
 
 # Save the plot as a png file
