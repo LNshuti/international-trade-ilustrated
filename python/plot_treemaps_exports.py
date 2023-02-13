@@ -41,31 +41,31 @@ plt.savefig('../output/china_exports_treemap.png', bbox_inches='tight')
 #labelled_df = labelled_df[['description', 'parent_code']]
 print(china_df.head(10))
 
-# Filter to the top 10 products by trade balance for CHN 
-usa_df = labelled_df[labelled_df['location_code'] == 'USA'].sort_values(by='trade_balance', ascending=False).head(10)
+# # Filter to the top 10 products by trade balance for CHN 
+# usa_df = labelled_df[labelled_df['location_code'] == 'USA'].sort_values(by='trade_balance', ascending=False).head(10)
 
-plt.figure(figsize=(8,6))
-# Plot the treemap
-squarify.plot(sizes=usa_df['trade_balance'], label=usa_df['parent_code'], alpha=.8 )
-# Remove the axis
-plt.axis('off')
-# Save the plot as a png file
-plt.savefig('../output/usa_exports_treemap.png', bbox_inches='tight')
+# plt.figure(figsize=(8,6))
+# # Plot the treemap
+# squarify.plot(sizes=usa_df['trade_balance'], label=usa_df['parent_code'], alpha=.8 )
+# # Remove the axis
+# plt.axis('off')
+# # Save the plot as a png file
+# plt.savefig('../output/usa_exports_treemap.png', bbox_inches='tight')
 
-print(usa_df.head(10))
+# print(usa_df.head(10))
 
 
-# Filter to the top 10 products by trade balance for CHN 
-rus_df = labelled_df[labelled_df['location_code'] == 'RUS'].sort_values(by='trade_balance', ascending=False).head(10)
+# # Filter to the top 10 products by trade balance for CHN 
+# rus_df = labelled_df[labelled_df['location_code'] == 'RUS'].sort_values(by='trade_balance', ascending=False).head(10)
 
-plt.figure(figsize=(8,6))
-# Plot the treemap
-squarify.plot(sizes=rus_df['trade_balance'], label=rus_df['parent_code'], alpha=.8 )
-# Remove the axis
-plt.axis('off')
-# Save the plot as a png file
-plt.savefig('../output/russia_exports_treemap.png', bbox_inches='tight')
+# plt.figure(figsize=(8,6))
+# # Plot the treemap
+# squarify.plot(sizes=rus_df['trade_balance'], label=rus_df['parent_code'], alpha=.8 )
+# # Remove the axis
+# plt.axis('off')
+# # Save the plot as a png file
+# plt.savefig('../output/russia_exports_treemap.png', bbox_inches='tight')
 
-print(rus_df.head(10))
+# print(rus_df.head(10))
 
 
