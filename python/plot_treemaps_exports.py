@@ -39,8 +39,9 @@ plt.axis('off')
 # plt.savefig('../output/china_exports_treemap.png', bbox_inches='tight')
 
 # Select location_code and description
-china_df.to_html('../output/china_exports_labels.html')
-subprocess.call("wkhtmltoimage --width 0 ../output/china_exports_labels.html ../output/china_exports_labels.png", shell=True)
+df_styled = china_df.style.background_gradient(cmap='Blues', subset=['parent_code', 'trade_balance']).set_caption('China Exports by Product') 
+df_styled.render()
+#dfi.export(df_styled,"../output/china_exports_table.png")
 #dfi.export(df_styled,"../output/china_exports_labels.png")
 
 
