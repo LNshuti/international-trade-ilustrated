@@ -4,6 +4,8 @@ import pyarrow.parquet as pq
 import pandas as pd
 import squarify
 import matplotlib.pyplot as plt
+import dataframe_image as dfi
+import subprocess
 
 # Read in the data
 product_labs = pd.read_csv('../data/processed/SITCCodeandDescription.csv')
@@ -21,24 +23,26 @@ labelled_df = trade_data_all_years.merge(product_labs, left_on='sitc_product_cod
 labelled_df = labelled_df[labelled_df['location_code'].isin(['USA', 'CHN', 'RUS'])]
 
 # Summarize the trade_balance by location_code and product_description
-labelled_df = labelled_df.groupby(['location_code', 'parent_code'])['trade_balance'].sum().reset_index()
+labelled_df = labelled_df.groupby(['location_code', 'parent_code', 'description'])['trade_balance'].sum().reset_index()
 
 # Filter to the top 10 products by trade balance for CHN 
 china_df = labelled_df[labelled_df['location_code'] == 'CHN'].sort_values(by='trade_balance', ascending=False).head(10)
 
 # Using squarify to plot treemaps
 # Save plot as png file
-# plt.figure(figsize=(8,6))
-# # Plot the treemap
-# squarify.plot(sizes=china_df['trade_balance'], label=china_df['parent_code'], alpha=.8 )
-# # Remove the axis
-# plt.axis('off')
+plt.figure(figsize=(8,6))
+# Plot the treemap
+squarify.plot(sizes=china_df['trade_balance'], label=china_df['parent_code'], alpha=.8 )
+# Remove the axis
+plt.axis('off')
 # # Save the plot as a png file
 # plt.savefig('../output/china_exports_treemap.png', bbox_inches='tight')
 
 # Select location_code and description
-china_labelled_df = china_df['location_code']
-print(china_labelled_df)
+china_df.to_html('../output/china_exports_labels.html')
+subprocess.call("wkhtmltoimage --width 0 ../output/china_exports_labels.html ../output/china_exports_labels.png", shell=True)
+#dfi.export(df_styled,"../output/china_exports_labels.png")
+
 
 # # Filter to the top 10 products by trade balance for CHN 
 # usa_df = labelled_df[labelled_df['location_code'] == 'USA'].sort_values(by='trade_balance', ascending=False).head(10)
