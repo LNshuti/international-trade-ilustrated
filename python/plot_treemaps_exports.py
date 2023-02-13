@@ -26,23 +26,32 @@ labelled_df = labelled_df.groupby(['location_code', 'parent_code'])['trade_balan
 
 # Filter to the top 10 products by trade balance for CHN 
 china_df = labelled_df[labelled_df['location_code'] == 'CHN'].sort_values(by='trade_balance', ascending=False).head(10)
-print(china_df.head(10))
 
 # Using squarify to plot treemaps
 # Save plot as png file
-plt.figure(figsize=(10,10))
-
+plt.figure(figsize=(8,6))
 # Plot the treemap
 squarify.plot(sizes=china_df['trade_balance'], label=china_df['parent_code'], alpha=.8 )
-
 # Remove the axis
 plt.axis('off')
-
 # Save the plot as a png file
 plt.savefig('../output/china_exports_treemap.png', bbox_inches='tight')
 
 # Select location_code and description
 #labelled_df = labelled_df[['description', 'parent_code']]
 print(china_df.head(10))
+
+# Filter to the top 10 products by trade balance for CHN 
+usa_df = labelled_df[labelled_df['location_code'] == 'USA'].sort_values(by='trade_balance', ascending=False).head(10)
+
+plt.figure(figsize=(8,6))
+# Plot the treemap
+squarify.plot(sizes=usa_df['trade_balance'], label=usa_df['parent_code'], alpha=.8 )
+# Remove the axis
+plt.axis('off')
+# Save the plot as a png file
+plt.savefig('../output/usa_exports_treemap.png', bbox_inches='tight')
+
+print(usa_df.head(10))
 
 
