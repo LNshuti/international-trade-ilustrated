@@ -131,25 +131,26 @@ china_df_onelab <-
   filter(row_number() ==1) %>%
   ungroup()
 
-df1 = read.csv('https://raw.githubusercontent.com/plotly/datasets/718417069ead87650b90472464c7565dc8c2cb1c/sunburst-coffee-flavors-complete.csv')
-df2 = read.csv('https://raw.githubusercontent.com/plotly/datasets/718417069ead87650b90472464c7565dc8c2cb1c/coffee-flavors.csv')
+china_top_df <- 
+  china_df_onelab %>%
+  arrange(desc(total_exports)) %>%
+  slice(1:10) %>% 
+  ungroup()
 
-fig <- plot_ly(
-  type='treemap',
-  ids=df1$ids,
-  labels=df1$labels,
-  parents=df1$parents,
-  domain=list(column=0))
+## Creating the most basic treemap##
+china_top_graph <- 
+  treemap(china_top_df,index = c("description"),vSize ="total_exports")
 
-fig <- fig %>% add_trace(
-  type='treemap',
-  ids=df2$ids,
-  labels=df2$labels,
-  parents=df2$parents,
-  maxdepth=1,
-  domain=list(column=1))
-fig <- fig %>% layout(grid=list(columns=2, rows=1))
-fig
+
+treeAsSVG <- export_svg(grViz(ToGraphViz(china_top_graph)))
+
+writeLines(treeAsSVG, "filename.svg"));
+
+export_graph(ToDiagrammeRGraph(china_top_graph),
+             file_name = "../output/china_top_graph.png",
+             file_type = "PNG")
+
+## Installing the package and calling the package in R##
 
 #ggsave(deficit_plot, "output/deficit_plot_us_chn_rus.png")
 
