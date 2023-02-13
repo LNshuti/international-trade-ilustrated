@@ -41,6 +41,7 @@ plt.axis('off')
 # Select location_code and description
 
 # # Save the plot as a png file
+china_df.dfi.export_png('../output/china_exports_table.png')
 # dfi.export(df_styled,"../output/china_exports_table.png")
 
 
