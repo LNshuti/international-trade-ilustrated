@@ -116,7 +116,6 @@ SITCCodeandDescription <-
 
 write_csv(SITCCodeandDescription, "../data/processed/SITCCodeandDescription.csv")
 
-
 china_df <- 
   usa_chn_rus %>% 
   filter(location_code == "CHN") %>%
@@ -137,18 +136,6 @@ china_top_df <-
   slice(1:10) %>% 
   ungroup()
 
-## Creating the most basic treemap##
-china_top_graph <- 
-  treemap(china_top_df,index = c("description"),vSize ="total_exports")
-
-
-treeAsSVG <- export_svg(grViz(ToGraphViz(china_top_graph)))
-
-writeLines(treeAsSVG, "filename.svg"));
-
-export_graph(ToDiagrammeRGraph(china_top_graph),
-             file_name = "../output/china_top_graph.png",
-             file_type = "PNG")
 
 ## Installing the package and calling the package in R##
 
