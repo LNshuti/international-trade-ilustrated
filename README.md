@@ -16,3 +16,7 @@ Below we plot trade relationships between the United States, China,and Russia. F
 **Figure 2: China Exports**
 
 ![china_exports_treemap](https://user-images.githubusercontent.com/13305262/218361674-c238e534-16e2-40de-a3e2-c6dbd8cd6c3c.png)
+
+**Figure 3: USA Exports**
+
+![usa_exports_treemap](https://user-images.githubusercontent.com/13305262/218374021-cf655cbb-925f-4cc3-bd70-eaf60e74c7eb.png)
