@@ -22,7 +22,23 @@ labelled_df = trade_data_all_years.merge(product_labs, left_on='sitc_product_cod
 labelled_df = labelled_df[labelled_df['location_code'].isin(['USA', 'CHN', 'RUS'])]
 
 # Summarize the trade_balance by location_code and product_description
-labelled_df = labelled_df.groupby(['location_code', 'product_description'])['trade_balance'].sum().reset_index()
-print(labelled_df.head())
+labelled_df = labelled_df.groupby(['location_code', 'description'])['trade_balance'].sum().reset_index()
+
+# Filter to the top 10 products by trade balance for CHN 
+labelled_df = labelled_df[labelled_df['location_code'] == 'CHN']
+china_df = labelled_df.sort_values(by='trade_balance', ascending=False).head(10)
+
 
 # Using squarify to plot treemaps
+# Save plot as png file
+plt.figure(figsize=(10,10))
+
+# Plot the treemap
+squarify.plot(sizes=china_df['trade_balance'], label=china_df['description'], alpha=.8 )
+
+# Remove the axis
+plt.axis('off')
+
+
+# Save the plot as a png file
+plt.savefig('../output/china_exports_treemap.png', bbox_inches='tight')
