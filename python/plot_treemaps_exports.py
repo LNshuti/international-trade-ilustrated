@@ -25,10 +25,8 @@ labelled_df = labelled_df[labelled_df['location_code'].isin(['USA', 'CHN', 'RUS'
 labelled_df = labelled_df.groupby(['location_code', 'parent_code'])['trade_balance'].sum().reset_index()
 
 # Filter to the top 10 products by trade balance for CHN 
-labelled_df = labelled_df[labelled_df['location_code'] == 'CHN']
-print(labelled_df.head(10))
-china_df = labelled_df.sort_values(by='trade_balance', ascending=False).head(10)
-
+china_df = labelled_df[labelled_df['location_code'] == 'CHN'].sort_values(by='trade_balance', ascending=False).head(10)
+print(china_df.head(10))
 
 # Using squarify to plot treemaps
 # Save plot as png file
