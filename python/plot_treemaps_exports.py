@@ -42,3 +42,9 @@ plt.axis('off')
 
 # Save the plot as a png file
 plt.savefig('../output/china_exports_treemap.png', bbox_inches='tight')
+
+# Select location_code and description
+#labelled_df = labelled_df[['description', 'parent_code']]
+print(china_df.head(10))
+
+
