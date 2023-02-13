@@ -10,5 +10,19 @@ product_labs = pd.read_csv('../data/processed/SITCCodeandDescription.csv')
 print(product_labs.head())
 
 # Read in the data
-trade_data_all_years = pq.ParquetDataset('../data/trade_data_all_years.parquet').read_pandas().to_pandas()
-print(trade_data_all_years.head())
+trade_data_all_years = pq.ParquetDataset('../data/country_partner_sitcproduct4digit_year_2020.parquet').read_pandas().to_pandas()
+
+trade_data_all_years['export_value'] = pd.to_numeric(trade_data_all_years['export_value'], errors='coerce')
+trade_data_all_years['import_value'] = pd.to_numeric(trade_data_all_years['import_value'], errors='coerce')
+trade_data_all_years['trade_balance'] = trade_data_all_years['export_value'] - trade_data_all_years['import_value']
+
+labelled_df = trade_data_all_years.merge(product_labs, left_on='sitc_product_code', right_on='parent_code', how='inner')
+
+# Filter location_code to the USA, CHN, and RUS (China, Russia, and the United States)
+labelled_df = labelled_df[labelled_df['location_code'].isin(['USA', 'CHN', 'RUS'])]
+
+# Summarize the trade_balance by location_code and product_description
+labelled_df = labelled_df.groupby(['location_code', 'product_description'])['trade_balance'].sum().reset_index()
+print(labelled_df.head())
+
+# Using squarify to plot treemaps
