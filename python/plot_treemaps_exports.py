@@ -38,7 +38,14 @@ plt.axis('off')
 # # Save the plot as a png file
 # plt.savefig('../output/china_exports_treemap.png', bbox_inches='tight')
 
+cell_text = []
+for row in china_df.iterrows():
+    cell_text.append([row[1]['parent_code'], row[1]['description'], row[1]['trade_balance']])
+# Create the table
+plt.table(cellText=cell_text, colLabels=['SITC Code', 'Description', 'Trade Balance'], loc='bottom')
 
+# save the plot as a png file
+plt.savefig('../output/china_exports_tab.png', bbox_inches='tight')
 
 # Save the plot as a png file
 #dfi.export(df_styled,"../output/china_exports_table.png")
