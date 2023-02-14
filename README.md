@@ -19,13 +19,9 @@ Below we plot trade relationships between the United States, China,and Russia. F
 
 |parent_code | description |
 :-----------------|:-----------|
-|7643|  Transmission apparatus incorporating reception...|   
-|7643|                             Transmission apparatus|   
-|6589|  Sets consisting of woven fabric & yarn, with/w...|   
-|6589|  Tapestries, hand-woven, of the Gobelins, Fland...|   
-|6589|  Life-jackets & lifebelts & other made-up artic...|   
-|6589|  Floorcloths, dishcloths, dusters & similar cle...|   
-|7599|  Parts & accessories of the machines of subgrou...|   
+|7643|  Transmission apparatus|      
+|6589|  Clothing Products|      
+|7599|  Parts & accessories |   
 
 
 
