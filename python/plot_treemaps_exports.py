@@ -40,6 +40,7 @@ plt.axis('off')
 
 # Increase font size for the text in the table 
 
+plt.figure(figsize=(8,6))
 cell_text = []
 for row in china_df.iterrows():
     cell_text.append([row[1]['parent_code'], row[1]['description']])
