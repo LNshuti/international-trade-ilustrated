@@ -18,21 +18,21 @@ Below we plot trade relationships between the United States, China,and Russia. F
 ![china_exports_treemap](output/china_exports_treemap.png)
 |parent_code | description |
 :-----------------|:-----------|
-|7643|  Transmission apparatus|      
-|6589|  Clothing Products|      
-|7599|  Parts & accessories |   
+|7643| Transmission apparatus|      
+|6589| Clothing Products|      
+|7599| Parts & accessories |   
 
 **Figure 3: American(USA) Exports**
 
 ![usa_exports_treemap](https://user-images.githubusercontent.com/13305262/218374021-cf655cbb-925f-4cc3-bd70-eaf60e74c7eb.png)
 |parent_code | description |
 :-----------------|:-----------|
-|7764|  Electronic integrated circuits|      
-|5989|  Chemicals|      
-|2882|  Parts & accessories |     
-|8813|  Photographic Products|      
-|3222|  Lignite, whether/not pulverized |
-|0819|  Food Products|      
+|7764| Electronic integrated circuits|      
+|5989| Chemicals|      
+|2882| Parts & accessories |     
+|8813| Photographic Products|      
+|3222| Lignite, whether/not pulverized |
+|0819| Food Products|      
 |0577| Agricultural Products |
 
 
@@ -43,11 +43,11 @@ Below we plot trade relationships between the United States, China,and Russia. F
 :-----------------|:-----------|
 |6812| Rare Earth Metals(Platinum, Base metals, silver/gold, clad with platinum) |      
 |9710| Gold (including gold plated with platinum), Waste & scrap of gold |      
-|0342|  |     
+|0342| Frozen Fish Products |     
 |6821| Copper |      
 |3222| Lignite |
 |6672| Diamonds |      
-|3352| |
+|3352| Oils & other products |
 |5621| Ammonium nitrate |
 |5629| Fertilizers |
 |6841| Aluminium |
