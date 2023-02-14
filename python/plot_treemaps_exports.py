@@ -38,12 +38,18 @@ plt.axis('off')
 # # Save the plot as a png file
 # plt.savefig('../output/china_exports_treemap.png', bbox_inches='tight')
 
+# Increase font size for the text in the table 
+
 cell_text = []
 for row in china_df.iterrows():
     cell_text.append([row[1]['parent_code'], row[1]['description']])
+    # set font size for the table
+    
+plt.rcParams.update({'font.size': 10})
 # Create the table
 plt.table(cellText=cell_text, colLabels=['SITC Code', 'Description'], loc='bottom')
 
+#plt.rcParams.update({'font.size': 10})
 # save the plot as a png file
 plt.savefig('../output/china_exports_tab.png', bbox_inches='tight')
 
