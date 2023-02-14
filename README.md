@@ -25,7 +25,7 @@ In 2020, China had a surplus relative to the United States, Hong Kong, Great Bri
 |6589| Clothing Products|      
 |7599| Parts & accessories |    -->
 
-**Figure 3: American(USA) Exports**
+**Figure 2: American(USA) Exports**
 
 ![usa_exports_treemap](https://user-images.githubusercontent.com/13305262/218374021-cf655cbb-925f-4cc3-bd70-eaf60e74c7eb.png)
 |parent_code | description |
