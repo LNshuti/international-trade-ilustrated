@@ -40,9 +40,9 @@ plt.axis('off')
 
 cell_text = []
 for row in china_df.iterrows():
-    cell_text.append([row[1]['parent_code'], row[1]['description'], row[1]['trade_balance']])
+    cell_text.append([row[1]['parent_code'], row[1]['description']])
 # Create the table
-plt.table(cellText=cell_text, colLabels=['SITC Code', 'Description', 'Trade Balance'], loc='bottom')
+plt.table(cellText=cell_text, colLabels=['SITC Code', 'Description'], loc='bottom')
 
 # save the plot as a png file
 plt.savefig('../output/china_exports_tab.png', bbox_inches='tight')
