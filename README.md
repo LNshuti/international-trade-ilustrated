@@ -22,13 +22,18 @@ Below we plot trade relationships between the United States, China,and Russia. F
 |6589|  Clothing Products|      
 |7599|  Parts & accessories |   
 
-
-
-
-
 **Figure 3: American(USA) Exports**
 
 ![usa_exports_treemap](https://user-images.githubusercontent.com/13305262/218374021-cf655cbb-925f-4cc3-bd70-eaf60e74c7eb.png)
+|parent_code | description |
+:-----------------|:-----------|
+|7764|  Electronic integrated circuits|      
+|5989|  Chemicals|      
+|2882|  Parts & accessories |     
+|8813|  Photographic Products|      
+|3222|  Lignite, whether/not pulverized |
+|0819|  Food Products|      
+|0577| Agricultural Products |
 
 
 **Figure 3: Russian Exports**

@@ -26,11 +26,11 @@ labelled_df = labelled_df[labelled_df['location_code'].isin(['USA', 'CHN', 'RUS'
 labelled_df = labelled_df.groupby(['location_code', 'parent_code', 'description'])['trade_balance'].sum().reset_index()
 
 # Filter to the top 10 products by trade balance for CHN 
-china_df = labelled_df[labelled_df['location_code'] == 'CHN'].sort_values(by='trade_balance', ascending=False).head(10)
+usa_df = labelled_df[labelled_df['location_code'] == 'USA'].sort_values(by='trade_balance', ascending=False).head(30)
 
 # Select unique values from the parent_code and description columns 
-# china_df = china_df[['parent_code', 'description']].drop_duplicates()
-# print(china_df)
+usa_df = usa_df[['parent_code', 'description']].drop_duplicates()
+print(usa_df.reset_index(drop=True))
 
 
 # Using squarify to plot treemaps
