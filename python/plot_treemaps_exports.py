@@ -42,7 +42,6 @@ plt.axis('off')
 
 cell_text = []
 for row in china_df.iterrows():
-    plt.rcParams.update({'font.size': 10})
     cell_text.append([row[1]['parent_code'], row[1]['description']])
     # set font size for the table
     
