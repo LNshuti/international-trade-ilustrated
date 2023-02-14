@@ -15,7 +15,9 @@ def main():
         # Convert the export_value and import_value columns to numeric
         trade_data = trade_data.with_columns([
             pl.col('export_value').cast(pl.Float64),
-            pl.col('import_value').cast(pl.Float64)
+            pl.col('import_value').cast(pl.Float64),
+            # cast year to factor 
+            pl.col('year').cast(pl.Int32),
         ])
 
         trade_data_all_years = trade_data
