@@ -28,30 +28,22 @@ labelled_df = labelled_df.groupby(['location_code', 'parent_code', 'description'
 # Filter to the top 10 products by trade balance for CHN 
 china_df = labelled_df[labelled_df['location_code'] == 'CHN'].sort_values(by='trade_balance', ascending=False).head(10)
 
+# Select unique values from the parent_code and description columns 
+# china_df = china_df[['parent_code', 'description']].drop_duplicates()
+# print(china_df)
+
+
 # Using squarify to plot treemaps
 # Save plot as png file
-plt.figure(figsize=(8,6))
-# Plot the treemap
-squarify.plot(sizes=china_df['trade_balance'], label=china_df['parent_code'], alpha=.8 )
-# Remove the axis
-plt.axis('off')
+# plt.figure(figsize=(8,6))
+# # Plot the treemap
+# squarify.plot(sizes=china_df['trade_balance'], label=china_df['parent_code'], alpha=.8 )
+# # Remove the axis
+# plt.axis('off')
 # # Save the plot as a png file
 # plt.savefig('../output/china_exports_treemap.png', bbox_inches='tight')
 
 # Increase font size for the text in the table 
-
-plt.figure(figsize=(8,6))
-cell_text = []
-for row in china_df.iterrows():
-    cell_text.append([row[1]['parent_code'], row[1]['description']])
-    # set font size for the table
-    
-# Create the table
-plt.table(cellText=cell_text, colLabels=['SITC Code', 'Description'], loc='bottom')
-
-#plt.rcParams.update({'font.size': 10})
-# save the plot as a png file
-plt.savefig('../output/china_exports_tab.png', bbox_inches='tight')
 
 # Save the plot as a png file
 #dfi.export(df_styled,"../output/china_exports_table.png")
@@ -61,7 +53,7 @@ plt.savefig('../output/china_exports_tab.png', bbox_inches='tight')
 #dfi.export(df_styled,"../output/china_exports_labels.png")
 
 
-# # Filter to the top 10 products by trade balance for CHN 
+# Filter to the top 10 products by trade balance for CHN 
 # usa_df = labelled_df[labelled_df['location_code'] == 'USA'].sort_values(by='trade_balance', ascending=False).head(10)
 
 # plt.figure(figsize=(8,6))
