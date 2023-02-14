@@ -17,6 +17,18 @@ Below we plot trade relationships between the United States, China,and Russia. F
 
 ![china_exports_treemap](https://user-images.githubusercontent.com/13305262/218361674-c238e534-16e2-40de-a3e2-c6dbd8cd6c3c.png)
 
+|parent_code|                                        description|  
+|7643|  Transmission apparatus incorporating reception...|   
+|7643|                             Transmission apparatus|   
+|6589|  Sets consisting of woven fabric & yarn, with/w...|   
+|6589|  Tapestries, hand-woven, of the Gobelins, Fland...|   
+|6589|  Life-jackets & lifebelts & other made-up artic...|   
+|6589|  Floorcloths, dishcloths, dusters & similar cle...|   
+|7599|  Parts & accessories of the machines of subgrou...|   
+
+
+
+
 
 **Figure 3: American(USA) Exports**
 
