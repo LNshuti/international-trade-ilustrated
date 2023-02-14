@@ -13,14 +13,14 @@ Below we plot trade relationships between the United States, China,and Russia. F
 **Figure 1: 2020 Trade Balance**
 ![](output/deficit_plot_us_chn_rus.png)
 
-**Figure 2: Chinese Exports**
+<!-- **Figure 2: Chinese Exports**
 
 ![china_exports_treemap](output/china_exports_treemap.png)
 |parent_code | description |
 :-----------------|:-----------|
 |7643| Transmission apparatus|      
 |6589| Clothing Products|      
-|7599| Parts & accessories |   
+|7599| Parts & accessories |    -->
 
 **Figure 3: American(USA) Exports**
 
