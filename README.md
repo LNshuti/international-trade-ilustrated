@@ -10,7 +10,9 @@ As in my [other work](https://github.com/LNshuti/LNSHUTI.github.io), I use the A
 
 Below we plot trade relationships between the United States, China,and Russia. For this plot, we sum data for the latest available year, 2020.  **Trade balance** is measured in **Billions US dollars**.
 
-In 2020, China had a surplus relative to the United States, Hong Kong, Great Britain, India and the Netherlands. With the United States, China exported $200+ Billion dollars' worth of products and services in excess to the value of products/services China imported from the United States. 
+In 2020, China had a surplus relative to the United States, Hong Kong, Great Britain, India and the Netherlands. With the United States, China exported $200+ Billion dollars' worth of products and services in excess to the value of products/services China imported from the United States. Interestingly, Russia and the US had negligible differences in terms of imports/exports. 
+
+
 **Figure 1: 2020 Trade Balance**
 ![](output/deficit_plot_us_chn_rus.png)
 
