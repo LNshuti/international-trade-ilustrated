@@ -37,6 +37,8 @@ Below we plot trade relationships between the United States, China,and Russia. F
 
 
 **Figure 3: Russian Exports**
+
+![russia_exports_treemap](https://user-images.githubusercontent.com/13305262/218374624-2651e56d-3f25-4038-9791-ddfaa0fc89a6.png)
 |parent_code | description |
 :-----------------|:-----------|
 |6812| Rare Earth Metals(Platinum, Base metals, silver/gold, clad with platinum) |      
@@ -49,5 +51,3 @@ Below we plot trade relationships between the United States, China,and Russia. F
 |5621| Ammonium nitrate |
 |5629| Fertilizers |
 |6841| Aluminium |
-
-![russia_exports_treemap](https://user-images.githubusercontent.com/13305262/218374624-2651e56d-3f25-4038-9791-ddfaa0fc89a6.png)
