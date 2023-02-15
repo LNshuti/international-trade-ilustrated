@@ -12,7 +12,7 @@ def main():
     # Load the data 
     # Iterate through all years and load parquet files from 2000 to 2020 
     trade_data_all_years = pl.DataFrame()
-    for year in range(2019, 2021):
+    for year in range(2000, 2021):
         # Load the data
         trade_data = load_data(f'{data_path}/country_partner_sitcproduct4digit_year_{year}.parquet')
         #trade_data = load_data(f'../data/country_partner_sitcproduct4digit_year_{year}.parquet')
@@ -25,6 +25,9 @@ def main():
         ])
 
         print(trade_data.schema)
+        print(trade_data.head())
+
+        print("\n")
         #trade_data_all_years = pl.concat(trade_data)
 
     #print(trade_data_all_years)
