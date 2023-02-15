@@ -24,14 +24,14 @@ def main():
             pl.col('year').cast(pl.Int32),
         ])
 
-        print(trade_data.schema)
-        print(trade_data.head())
+        trade_data_subset = trade_data.select(
+            ['year', 'location_code','partner_code', 'sitc_product_code', 'sitc_eci', 'sitc_coi', 'export_value', 'import_value']
+        )
+        
+        trade_data_all_years = pl.concat([trade_data], how='vertical')
 
-        print("\n")
-        #trade_data_all_years = pl.concat(trade_data)
-
-    #print(trade_data_all_years)
-
+    print(trade_data_all_years)
+    pl.write_parquet(trade_data_all_years, f'../data/processed/country_partner_sitcproduct4digit_year_all.parquet')
 # Call the main function
 if __name__ == '__main__':
     main()
