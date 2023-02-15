@@ -31,7 +31,7 @@ def main():
         trade_data_all_years = pl.concat([trade_data], how='vertical')
 
     print(trade_data_all_years)
-    pl.write_parquet(trade_data_all_years, f'../data/processed/country_partner_sitcproduct4digit_year_all.parquet')
+    trade_data_all_years.write_parquet(f'../data/processed/country_partner_sitcproduct4digit_year_all.parquet')
 # Call the main function
 if __name__ == '__main__':
     main()
