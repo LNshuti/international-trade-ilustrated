@@ -86,7 +86,9 @@ deficit_plot <-
   scale_y_continuous(labels = scales::dollar) +
   theme_minimal() +
   #ggthemes::theme_economist_white()+ 
-  theme(axis.text.x = element_blank())
+  theme(axis.text.x = element_text(size=rel(1.1),
+                                   face="bold",
+                                   color="purple")) 
 
 ggsave(deficit_plot,
        filename = paste0("../output/deficit_plot_us_chn_rus.png"),
@@ -112,14 +114,14 @@ sitc3_product_labs <-
   mutate(code = stringr::word(v1,1)) %>% 
   mutate(label = str_trim(str_remove(v1, code))) %>%
   select(-v1)
-write_csv(sitc3_product_labs, "../data/processed/sitc3_product_labs.csv")
+#write_csv(sitc3_product_labs, "../data/processed/sitc3_product_labs.csv")
 
 SITCCodeandDescription <-
   readxl::read_xlsx("../data/SITCCodeandDescription.xlsx") %>%
   janitor::clean_names() %>%
   select(code, description, parent_code)
 
-write_csv(SITCCodeandDescription, "../data/processed/SITCCodeandDescription.csv")
+#write_csv(SITCCodeandDescription, "../data/processed/SITCCodeandDescription.csv")
 
 china_df <- 
   usa_chn_rus %>% 
@@ -141,11 +143,73 @@ china_top_df <-
   slice(1:10) %>% 
   ungroup()
 
+## BRICS: Brazil, Russia, India, China, South Africa
+brics <-
+  allcountries_trade_df %>% 
+  filter(location_code %in% c("BRA", "CHN", "RUS", "IND", "ZAF"))
+
+
+dbWriteTable(con, "brics", brics, overwrite = TRUE)
+summary_df_brics <- 
+  dbGetQuery(con, 
+             'SELECT "location_code", "partner_code",  SUM("export_value" - "import_value") as trade_balance FROM brics GROUP BY "location_code", "partner_code"')
+
+summary_tbl_brics <- 
+  summary_df_brics %>% 
+  mutate(trade_balance = trade_balance/1000000000) %>%
+  #filter(from == "AGO") %>%
+  mutate(hi_lo = ifelse(trade_balance > 0, 1, 0)) %>%
+  mutate(hi_lo = as.factor(hi_lo))
+
+top_df <- 
+  summary_tbl_brics %>%
+  filter(trade_balance > 0) %>%
+  arrange(desc(trade_balance)) %>%
+  group_by(location_code) %>%
+  slice(1:5) %>% 
+  ungroup()
+
+bottom_df <- 
+  summary_tbl_brics %>%
+  filter(trade_balance < 0) %>%
+  arrange(trade_balance) %>%
+  group_by(location_code) %>%
+  slice(1:5) %>% 
+  ungroup()
+
+top_bottom_df <- bind_rows(top_df, bottom_df) %>% arrange(trade_balance)
+
+deficit_cols <- c("1"="#2E74C0", "0"="#CB454A")
+
+deficit_plot_brics <- 
+  ggplot(data = top_bottom_df, aes(x=partner_code, y=trade_balance, color=hi_lo, label=partner_code)) + 
+  geom_point(size= 2) +
+  scale_color_manual(values = deficit_cols) + 
+  geom_hline(yintercept = 0, color="gray30") +
+  guides(color=FALSE) +
+  facet_wrap(~ location_code, ncol = 1) +
+  ggrepel::geom_text_repel(data= top_bottom_df, size = 2) +
+  labs(x=NULL, y = "Trade Balance In Billions USD",  title = "",
+       caption = "Data source: \nAtlas of Economic Complexity from the Growth Lab at Harvard University.\nhttps://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/H8SFD2.") +
+  theme(plot.caption = element_text(size = 8, hjust = 0),
+        axis.title.x=element_blank(),
+        axis.title.y=element_blank(), 
+        plot.caption.position =  "plot",
+        panel.background = element_blank()
+  ) +
+  scale_y_continuous(labels = scales::dollar) +
+  theme_minimal() +
+  #ggthemes::theme_economist_white()+ 
+  theme(axis.text.x = element_text(size=rel(1.1),
+                                   face="bold",
+                                   color="purple")) 
+
 
 ## Installing the package and calling the package in R##
 
-#ggsave(deficit_plot, "output/deficit_plot_us_chn_rus.png")
-
+ggsave(deficit_plot_brics,
+       filename = paste0("../output/deficit_plot_brics.png"),
+       width = 8, height = 6)
 # trade_bal_2020 <- 
 #   ggplot(data = top_bottom_df, 
 #          mapping = aes(x = partner_code, y = trade_balance, fill = hi_lo)) + 
