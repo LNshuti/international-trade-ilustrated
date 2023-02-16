@@ -199,10 +199,7 @@ deficit_plot_brics <-
   ) +
   scale_y_continuous(labels = scales::dollar) +
   theme_minimal() +
-  #ggthemes::theme_economist_white()+ 
-  theme(axis.text.x = element_text(size=rel(1.1),
-                                   face="bold",
-                                   color="purple")) 
+  theme(axis.text.x = element_blank()) 
 
 
 ## Installing the package and calling the package in R##
