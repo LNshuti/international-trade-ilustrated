@@ -56,5 +56,6 @@ In 2020, China had a surplus relative to the United States, Hong Kong, Great Bri
 |6841| Aluminium |
 
 ## BRICS: Brazil, Russia, India, China, South Africa
-
+**Figure 4: BRICS**
+![](output/deficit_plot_brics.png)
 
