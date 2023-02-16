@@ -59,3 +59,6 @@ In 2020, China had a surplus relative to the United States, Hong Kong, Great Bri
 **Figure 4: BRICS**
 ![](output/deficit_plot_brics.png)
 
+# Energy Generation 
+How do these major economic powers compare in terms of energy generation and consumption. 
+
