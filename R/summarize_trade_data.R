@@ -30,13 +30,16 @@ allcountries_trade_df <-
   bind_rows() %>%
   mutate_at(c("export_value", "import_value"), as.numeric)
 
-usa_chn_rus <-
+usa_chn_rus_uk <-
   allcountries_trade_df %>% 
-  filter(location_code %in% c("USA", "CHN", "RUS"))
+  filter(location_code %in% c("USA", "CHN", "RUS", "GBR"))
 
 
-dbWriteTable(con, "usa_chn_rus", usa_chn_rus, overwrite = TRUE)
-summary_df <- dbGetQuery(con, 'SELECT "location_code", "partner_code",  SUM("export_value" - "import_value") as trade_balance FROM usa_chn_rus GROUP BY "location_code", "partner_code"')
+dbWriteTable(con, "usa_chn_rus_uk", usa_chn_rus_uk, overwrite = TRUE)
+summary_df <- 
+  dbGetQuery(con, 
+             'SELECT "location_code", "partner_code",  SUM("export_value" - "import_value") as trade_balance FROM usa_chn_rus_uk GROUP BY "location_code", "partner_code"')
+
 summary_tbl <- 
   summary_df %>% 
   mutate(trade_balance = trade_balance/1000000000) %>%
@@ -72,7 +75,7 @@ deficit_plot <-
   guides(color=FALSE) +
   facet_wrap(~ location_code, ncol = 1) +
   ggrepel::geom_text_repel(data= top_bottom_df, size = 2) +
-  labs(x=NULL, y = "Trade Balance In Billions $",  title = "",
+  labs(x=NULL, y = "Trade Balance In Billions USD",  title = "",
        caption = "Data source: \nAtlas of Economic Complexity from the Growth Lab at Harvard University.\nhttps://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/H8SFD2.") +
   theme(plot.caption = element_text(size = 8, hjust = 0),
         axis.title.x=element_blank(),
@@ -80,7 +83,9 @@ deficit_plot <-
         plot.caption.position =  "plot",
         panel.background = element_blank()
   ) +
-  ggthemes::theme_economist_white()+ 
+  scale_y_continuous(labels = scales::dollar) +
+  theme_minimal() +
+  #ggthemes::theme_economist_white()+ 
   theme(axis.text.x = element_blank())
 
 ggsave(deficit_plot,
