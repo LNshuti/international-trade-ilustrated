@@ -1,60 +1,42 @@
-# Use python to download energy generation capacity by country and year for the following countries
-# Brazil, China, India, Indonesia, Japan, Mexico, Russia, South Africa, United States, and the European Union
-
-# Import libraries
+import pyarrow.parquet as pq
+import polars as pl
 import pandas as pd
-import requests
-import json
+import squarify
 import matplotlib.pyplot as plt
+import dataframe_image as dfi
+import subprocess
 
-# Define function to download data
-def download_data(url, filename):
-    # Download data
-    r = requests.get(url)
-    # Save data to file
-    with open(filename, 'wb') as f:
-        f.write(r.content)
+# Read in the data
+product_labs = pd.read_csv('../data/processed/SITCCodeandDescription.csv')
 
-# Define function to read data
-def read_data(filename):
-    # Read data
-    with open(filename, 'r') as f:
-        data = json.load(f)
-    # Convert data to dataframe
-    df = pd.DataFrame(data)
-    # Return dataframe
-    return df
+# Read in the data
+trade_data_all_years = pq.ParquetDataset('../data/country_partner_sitcproduct4digit_year_2020.parquet').read_pandas().to_pandas()
 
-# Define function to clean data
-def clean_data(df):
-    # Remove rows with missing values
-    df = df.dropna()
-    # Remove rows with no data
-    df = df[df['value'] != 'No data']
-    # Convert value column to numeric
-    df['value'] = pd.to_numeric(df['value'])
-    print(df)
-    # Return dataframe
-    return df
+trade_data_all_years['export_value'] = pd.to_numeric(trade_data_all_years['export_value'], errors='coerce')
+trade_data_all_years['import_value'] = pd.to_numeric(trade_data_all_years['import_value'], errors='coerce')
+trade_data_all_years['trade_balance'] = trade_data_all_years['export_value'] - trade_data_all_years['import_value']
 
-# Define function to plot data
-# def plot_data(df):
-#     # Plot data
-#     df.plot(kind='bar', x='country', y='value', title='Energy Generation Capacity by Country')
-#     # Show plot
-#     plt.show()
+labelled_df = trade_data_all_years.merge(product_labs, left_on='sitc_product_code', right_on='parent_code', how='inner')
+#print(labelled_df.head(10))
+# Filter location_code to the USA, CHN, and RUS (China, Russia, and the United States)
+labelled_df = labelled_df[labelled_df['location_code'].isin(['USA', 'CHN', 'RUS'])]
 
-# Define function to run all functions
-def run():
-    # Download data
-    #download_data('https://datahub.io/core/energy-generation/r/energy-generation-capacity-by-country.json', 'energy-generation-capacity-by-country.json')
-    # Read data
-    df = read_data('energy-generation-capacity-by-country.json')
-    # Clean data
-    print(df)
-   #df = clean_data(df)
-    # Plot data
-    # plot_data(df)
+# Summarize the trade_balance by location_code and product_description
+labelled_df = labelled_df.groupby(['location_code', 'parent_code', 'description'])['trade_balance'].sum().reset_index()
 
-# Run all functions 
-run()
+# Filter to the top 10 products by trade balance for CHN 
+usa_df = labelled_df[labelled_df['location_code'] == 'RUS'].sort_values(by='trade_balance', ascending=False)
+
+# Select unique values from the parent_code and description columns 
+usa_df = usa_df[['parent_code', 'description']].drop_duplicates()
+
+# convert to polars dataframe
+usa_df = pl.from_pandas(usa_df)
+print(usa_df)
+# usa_df = usa_df[usa_df['parent_code'].isin(['0342'])]
+
+# Filter polars dataframe to match string Energy in description column
+usa_df = usa_df.filter(pl.col('description').str.contains('Energy'))
+print(usa_df)
+# print(usa_df.reset_index(drop=True))
+
