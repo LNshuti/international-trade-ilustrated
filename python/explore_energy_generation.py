@@ -33,15 +33,16 @@ def clean_data(df):
     df = df[df['value'] != 'No data']
     # Convert value column to numeric
     df['value'] = pd.to_numeric(df['value'])
+    print(df)
     # Return dataframe
     return df
 
 # Define function to plot data
-def plot_data(df):
-    # Plot data
-    df.plot(kind='bar', x='country', y='value', title='Energy Generation Capacity by Country')
-    # Show plot
-    plt.show()
+# def plot_data(df):
+#     # Plot data
+#     df.plot(kind='bar', x='country', y='value', title='Energy Generation Capacity by Country')
+#     # Show plot
+#     plt.show()
 
 # Define function to run all functions
 def run():
@@ -50,9 +51,10 @@ def run():
     # Read data
     df = read_data('energy-generation-capacity-by-country.json')
     # Clean data
+
     df = clean_data(df)
     # Plot data
-    plot_data(df)
+    # plot_data(df)
 
 # Run all functions 
 run()
