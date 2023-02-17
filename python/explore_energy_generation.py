@@ -47,12 +47,12 @@ def clean_data(df):
 # Define function to run all functions
 def run():
     # Download data
-    download_data('https://datahub.io/core/energy-generation/r/energy-generation-capacity-by-country.json', 'energy-generation-capacity-by-country.json')
+    #download_data('https://datahub.io/core/energy-generation/r/energy-generation-capacity-by-country.json', 'energy-generation-capacity-by-country.json')
     # Read data
     df = read_data('energy-generation-capacity-by-country.json')
     # Clean data
-
-    df = clean_data(df)
+    print(df)
+   #df = clean_data(df)
     # Plot data
     # plot_data(df)
 
