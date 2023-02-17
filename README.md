@@ -61,4 +61,7 @@ In 2020, China had a surplus relative to the United States, Hong Kong, Great Bri
 
 # Energy Generation 
 How do these major economic powers compare in terms of energy generation and consumption. 
+According to the 2021 TAEBC Economic impact report, Advanced Energy is a $1.4 trillion market.  
 
+### References 
+1. TAEBC Economic Impact Report. 2021. Add link to reference here
