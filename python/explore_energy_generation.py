@@ -35,8 +35,12 @@ usa_df = pl.from_pandas(usa_df)
 print(usa_df)
 # usa_df = usa_df[usa_df['parent_code'].isin(['0342'])]
 
-# Filter polars dataframe to match string Energy in description column
-usa_df = usa_df.filter(pl.col('description').str.contains('Energy'))
-print(usa_df)
+
 # print(usa_df.reset_index(drop=True))
+
+predicate = pl.col("description").str.contains("gold")
+
+(usa_df.select([
+    predicate
+]))
 
