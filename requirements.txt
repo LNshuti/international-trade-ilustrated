@@ -1,0 +1,8 @@
+pandas
+streamlit
+squarify
+dataframe_image
+polars
+pyarrow
+matplotlib
+seaborn
