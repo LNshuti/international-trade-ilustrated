@@ -40,7 +40,4 @@ print(usa_df)
 
 predicate = pl.col("description").str.contains("gold")
 
-(usa_df.select([
-    predicate
-]))
-
+print(usa_df[predicate])
