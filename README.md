@@ -65,3 +65,5 @@ According to the 2021 TAEBC Economic impact report, Advanced Energy is a $1.4 tr
 
 ### References 
 1. TAEBC Economic Impact Report. 2021. Add link to reference here
+
+### External Debt Denominated in USD vs Local Currencies
