@@ -228,6 +228,22 @@ def main():
     swe_df = top10_products(labelled_df, 'SWE')
     usa_df = top10_products(labelled_df, 'USA')
     cana_df = top10_products(labelled_df, 'CAN')
+    isr_df = top10_products(labelled_df, 'ISR')
+    swit_df = top10_products(labelled_df, 'CHE')
+    norw_df = top10_products(labelled_df, 'NOR')
+    turk_df = top10_products(labelled_df, 'TUR')
+    jor_df = top10_products(labelled_df, 'JOR')
+    alb_df = top10_products(labelled_df, 'ALB')
+    arm_df = top10_products(labelled_df, 'ARM')
+    aze_df = top10_products(labelled_df, 'AZE')
+    bhr_df = top10_products(labelled_df, 'BHR')
+    geo_df = top10_products(labelled_df, 'GEO')
+    kaz_df = top10_products(labelled_df, 'KAZ')
+    kwt_df = top10_products(labelled_df, 'KWT')
+    kgz_df = top10_products(labelled_df, 'KGZ')
+    lbn_df = top10_products(labelled_df, 'LBN')
+    lby_df = top10_products(labelled_df, 'LBY')
+    mkd_df = top10_products(labelled_df, 'MKD')
 
     asean_df = pl.concat([vnm_df, sgp_df, tha_df, phl_df, mys_df, idn_df, khm_df])
     aggregated_asean_df = (
@@ -325,7 +341,7 @@ def main():
                                 ita_df, lva_df, ltu_df, lux_df, mlt_df, nld_df, pol_df, prt_df, rou_df, svk_df, svn_df, esp_df, swe_df,
                                 dza_df, ago_df, cog_df, gnq_df, gab_df, irn_df, irq_df, kwt_df, lby_df, nga_df, qat_df, sau_df, are_df,
                                 ven_df, yem_df, rus_df, ind_df, chn_df, bra_df, zaf_df, vnm_df, sgp_df, tha_df, phl_df, mys_df, 
-                                idn_df, khm_df, rwa_df, usa_df, cana_df])
+                                idn_df, khm_df, rwa_df, usa_df, cana_df, isr_df])
     all_countries_df = (
         all_countries
         .groupby(['location_code'])
