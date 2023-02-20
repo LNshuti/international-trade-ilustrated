@@ -277,6 +277,59 @@ def plot_top10_partners(df, location_code):
 plot_top10_partners(rwa_df, 'RWA')
 
 
+def parse_sales_tax_data(df):
+    # Rename the columns of the DataFrame
+    df.columns = ["State", "Rate",  'Rank', 'Avg. Local Tax Rate', 'Combined Rate', 'Rank.1', 'Max Local Tax Rate']
+
+    df.Rate= df.Rate.str.replace('%','',regex=True)
+    df.State= df.State.str.replace('.','',regex=True)
+    df = df.drop([7,25, 28,36,51])
+
+    df["State"] = df["State"].str.strip().str.upper()
+
+    state_abbrev_map = {
+        'ALASKA': 'AK',
+        'ARIZ': 'AZ',
+        'CONN': 'CT',
+        'HAWAII': 'HI',
+        'MINN': 'MN',
+        'MISS': 'MS',
+        'TENN': 'TN',
+        'TEX': 'TX',
+        'NEV': 'NV'
+    }
+
+    df["ST"] = df["State"].map(state_abbrev_map).fillna(df["State"])
+    df["ST"] = df["ST"].str[0:2]
+
+    df['Rate_num'] = pd.to_numeric(df['Rate'], errors='coerce')
+
+    # Return the sorted DataFrame
+    df_sorted = df.sort_values(by="Rate_num")
+
+    return df_sorted
+
+def plot_sales_tax_data(df):
+    # Use the matplotlib library to plot the data in the DataFrame
+    fig, ax = plt.subplots()
+    df.plot(x="ST", y="Rate_num", kind="scatter", title="Sales Tax Rates by State", ax=ax)
+
+    # Show the plot with the appropriate labels
+    plt.xlabel("")
+    plt.ylabel("Sales Tax Rate (%)")
+    plt.show()
+
+def main():
+ 
+    # Parse the HTML content and get the data as a DataFrame
+    df = parse_sales_tax_data(df)
+
+    # Plot the data in the DataFrame
+    plot_sales_tax_data(df)
+
+if __name__ == "__main__":
+    main()
+
 # Using squarify to plot treemaps
 # Save plot as png file
 # plt.figure(figsize=(8,6))
