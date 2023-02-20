@@ -344,11 +344,16 @@ def main():
 
     def plot_top10_partners(df, location_code):
         # Plot bar plot andsave plot as png to output folder. Use seaborn for styling
+
+        print(dir(df))
+        # Sort df by avg_trade_bal_per_capita in descending order
+        df = df.sort(by='avg_trade_bal_per_capita', reverse=True)
+
         fig, ax = plt.subplots(figsize=(5, 8))
         sns.set_style("whitegrid")
         sns.catplot(x='avg_trade_bal_per_capita', y='location_code', data=all_countries_df.to_pandas(), palette='Blues_d', kind='bar')
         plt.title(location_code)
-        plt.xlabel('Trade Balance In Millions of USD')
+        plt.xlabel('Trade Balance Per Capita in USD')
         plt.ylabel('')
         plt.savefig('../output/top10partners_all_countries_df_' + location_code + '.png', dpi=300, bbox_inches='tight')
 
