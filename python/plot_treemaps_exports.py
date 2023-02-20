@@ -89,9 +89,7 @@ def main():
 
     usa_df = usa_df[usa_df['parent_code'].isin(['0342'])]
 
-
     print(usa_df.reset_index(drop=True))
-
 
     # Read in the data
     product_labs = pd.read_csv('../data/processed/SITCCodeandDescription.csv')
@@ -228,6 +226,8 @@ def main():
     svn_df = top10_products(labelled_df, 'SVN')
     esp_df = top10_products(labelled_df, 'ESP')
     swe_df = top10_products(labelled_df, 'SWE')
+    usa_df = top10_products(labelled_df, 'USA')
+    cana_df = top10_products(labelled_df, 'CAN')
 
     asean_df = pl.concat([vnm_df, sgp_df, tha_df, phl_df, mys_df, idn_df, khm_df])
     aggregated_asean_df = (
@@ -325,7 +325,7 @@ def main():
                                 ita_df, lva_df, ltu_df, lux_df, mlt_df, nld_df, pol_df, prt_df, rou_df, svk_df, svn_df, esp_df, swe_df,
                                 dza_df, ago_df, cog_df, gnq_df, gab_df, irn_df, irq_df, kwt_df, lby_df, nga_df, qat_df, sau_df, are_df,
                                 ven_df, yem_df, rus_df, ind_df, chn_df, bra_df, zaf_df, vnm_df, sgp_df, tha_df, phl_df, mys_df, 
-                                idn_df, khm_df, rwa_df])
+                                idn_df, khm_df, rwa_df, usa_df, cana_df])
     all_countries_df = (
         all_countries
         .groupby(['location_code'])
