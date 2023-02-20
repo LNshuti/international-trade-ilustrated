@@ -366,6 +366,8 @@ def main():
         # Sort df by avg_trade_bal_per_capita in descending order
         df = df.sort(by='avg_trade_bal_per_capita', reverse=True)
 
+        # Make the font human readable 
+        sns.set(font_scale=1.5)
         fig, ax = plt.subplots(figsize=(5, 8))
         sns.set_style("whitegrid")
         sns.catplot(x='avg_trade_bal_per_capita', y='location_code', data=all_countries_df.to_pandas(), palette='Blues_d', kind='bar')
