@@ -276,6 +276,18 @@ def plot_top10_partners(df, location_code):
 # Call the function
 plot_top10_partners(rwa_df, 'RWA')
 
+all_countries = pl.concat([aut_df, bel_df, bgr_df, cyp_df, cze_df, deu_df, dnk_df, est_df, fin_df, fra_df, grc_df, hun_df, irl_df,
+                            ita_df, lva_df, ltu_df, lux_df, mlt_df, nld_df, pol_df, prt_df, rou_df, svk_df, svn_df, esp_df, swe_df,
+                              dza_df, ago_df, cog_df, gnq_df, gab_df, irn_df, irq_df, kwt_df, lby_df, nga_df, qat_df, sau_df, are_df,
+                                ven_df, yem_df, rus_df, ind_df, chn_df, bra_df, zaf_df, vnm_df, sgp_df, tha_df, phl_df, mys_df, idn_df, khm_df, rwa_df])
+all_countries_df = (
+    all_countries
+    .groupby(['location_code'])
+    .agg(
+        pl.col('trade_bal_by_population').mean().alias('avg_trade_bal_per_capita')
+    ) )
+
+print(all_countries_df)
 
 def parse_sales_tax_data(df):
     # Rename the columns of the DataFrame
