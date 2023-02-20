@@ -63,9 +63,6 @@ In 2020, China had a surplus relative to the United States, Hong Kong, Great Bri
 ## ASEAN: Association of Southeast Asian Nations
 ![](output/avg_trade_bal_per_capita_asean.png)
 
-
-## All Countries
-![](output/top10partners_all_countries_df_ESP.png)
 # Energy Generation 
 How do these major economic powers compare in terms of energy generation and consumption. 
 According to the 2021 TAEBC Economic impact report, Advanced Energy is a $1.4 trillion market.  
