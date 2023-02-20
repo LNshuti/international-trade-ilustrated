@@ -353,7 +353,7 @@ def main():
 
     fig, ax = plt.subplots(figsize=(5, 3))
     sns.set_style("whitegrid")
-    sns.factorplot(x='avg_trade_bal_per_capita', y='location_code', data=all_countries_df.to_pandas(), kind='bar')
+    sns.factorplot(x='avg_trade_bal_per_capita', y='location_code', data=all_countries_df.to_pandas(), kind='bar', height=10)
     plt.title('Trade balance per capita in USD')
     plt.xlabel('USD')
     plt.ylabel('Country')
