@@ -352,12 +352,12 @@ def main():
         fig, ax = plt.subplots(figsize=(5, 8))
         sns.set_style("whitegrid")
         sns.catplot(x='avg_trade_bal_per_capita', y='location_code', data=all_countries_df.to_pandas(), palette='Blues_d', kind='bar')
-        plt.title(location_code)
+        plt.title('')
         plt.xlabel('Trade Balance Per Capita in USD')
         plt.ylabel('')
         # Seaborn decreasethe font size of y labels 
-        plt.yticks(fontsize=10)
-        plt.savefig('../output/top10partners_all_countries_df_' + location_code + '.png', bbox_inches='tight')
+        plt.yticks(fontsize=8)
+        plt.savefig('../output/top10partners_all_countries_df_' + location_code + '.png', dpi=500)
 
     # Call the function
     plot_top10_partners(all_countries_df, 'ESP')
