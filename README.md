@@ -59,6 +59,11 @@ In 2020, China had a surplus relative to the United States, Hong Kong, Great Bri
 **Figure 4: BRICS**
 ![](output/deficit_plot_brics.png)
 
+
+## ASEAN: Association of Southeast Asian Nations
+**Figure 5: ASEAN**
+![](output/avg_trade_bal_per_capita_asean.png)
+
 # Energy Generation 
 How do these major economic powers compare in terms of energy generation and consumption. 
 According to the 2021 TAEBC Economic impact report, Advanced Energy is a $1.4 trillion market.  
