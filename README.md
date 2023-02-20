@@ -61,7 +61,6 @@ In 2020, China had a surplus relative to the United States, Hong Kong, Great Bri
 
 
 ## ASEAN: Association of Southeast Asian Nations
-**Figure 5: ASEAN**
 ![](output/avg_trade_bal_per_capita_asean.png)
 
 # Energy Generation 
