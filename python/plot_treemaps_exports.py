@@ -344,7 +344,7 @@ def main():
 
     def plot_top10_partners(df, location_code):
         # Plot bar plot andsave plot as png to output folder. Use seaborn for styling
-        fig, ax = plt.subplots(figsize=(5, 3))
+        fig, ax = plt.subplots(figsize=(5, 8))
         sns.set_style("whitegrid")
         sns.catplot(x='avg_trade_bal_per_capita', y='location_code', data=all_countries_df.to_pandas(), palette='Blues_d', kind='bar')
         plt.title(location_code)
