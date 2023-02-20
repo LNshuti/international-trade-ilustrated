@@ -376,7 +376,11 @@ def main():
         plt.xlabel('Trade Balance Per Capita in USD')
         plt.ylabel('')
         # Seaborn decreasethe font size of y labels 
+<<<<<<< HEAD
         plt.yticks('')
+=======
+        plt.yticks(fontsize=8, color='grey')
+>>>>>>> c2e8ab0 (update remote)
         plt.savefig('../output/top10partners_all_countries_df_' + location_code + '.png', dpi=900)
 
     # Call the function
