@@ -36,6 +36,7 @@ usa_df = pl.from_pandas(usa_df)
 print(usa_df)
 # usa_df = usa_df[usa_df['parent_code'].isin(['0342'])]
 
-# Use python do download the data about what percentage of energy source is solar, versus coal, and other renewables and non renewables. I want data for the following countries: China, Russia, USA, Brazil, India, South Africa, and the ASEAN countries. Please also add Germany, France, and the UK.
-# Write python code below
-
+#Use python do download the data about what percentage of energy source is solar, versus coal, and other renewables and non renewables. I want data for the following countries: China, Russia, USA, Brazil, India, South Africa, and the ASEAN countries. Please also add Germany, France, and the UK.
+#Write python code below
+# use Copilot to write the code
+# Path: python\explore_energy_generation.py
