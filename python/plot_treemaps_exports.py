@@ -275,42 +275,6 @@ def plot_top10_partners(df, location_code):
 
 # Call the function
 plot_top10_partners(rwa_df, 'RWA')
-plot_top10_partners(nam_df, 'NAM')
-
-# Combine the five datasets 
-combined_df = pl.concat([rwa_df, uga_df, ken_df, bdi_df, tza_df])
-#rwa_uga_df = combined_df.groupby(['location_code'])['trade_bal_by_population'].sum().reset_index()
-print(combined_df)
-
-aggregated_df = (
-    combined_df
-    .groupby(['location_code'])
-    .agg(
-        pl.col('trade_bal_by_population').mean().alias('avg_trade_bal_per_capita')
-    )
-)
-
-print(aggregated_df)
-
-sadec_df = pl.concat([bwa_df, moz_df, zmb_df, ago_df, mwi_df, tza_df, lso_df, swz_df, nam_df])
-aggregated_sadecc_df = (
-    sadec_df
-    .groupby(['location_code'])
-    .agg(
-        pl.col('trade_bal_by_population').mean().alias('avg_trade_bal_per_capita')
-    ) )
-
-print(aggregated_sadecc_df)
-
-# Convert polars table to png and save to output 
-# Write the code
-fig, ax = plt.subplots(figsize=(5, 3))
-sns.set_style("whitegrid")
-sns.factorplot(x='avg_trade_bal_per_capita', y='location_code', data=aggregated_sadecc_df.to_pandas(), kind='bar')
-plt.title('Trade balance per capita in USD')
-plt.xlabel('USD')
-plt.ylabel('Country')
-plt.savefig('../output/avg_trade_bal_per_capita_sadec.png', dpi=300, bbox_inches='tight')
 
 
 # Using squarify to plot treemaps
