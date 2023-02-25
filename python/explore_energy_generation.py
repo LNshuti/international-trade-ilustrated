@@ -41,6 +41,8 @@ rwa_df['trade_balance_millions'] = rwa_df['trade_balance'] / 1000000
 # Filter to the top 10 products by trade balance for CHN 
 top10 = rwa_df.sort_values(by='trade_balance', ascending=False).head(20)
   
+bottom10 = rwa_df.sort_values(by='trade_balance', ascending=True).head(20)
+
 # Import the population data  
 pop_data = pd.read_csv('../data/processed/API_SP_POP_TOTL_DS2.csv', skiprows=4)
 
@@ -51,21 +53,25 @@ pop_data = pop_data[['Country Code', 'Country Name', '2020']]
 pop_data = pop_data.rename(columns={'2020': 'pop_2020'})
 
 # Join pop_data 
-rwa_df = top10.merge(pop_data, left_on='partner_code', right_on='Country Code', how='inner')
-
-print(rwa_df.head(10))
+rwa_df_top10 = top10.merge(pop_data, left_on='partner_code', right_on='Country Code', how='inner')
+rwa_df_bottom10 = bottom10.merge(pop_data, left_on='partner_code', right_on='Country Code', how='inner')
+print("Top 10 Trade Partners for Rwanda")
+print(rwa_df_top10.head(10))
+print("Bottom 10 Trade Partners for Rwanda")
+print(rwa_df_bottom10.head(10))
 
 # Make the font human readable 
 sns.set(font_scale=0.8)
 sns.set_style("whitegrid")
-sns.catplot(x='trade_balance_millions', y='Country Name', data=rwa_df, palette='Blues_d', kind='bar', height=6, aspect=0.8)
+sns.catplot(x='trade_balance_millions', y='Country Name', data=rwa_df_bottom10, kind='bar', palette='flare', height=6, aspect=0.8)
 plt.title('')
 plt.xlabel('Trade Balance in Million USD')
 plt.ylabel('')
 # Seaborn decreasethe font size of y labels 
 plt.yticks(fontsize=8, color='grey')
 #plt.show()
-plt.savefig('../output/rwanda_top_trade_partners' + '.png', dpi=300, bbox_inches='tight')
+plt.savefig('../output/rwanda_bottom_trade_partners' + '.png', dpi=300, bbox_inches='tight')
+
 
 # Plot bar plot andsave plot as png to output folder. Use seaborn for styling
 # fig, ax = plt.subplots(figsize=(5, 3))
