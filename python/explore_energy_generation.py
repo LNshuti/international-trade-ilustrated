@@ -63,12 +63,12 @@ print(rwa_df_bottom10.head(10))
 # Make the font human readable 
 sns.set(font_scale=0.8)
 sns.set_style("whitegrid")
-sns.catplot(x='trade_balance_millions', y='Country Name', data=rwa_df_bottom10, kind='bar', palette='flare', height=6, aspect=0.8)
+sns.catplot(x='trade_balance_millions', y='Country Name', data=rwa_df_bottom10, kind='bar', palette='flare', height=5, aspect=1.2)
 plt.title('')
 plt.xlabel('Trade Balance in Million USD')
 plt.ylabel('')
 # Seaborn decreasethe font size of y labels 
-plt.yticks(fontsize=8, color='grey')
+plt.yticks(fontsize=5, color='grey')
 #plt.show()
 plt.savefig('../output/rwanda_bottom_trade_partners' + '.png', dpi=300, bbox_inches='tight')
 
