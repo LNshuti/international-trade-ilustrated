@@ -51,7 +51,8 @@ plt.xlabel('Trade Balance in Million USD')
 plt.ylabel('')
 # Seaborn decreasethe font size of y labels 
 plt.yticks(fontsize=8, color='grey')
-plt.show()
+#plt.show()
+plt.savefig('../output/rwanda_top_trade_partners' + '.png', dpi=300, bbox_inches='tight')
 # rwa_df = rwa_df[rwa_df['parent_code'].isin(['0342'])]
 
 #Use python do download the data about what percentage of energy source is solar, versus coal, and other renewables and non renewables. I want data for the following countries: China, Russia, USA, Brazil, India, South Africa, and the ASEAN countries. Please also add Germany, France, and the UK.
