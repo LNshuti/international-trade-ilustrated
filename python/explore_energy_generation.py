@@ -26,15 +26,18 @@ labelled_df = labelled_df[labelled_df['location_code'].isin(['RWA', 'BDI', 'UGA'
 labelled_df = labelled_df.groupby(['location_code', 'parent_code', 'partner_code', 'description'])['trade_balance'].sum().reset_index()
 
 # Filter to the top 10 products by trade balance for CHN 
-usa_df = labelled_df[labelled_df['location_code'] == 'RWA'].sort_values(by='trade_balance', ascending=False)
+rwa_df = labelled_df[labelled_df['location_code'] == 'RWA'].sort_values(by='trade_balance', ascending=False)
 
 # Select unique values from the parent_code and description columns 
-usa_df = usa_df[['parent_code','location_code', 'partner_code', 'description', 'trade_balance']].drop_duplicates()
+rwa_df = rwa_df[['parent_code','location_code', 'partner_code', 'description', 'trade_balance']].drop_duplicates()
 
-# convert to polars dataframe
-usa_df = pl.from_pandas(usa_df)
-print(usa_df)
-# usa_df = usa_df[usa_df['parent_code'].isin(['0342'])]
+# Summarize the trade_balance by location_code and product_description
+rwa_df = rwa_df.groupby(['location_code', 'partner_code', 'description'])['trade_balance'].sum().reset_index()
+
+# Filter to the top 10 products by trade balance for CHN 
+rwa_df = rwa_df.sort_values(by='trade_balance', ascending=False)
+print(rwa_df)
+# rwa_df = rwa_df[rwa_df['parent_code'].isin(['0342'])]
 
 #Use python do download the data about what percentage of energy source is solar, versus coal, and other renewables and non renewables. I want data for the following countries: China, Russia, USA, Brazil, India, South Africa, and the ASEAN countries. Please also add Germany, France, and the UK.
 #Write python code below
