@@ -63,7 +63,7 @@ print(rwa_df_bottom10.head(10))
 # Make the font human readable 
 sns.set(font_scale=0.8)
 sns.set_style("whitegrid")
-sns.catplot(x='trade_balance_millions', y='Country Name', data=rwa_df_bottom10, kind='bar', palette='flare', height=5, aspect=1.2)
+sns.catplot(x='trade_balance_millions', y='Country Name', data=rwa_df_bottom10, kind='bar', palette='flare', height=3, aspect=1.2)
 plt.title('')
 plt.xlabel('Trade Balance in Million USD')
 plt.ylabel('')
