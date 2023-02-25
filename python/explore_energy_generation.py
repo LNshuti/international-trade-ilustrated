@@ -43,9 +43,9 @@ rwa_df['trade_balance_millions'] = rwa_df['trade_balance'] / 1000000
 top10 = rwa_df.sort_values(by='trade_balance', ascending=False).head(20)
  
 # Make the font human readable 
-sns.set(font_scale=1.5)
+sns.set(font_scale=1.1)
 sns.set_style("whitegrid")
-sns.catplot(x='trade_balance_millions', y='partner_code', data=top10, palette='Blues_d', kind='bar')
+sns.catplot(x='trade_balance_millions', y='partner_code', data=top10, palette='Blues_d', kind='bar', height=6, aspect=0.8)
 plt.title('')
 plt.xlabel('Trade Balance in Million USD')
 plt.ylabel('')
