@@ -2,6 +2,7 @@ import pyarrow.parquet as pq
 import polars as pl
 import pandas as pd
 import squarify
+import seaborn as sns
 import matplotlib.pyplot as plt
 import dataframe_image as dfi
 import subprocess
@@ -34,9 +35,23 @@ rwa_df = rwa_df[['parent_code','location_code', 'partner_code', 'description', '
 # Summarize the trade_balance by location_code and product_description
 rwa_df = rwa_df.groupby(['location_code', 'partner_code', 'description'])['trade_balance'].sum().reset_index()
 
+# Create a new variable trade_balance_millions to make the numbers more readable
+rwa_df['trade_balance_millions'] = rwa_df['trade_balance'] / 1000000
+
+
 # Filter to the top 10 products by trade balance for CHN 
-rwa_df = rwa_df.sort_values(by='trade_balance', ascending=False)
-print(rwa_df)
+top10 = rwa_df.sort_values(by='trade_balance', ascending=False).head(20)
+ 
+# Make the font human readable 
+sns.set(font_scale=1.5)
+sns.set_style("whitegrid")
+sns.catplot(x='trade_balance_millions', y='partner_code', data=top10, palette='Blues_d', kind='bar')
+plt.title('')
+plt.xlabel('Trade Balance in Million USD')
+plt.ylabel('')
+# Seaborn decreasethe font size of y labels 
+plt.yticks(fontsize=8, color='grey')
+plt.show()
 # rwa_df = rwa_df[rwa_df['parent_code'].isin(['0342'])]
 
 #Use python do download the data about what percentage of energy source is solar, versus coal, and other renewables and non renewables. I want data for the following countries: China, Russia, USA, Brazil, India, South Africa, and the ASEAN countries. Please also add Germany, France, and the UK.
