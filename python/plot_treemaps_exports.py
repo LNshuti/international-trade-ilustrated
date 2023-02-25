@@ -1,11 +1,9 @@
 # Use python to plot treemaps of exports by country and by product
-
 import pyarrow.parquet as pq
 import pandas as pd
 import squarify
 import matplotlib.pyplot as plt
 import dataframe_image as dfi
-import subprocess
 import seaborn as sns
 import polars as pl
 
@@ -387,6 +385,52 @@ def main():
 
         # # Plot the data in the DataFrame
         # plot_sales_tax_data(df)
+
+    
+# Filter all_countries_df by location_code using the following locations 
+all_countries = ["REU", "RWA", "STP",	"SEN", 	"SYC", 	"SLE", "SOM","ZAF", "SSD", "SDN", "SWZ", "TZA", "NGA", "NER",
+                 "TGO", "TUN",	"UGA", "ESH",	"ZMB", "ZWE", "LSO",	"LBR",	"LBY", "MDG", "MLI", "MWI",	"MRT",	"MUS",	
+                 "MYT",	"MAR",	"MOZ","NAM", "DZA", "AGO", "BEN", "BWA", "BFA", "BDI", "CMR", "CPV","CAF",	"TCD", "COM", 
+                 "COG", "COD", "CIV", "DJI",	"EGY","GNQ", "ERI",	"ETH", "GAB", "GMB", "GHA", "GIN", "GNB", "KEN"]
+# Write the code
+all_countries_df = all_countries_df[all_countries_df['location_code'].isin(all_countries)]
+
+all_africa_df = all_countries_df.sort_values(by='trade_balance_millions', ascending=False)
+
+# Calculate the average trade balance per country 
+# Write the code
+all_africa_df_sum = all_africa_df.groupby(['location_code'])['trade_balance_millions'].sum().reset_index()
+# Sort by descending trade balance
+all_africa_df_sum = all_africa_df_sum.sort_values(by='trade_balance_millions', ascending=False)
+
+
+# convert to polars dataframe
+all_africa_pl = pl.from_pandas(all_africa_df)
+
+# all_countries_df_agg = (
+#     top10
+#     .groupby(['location_code'])
+#     .agg(
+#         pl.col('trade_balance_millions').mean().alias('avg_trade_balance_millions'), 
+#         pl.col('trade_balance').mean().alias("avg_trade_balance")
+#         )
+#         .sort('avg_trade_balance_millions', reverse=True)
+# )
+print(all_africa_pl)
+
+# Convert polars table to png and save to output 
+fig, ax = plt.subplots(figsize=(8, 8))
+sns.set_style("whitegrid")
+#sns.catplot(x='trade_balance_millions', y='location_code', data=all_africa_pl.to_pandas(), kind='bar', height=8, aspect=0.8)
+plt.title('')
+plt.xlabel('Trade balance $ Millions USD')
+plt.ylabel('')
+ax2 = plt.twinx()
+sns.catplot(x='pop_2020', y='location_code', data=all_africa_pl.to_pandas(), kind='bar', height=8, aspect=0.8)
+#sns.lineplot(data=all_africa_pl.column2, color="b", ax=ax2)
+plt.savefig('../output/population_2020_allafrica.png', dpi=300, bbox_inches='tight')
+
+
 
 if __name__ == "__main__":
     main()
