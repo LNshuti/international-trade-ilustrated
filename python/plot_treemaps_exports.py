@@ -129,76 +129,6 @@ def main():
     # Write the code
     labelled_df['trade_bal_by_population'] = labelled_df['trade_balance'] / labelled_df['pop_2020']
     
-    # Convert polars table to png and save to output
-    # Write the code
-    fig, ax = plt.subplots(figsize=(5, 3))
-    sns.set_style("whitegrid")
-    sns.factorplot(x='avg_trade_bal_per_capita', y='location_code', data=aggregated_asean_df.to_pandas(), kind='bar')
-    plt.title('Trade balance per capita in USD')
-    plt.xlabel('USD')
-    plt.ylabel('Country')
-    plt.savefig('../output/avg_trade_bal_per_capita_asean.png', dpi=300, bbox_inches='tight')
-
-    brics_df = pl.concat([rus_df, ind_df, chn_df, bra_df, zaf_df])
-    aggregated_brics_df = (
-        asean_df
-        .groupby(['location_code'])
-        .agg(
-            pl.col('trade_bal_by_population').mean().alias('avg_trade_bal_per_capita')
-        ) )
-
-    print(aggregated_brics_df)
-    # Convert polars table to png and save to output
-    # Write the code
-    fig, ax = plt.subplots(figsize=(5, 3))
-    sns.set_style("whitegrid")
-    sns.factorplot(x='avg_trade_bal_per_capita', y='location_code', data=aggregated_brics_df.to_pandas(), kind='bar')
-    plt.title('Trade balance per capita in USD')
-    plt.xlabel('USD')
-    plt.ylabel('Country')
-    plt.savefig('../output/avg_trade_bal_per_capita_brics.png', dpi=300, bbox_inches='tight')
-
-
-    eu_df = pl.concat([aut_df, bel_df, bgr_df, cyp_df, cze_df, deu_df, dnk_df, est_df, fin_df, fra_df, grc_df, hun_df, irl_df, ita_df, lva_df, ltu_df, lux_df, mlt_df, nld_df, pol_df, prt_df, rou_df, svk_df, svn_df, esp_df, swe_df])
-    aggregated_eu_df = (
-        asean_df
-        .groupby(['location_code'])
-        .agg(
-            pl.col('trade_bal_by_population').mean().alias('avg_trade_bal_per_capita')
-        ) )
-
-    print(aggregated_eu_df)
-    # Convert polars table to png and save to output
-    # Write the code
-    fig, ax = plt.subplots(figsize=(5, 3))
-    sns.set_style("whitegrid")
-    sns.factorplot(x='avg_trade_bal_per_capita', y='location_code', data=aggregated_eu_df.to_pandas(), kind='bar')
-    plt.title('Trade balance per capita in USD')
-    plt.xlabel('USD')
-    plt.ylabel('Country')
-    plt.savefig('../output/avg_trade_bal_per_capita_eu.png', dpi=300, bbox_inches='tight')
-
-    ############################################
-
-    nato_df = pl.concat([aut_df, bel_df, bgr_df, cyp_df, cze_df, deu_df, dnk_df, est_df, fin_df, fra_df, grc_df, hun_df, irl_df, ita_df, lva_df, ltu_df, lux_df, mlt_df, nld_df, pol_df, prt_df, rou_df, svk_df, svn_df, esp_df, swe_df, dza_df, ago_df, cog_df, gnq_df, gab_df, irn_df, irq_df, kwt_df, lby_df, nga_df, qat_df, sau_df, are_df, ven_df, yem_df, rus_df, ind_df, chn_df, bra_df, zaf_df, vnm_df, sgp_df, tha_df, phl_df, mys_df, idn_df, khm_df])
-    aggregated_nato_df = (
-        asean_df
-        .groupby(['location_code'])
-        .agg(
-            pl.col('trade_bal_by_population').mean().alias('avg_trade_bal_per_capita')
-        ) )
-
-    print(aggregated_nato_df)
-    # Convert polars table to png and save to output
-    # Write the code
-    fig, ax = plt.subplots(figsize=(5, 3))
-    sns.set_style("whitegrid")
-    sns.factorplot(x='avg_trade_bal_per_capita', y='location_code', data=aggregated_nato_df.to_pandas(), kind='bar')
-    plt.title('Trade balance per capita in USD')
-    plt.xlabel('USD')
-    plt.ylabel('Country')
-    plt.savefig('../output/avg_trade_bal_per_capita_nato.png', dpi=300, bbox_inches='tight')
-
     def plot_top10_partners(df, location_code):
         # Plot bar plot andsave plot as png to output folder. Use seaborn for styling
         fig, ax = plt.subplots(figsize=(5, 3))
@@ -207,55 +137,31 @@ def main():
         plt.title(location_code)
         plt.xlabel('Trade Balance In Millions of USD')
         plt.ylabel('')
-        plt.savefig('../output/top10partners_' + location_code + '.png', dpi=300, bbox_inches='tight')
-
-    # Call the function
-    plot_top10_partners(rwa_df, 'RWA')
-
-    all_countries = pl.concat([aut_df, bel_df, bgr_df, cyp_df, cze_df, deu_df, dnk_df, est_df, fin_df, fra_df, grc_df, hun_df, irl_df,
-                                ita_df, lva_df, ltu_df, lux_df, mlt_df, nld_df, pol_df, prt_df, rou_df, svk_df, svn_df, esp_df, swe_df,
-                                dza_df, ago_df, cog_df, gnq_df, gab_df, irn_df, irq_df, kwt_df, lby_df, nga_df, qat_df, sau_df, are_df,
-                                ven_df, yem_df, rus_df, ind_df, chn_df, bra_df, zaf_df, vnm_df, sgp_df, tha_df, phl_df, mys_df, 
-                                idn_df, khm_df, rwa_df, usa_df, cana_df, isr_df])
-    all_countries_df = (
-        all_countries
-        .groupby(['location_code'])
-        .agg(
-            pl.col('trade_bal_by_population').mean().alias('avg_trade_bal_per_capita')
-        ) )
-
-    print(all_countries_df)
-
-    fig, ax = plt.subplots(figsize=(5, 3))
-    sns.set_style("whitegrid")
-    sns.factorplot(x='avg_trade_bal_per_capita', y='location_code', data=all_countries_df.to_pandas(), kind='bar', height=10)
-    plt.title('Trade balance per capita in USD')
-    plt.xlabel('USD')
-    plt.ylabel('Country')
-    plt.savefig('../output/trade_bal_all_countries_df.png', dpi=300, bbox_inches='tight')
+        # plt.savefig('../output/top10partners_' + location_code + '.png', dpi=300, bbox_inches='tight')
 
     def plot_top10_partners(df, location_code):
         # Plot bar plot andsave plot as png to output folder. Use seaborn for styling
 
         print(dir(df))
         # Sort df by avg_trade_bal_per_capita in descending order
-        df = df.sort(by='avg_trade_bal_per_capita', reverse=True)
+        #df = df.sort(by='avg_trade_bal_per_capita', reverse=True)
 
         # Make the font human readable 
         sns.set(font_scale=1.5)
 
         fig, ax = plt.subplots(figsize=(5, 8))
         sns.set_style("whitegrid")
-        sns.catplot(x='avg_trade_bal_per_capita', y='location_code', data=all_countries_df.to_pandas(), palette='Blues_d', kind='bar')
+        sns.catplot(x='avg_trade_bal_per_capita', y='location_code', data=df.to_pandas(), palette='Blues_d', kind='bar')
         plt.title('')
         plt.xlabel('Trade Balance Per Capita in USD')
         plt.ylabel('')
         # Seaborn decreasethe font size of y labels 
         plt.yticks(fontsize=8, color='grey')
-        plt.savefig('../output/top10partners_all_countries_df_' + location_code + '.png', dpi=900)
+        plt.show()
+        # plt.savefig('../output/top10partners_all_countries_df_' + location_code + '.png', dpi=900)
 
     # Call the function
-    plot_top10_partners(all_countries_df, 'ESP')
+    plot_top10_partners(labelled_df, 'ESP')
 
         # # Parse the HTML content and get the data as a DataFrame
         # df = parse_sales_tax_data(df)
@@ -264,48 +170,48 @@ def main():
         # plot_sales_tax_data(df)
 
     
-# Filter all_countries_df by location_code using the following locations 
-all_countries = ["REU", "RWA", "STP",	"SEN", 	"SYC", 	"SLE", "SOM","ZAF", "SSD", "SDN", "SWZ", "TZA", "NGA", "NER",
-                 "TGO", "TUN",	"UGA", "ESH",	"ZMB", "ZWE", "LSO",	"LBR",	"LBY", "MDG", "MLI", "MWI",	"MRT",	"MUS",	
-                 "MYT",	"MAR",	"MOZ","NAM", "DZA", "AGO", "BEN", "BWA", "BFA", "BDI", "CMR", "CPV","CAF",	"TCD", "COM", 
-                 "COG", "COD", "CIV", "DJI",	"EGY","GNQ", "ERI",	"ETH", "GAB", "GMB", "GHA", "GIN", "GNB", "KEN"]
-# Write the code
-all_countries_df = all_countries_df[all_countries_df['location_code'].isin(all_countries)]
+    # # Filter all_countries_df by location_code using the following locations 
+    # all_countries = ["REU", "RWA", "STP",	"SEN", 	"SYC", 	"SLE", "SOM","ZAF", "SSD", "SDN", "SWZ", "TZA", "NGA", "NER",
+    #                 "TGO", "TUN",	"UGA", "ESH",	"ZMB", "ZWE", "LSO",	"LBR",	"LBY", "MDG", "MLI", "MWI",	"MRT",	"MUS",	
+    #                 "MYT",	"MAR",	"MOZ","NAM", "DZA", "AGO", "BEN", "BWA", "BFA", "BDI", "CMR", "CPV","CAF",	"TCD", "COM", 
+    #                 "COG", "COD", "CIV", "DJI",	"EGY","GNQ", "ERI",	"ETH", "GAB", "GMB", "GHA", "GIN", "GNB", "KEN"]
+    # # Write the code
+    # all_countries_df = all_countries_df[all_countries_df['location_code'].isin(all_countries)]
 
-all_africa_df = all_countries_df.sort_values(by='trade_balance_millions', ascending=False)
+    # all_africa_df = all_countries_df.sort_values(by='trade_balance_millions', ascending=False)
 
-# Calculate the average trade balance per country 
-# Write the code
-all_africa_df_sum = all_africa_df.groupby(['location_code'])['trade_balance_millions'].sum().reset_index()
-# Sort by descending trade balance
-all_africa_df_sum = all_africa_df_sum.sort_values(by='trade_balance_millions', ascending=False)
+    # # Calculate the average trade balance per country 
+    # # Write the code
+    # all_africa_df_sum = all_africa_df.groupby(['location_code'])['trade_balance_millions'].sum().reset_index()
+    # # Sort by descending trade balance
+    # all_africa_df_sum = all_africa_df_sum.sort_values(by='trade_balance_millions', ascending=False)
 
 
-# convert to polars dataframe
-all_africa_pl = pl.from_pandas(all_africa_df)
+    # # convert to polars dataframe
+    # all_africa_pl = pl.from_pandas(all_africa_df)
 
-# all_countries_df_agg = (
-#     top10
-#     .groupby(['location_code'])
-#     .agg(
-#         pl.col('trade_balance_millions').mean().alias('avg_trade_balance_millions'), 
-#         pl.col('trade_balance').mean().alias("avg_trade_balance")
-#         )
-#         .sort('avg_trade_balance_millions', reverse=True)
-# )
-print(all_africa_pl)
+    # # all_countries_df_agg = (
+    # #     top10
+    # #     .groupby(['location_code'])
+    # #     .agg(
+    # #         pl.col('trade_balance_millions').mean().alias('avg_trade_balance_millions'), 
+    # #         pl.col('trade_balance').mean().alias("avg_trade_balance")
+    # #         )
+    # #         .sort('avg_trade_balance_millions', reverse=True)
+    # # )
+    # print(all_africa_pl)
 
-# Convert polars table to png and save to output 
-fig, ax = plt.subplots(figsize=(8, 8))
-sns.set_style("whitegrid")
-#sns.catplot(x='trade_balance_millions', y='location_code', data=all_africa_pl.to_pandas(), kind='bar', height=8, aspect=0.8)
-plt.title('')
-plt.xlabel('Trade balance $ Millions USD')
-plt.ylabel('')
-ax2 = plt.twinx()
-sns.catplot(x='pop_2020', y='location_code', data=all_africa_pl.to_pandas(), kind='bar', height=8, aspect=0.8)
-#sns.lineplot(data=all_africa_pl.column2, color="b", ax=ax2)
-plt.savefig('../output/population_2020_allafrica.png', dpi=300, bbox_inches='tight')
+    # # Convert polars table to png and save to output 
+    # fig, ax = plt.subplots(figsize=(8, 8))
+    # sns.set_style("whitegrid")
+    # #sns.catplot(x='trade_balance_millions', y='location_code', data=all_africa_pl.to_pandas(), kind='bar', height=8, aspect=0.8)
+    # plt.title('')
+    # plt.xlabel('Trade balance $ Millions USD')
+    # plt.ylabel('')
+    # ax2 = plt.twinx()
+    # sns.catplot(x='pop_2020', y='location_code', data=all_africa_pl.to_pandas(), kind='bar', height=8, aspect=0.8)
+    # #sns.lineplot(data=all_africa_pl.column2, color="b", ax=ax2)
+    # # plt.savefig('../output/population_2020_allafrica.png', dpi=300, bbox_inches='tight')
 
 
 
@@ -320,7 +226,7 @@ if __name__ == "__main__":
 # # Remove the axis
 # plt.axis('off')
 # # Save the plot as a png file
-# plt.savefig('../output/china_exports_treemap.png', bbox_inches='tight')
+# # plt.savefig('../output/china_exports_treemap.png', bbox_inches='tight')
 
 # Increase font size for the text in the table 
 
@@ -341,7 +247,7 @@ if __name__ == "__main__":
 # # Remove the axis
 # plt.axis('off')
 # # Save the plot as a png file
-# plt.savefig('../output/usa_exports_treemap.png', bbox_inches='tight')
+# # plt.savefig('../output/usa_exports_treemap.png', bbox_inches='tight')
 
 # print(usa_df.head(10))
 
@@ -355,7 +261,7 @@ if __name__ == "__main__":
 # # Remove the axis
 # plt.axis('off')
 # # Save the plot as a png file
-# plt.savefig('../output/russia_exports_treemap.png', bbox_inches='tight')
+# # plt.savefig('../output/russia_exports_treemap.png', bbox_inches='tight')
 
 # print(rus_df.head(10))
 
