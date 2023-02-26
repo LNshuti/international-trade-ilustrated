@@ -69,8 +69,8 @@ plt.xlabel('Trade Balance in Million USD')
 plt.ylabel('')
 # Seaborn decreasethe font size of y labels 
 plt.yticks(fontsize=5, color='grey')
-#plt.show()
-plt.savefig('../output/rwanda_bottom_trade_partners' + '.png', dpi=300, bbox_inches='tight')
+plt.show()
+#plt.savefig('../output/rwanda_bottom_trade_partners' + '.png', dpi=300, bbox_inches='tight')
 
 
 # Plot bar plot andsave plot as png to output folder. Use seaborn for styling
