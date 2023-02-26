@@ -26,6 +26,7 @@ In 2020, China had a surplus relative to the United States, Hong Kong, Great Bri
 
 
 **Figure 3: Russian Exports**
+|parent_code | description |
 :-----------------|:-----------|
 |6812| Rare Earth Metals(Platinum, Base metals, silver/gold, clad with platinum) |      
 |9710| Gold (including gold plated with platinum), Waste & scrap of gold |      
