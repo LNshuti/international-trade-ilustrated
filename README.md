@@ -18,31 +18,15 @@ In 2020, China had a surplus relative to the United States, Hong Kong, Great Bri
 
 <!-- **Figure 2: Chinese Exports**
 
-![china_exports_treemap](output/china_exports_treemap.png)
 |parent_code | description |
 :-----------------|:-----------|
 |7643| Transmission apparatus|      
 |6589| Clothing Products|      
 |7599| Parts & accessories |    -->
 
-**Figure 2: American(USA) Exports**
-
-![usa_exports_treemap](https://user-images.githubusercontent.com/13305262/218374021-cf655cbb-925f-4cc3-bd70-eaf60e74c7eb.png)
-|parent_code | description |
-:-----------------|:-----------|
-|7764| Electronic integrated circuits|      
-|5989| Chemicals|      
-|2882| Parts & accessories |     
-|8813| Photographic Products|      
-|3222| Lignite, whether/not pulverized |
-|0819| Food Products|      
-|0577| Agricultural Products |
 
 
-**Figure 3: Russian Exports**
-
-![russia_exports_treemap](https://user-images.githubusercontent.com/13305262/218374624-2651e56d-3f25-4038-9791-ddfaa0fc89a6.png)
-|parent_code | description |
+**Figure 2: Russian Exports**
 :-----------------|:-----------|
 |6812| Rare Earth Metals(Platinum, Base metals, silver/gold, clad with platinum) |      
 |9710| Gold (including gold plated with platinum), Waste & scrap of gold |      
