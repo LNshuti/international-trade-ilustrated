@@ -16,18 +16,13 @@ In 2020, China had a surplus relative to the United States, Hong Kong, Great Bri
 **Figure 1: 2020 Trade Balance**
 ![](output/deficit_plot_us_chn_rus.png)
 
-**Figure 2: Chinese Exports**
+**Figure 2: Product labels**
 
 |parent_code | description |
 :-----------------|:-----------|
 |7643| Transmission apparatus|      
 |6589| Clothing Products|      
-|7599| Parts & accessories |    
-
-
-**Figure 3: Russian Exports**
-|parent_code | description |
-:-----------------|:-----------|
+|7599| Parts & accessories|
 |6812| Rare Earth Metals(Platinum, Base metals, silver/gold, clad with platinum) |      
 |9710| Gold (including gold plated with platinum), Waste & scrap of gold |      
 |0342| Frozen Fish Products |     
