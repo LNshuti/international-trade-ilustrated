@@ -1,12 +1,8 @@
 # Summarize Eonomic Strength measured in terms of Deficits and Currencies
 
 **Introduction**
-The purpose of this repository is to use available data to analyze the relative strength of countries. With the increasing geopolitical uncertaincy notably the war in Ukraine and associated chatter about WW3, competition between powerful countries is heating up. Using macroeconomic literature and open source data, this repo attempts to connect the dots with two goals in mind: 
-
-1. Visualizing historical trade between countries
-2. Developing hypotheses on what might happen were trade to be restricted or drastically reduced going forward. 
-
-According to Ray Dalio's book [The Changing World Order](https://www.youtube.com/watch?v=xguam0TKMw8), the five most important measures that determine a Nation's present and future changes in wealth and income are the following: 
+---------------
+The purpose of this repository is to use available data to analyze the relative strength of countries. With the increasing geopolitical uncertaincy notably the war in Ukraine and associated chatter about WW3, competition between powerful countries is heating up. According to Ray Dalio's book [The Changing World Order](https://www.youtube.com/watch?v=xguam0TKMw8), the five most important measures that determine a Nation's present and future changes in wealth and income are the following: 
 
 * Innovation 
 * The capital market cycle 
@@ -14,7 +10,7 @@ According to Ray Dalio's book [The Changing World Order](https://www.youtube.com
 * External order disorder cycle 
 * Acts of Nature 
 
-Attempting to measure innovation by country is too difficult a task to approach in this exercise. One interesting study on innovation which focuses mostly on US corporations is Kai Wu's paper on [Investing in Innovation](https://sparklinecapital.files.wordpress.com/2022/04/sparkline-innovation.pdf). The primary goal of of this exercise is to rank countries by 1) the value of exported goods and services, debts levels(both public and private), and the strength of each country's currency.  
+Attempting to measure innovation by country is too difficult a task to approach in this exercise. One interesting study on innovation which focuses mostly on US corporations is Kai Wu's paper on [Investing in Innovation](https://sparklinecapital.files.wordpress.com/2022/04/sparkline-innovation.pdf). Similarly, we won't attempt to explain the relative order/disorder between countries nor do we have the capability to predict Acts of Nature. Using macroeconomic literature and open source data, this repo attempts to rank countries by 1) the value of exported goods and services, debts levels(both public and private), and the strength of each country's currency.  
 
 **Data Source**
 ---------------
