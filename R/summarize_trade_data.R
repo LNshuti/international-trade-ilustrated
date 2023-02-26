@@ -30,15 +30,22 @@ allcountries_trade_df <-
   bind_rows() %>%
   mutate_at(c("export_value", "import_value"), as.numeric)
 
-usa_chn_rus_uk <-
+pop_data <-
+  read_csv('../data/processed/API_SP_POP_TOTL_DS2.csv', skip = 4) %>%
+  as_tibble() %>%
+  janitor::clean_names() %>%
+  select('country_name', 'country_code', 'x2020') %>%
+  rename(pop_2020='x2020') 
+
+usa_brics <-
   allcountries_trade_df %>% 
-  filter(location_code %in% c("USA", "CHN", "RUS", "GBR"))
+  filter(location_code %in% c("USA", "CHN", "RUS", "IND", "ZAF")) %>%
+  inner_join(pop_data, by = c("location_code" = "country_code"))
 
+dbWriteTable(con, "usa_brics", usa_brics, overwrite = TRUE)
 
-dbWriteTable(con, "usa_chn_rus_uk", usa_chn_rus_uk, overwrite = TRUE)
-summary_df <- 
-  dbGetQuery(con, 
-             'SELECT "location_code", "partner_code",  SUM("export_value" - "import_value") as trade_balance FROM usa_chn_rus_uk GROUP BY "location_code", "partner_code"')
+summary_df <-
+  dbGetQuery(con, 'SELECT "country_name", "partner_code",  SUM("export_value" - "import_value") as trade_balance FROM usa_brics GROUP BY "country_name", "partner_code"')
 
 summary_tbl <- 
   summary_df %>% 
@@ -51,7 +58,7 @@ top_df <-
   summary_tbl %>%
   filter(trade_balance > 0) %>%
   arrange(desc(trade_balance)) %>%
-  group_by(location_code) %>%
+  group_by(country_name) %>%
   slice(1:5) %>% 
   ungroup()
 
@@ -59,22 +66,27 @@ bottom_df <-
   summary_tbl %>%
   filter(trade_balance < 0) %>%
   arrange(trade_balance) %>%
-  group_by(location_code) %>%
+  group_by(country_name) %>%
   slice(1:5) %>% 
   ungroup()
 
-top_bottom_df <- bind_rows(top_df, bottom_df) %>% arrange(trade_balance)
+top_bottom_df <- 
+  bind_rows(top_df, bottom_df) %>% 
+  arrange(trade_balance) %>%
+  mutate(trade_bal_abs = abs(trade_balance))
 
 deficit_cols <- c("1"="#2E74C0", "0"="#CB454A")
 
 deficit_plot <- 
-  ggplot(data = top_bottom_df, aes(x=partner_code, y=trade_balance, color=hi_lo, label=partner_code)) + 
-  geom_point(size= 2) +
+  ggplot(data = top_bottom_df, 
+         aes(x=partner_code, y=trade_balance, color=hi_lo, label=partner_code)) + 
+  geom_point(data = top_bottom_df, aes(size=trade_bal_abs)) +
   scale_color_manual(values = deficit_cols) + 
   geom_hline(yintercept = 0, color="gray30") +
-  guides(color=FALSE) +
-  facet_wrap(~ location_code, ncol = 1) +
-  ggrepel::geom_text_repel(data= top_bottom_df, size = 2) +
+  guides(size="none", color="none") +
+  scale_y_continuous(limits=c(-200, 450), labels = scales::dollar) +
+  facet_wrap(~ country_name, ncol = 1) +
+  ggrepel::geom_text_repel(data= top_bottom_df, size = 2, box.padding = 0.3) +
   labs(x=NULL, y = "Trade Balance In Billions USD",  title = "",
        caption = "Data source: \nAtlas of Economic Complexity from the Growth Lab at Harvard University.\nhttps://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/H8SFD2.") +
   theme(plot.caption = element_text(size = 8, hjust = 0),
@@ -83,7 +95,8 @@ deficit_plot <-
         plot.caption.position =  "plot",
         panel.background = element_blank()
   ) +
-  scale_y_continuous(labels = scales::dollar) +
+  
+ # scale_y_continuous(labels = scales::dollar) +
   theme_minimal() +
   #ggthemes::theme_economist_white()+ 
   theme(axis.text.x = element_blank()) 
