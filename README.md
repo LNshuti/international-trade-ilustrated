@@ -28,6 +28,8 @@ In 2020, China had a surplus relative to the United States, Hong Kong, Great Bri
 **Figure 1: 2020 Trade Balance**
 ![](output/deficit_plot_us_chn_rus.png)
 
+Not all products are created equal. The plot above shows aggregated measures of exports but does not include details on what these traded products are. 
+
 
 **Figure 2: Product labels**
 
