@@ -60,7 +60,13 @@ def main():
     st.write(X_train.shape)
 
     st.sidebar.subheader("Choose Model")
-    mod = st.sidebar.selectbox("Model", ("Xgboost", "Adaboost", "Random Forest"))
+    model = st.sidebar.selectbox("Model", ("Xgboost", "Adaboost", "Random Forest"))
+
+    if model == "Xgboost":
+        st.sidebar.subheader("Model Hyperparameters")
+        C = st.sidebar.number_input("C (Regularization parameter)", 0.01, 10.0, step=0.01, key="C")
+
+
 
 
     if st.sidebar.checkbox("Show raw data", False):
