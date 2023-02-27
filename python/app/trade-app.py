@@ -69,7 +69,10 @@ def main():
 
 
     st.subheader('Test set')
-    st.write(X_test.head(10))
+    st.write(X_test.shape)
+
+    st.subheader('Train set')
+    st.write(X_train.shape)
 
     if st.sidebar.checkbox("Show raw data", False):
         st.subheader('Raw data')
