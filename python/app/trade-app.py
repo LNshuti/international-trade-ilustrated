@@ -8,12 +8,10 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import plot_confusion_matrix, plot_roc_curve, plot_precision_recall_curve
 from sklearn.metrics import explained_variance_score, r2_score, mean_absolute_error, mean_squared_error, mean_squared_log_error, median_absolute_error, max_error
 
-
 def main(): 
     st.title("Trading Partners by Country")
     st.sidebar.title("Country Code")
     st.markdown("Explore countries and their trading partners")
-
 
     st.cache(persist=True)
     def load_data():     
@@ -37,9 +35,6 @@ def main():
         for col in ['location_code', 'partner_code', 'sitc_product_code']:
             labelled_df[col] = label.fit_transform(labelled_df[col])
 
-        # Summarize the trade_balance by location_code and product_description
-        #labelled_df = labelled_df.groupby(['location_code',  'partner_code', 'description'])['trade_balance'].sum().reset_index()
-
         return labelled_df
     
     @st.cache(persist=True)
@@ -50,23 +45,13 @@ def main():
         return X_train, X_test, y_train, y_test
 
     # def plot_metrics(metrics_list):
-    #     if 'Accuracy' in metrics_list:
-    #         st.subheader("Accuracy Score")
-    #         st.write(accuracy_score(y_test, y_pred))
-    #     if 'Precision' in metrics_list:
-    #         st.subheader("Precision Score")
-    #         st.write(precision_score(y_test, y_pred, average='weighted'))
-    #     if 'Recall' in metrics_list:
-    #         st.subheader("Recall Score")
-    #         st.write(recall_score(y_test, y_pred, average='weighted'))
-
+    #     if 'ROC Curve' in metrics_list:
+    #         st.subheader("ROC Curve")
+    #         plot_roc_curve(model, x_test, y_test, y_pred)
+    #         st.pyplot()
 
     data = load_data()
     X_train, X_test, y_train, y_test = split(data)
-
-    # Filter location_code to the USA, CHN, and RUS (China, Russia, and the United States)
-    labelled_df = data[data['location_code'].isin(['RUS', 'CHN', 'UGA'])]
-
 
     st.subheader('Test set')
     st.write(X_test.shape)
@@ -74,8 +59,14 @@ def main():
     st.subheader('Train set')
     st.write(X_train.shape)
 
+    st.sidebar.subheader("Choose Model")
+    mod = st.sidebar.selectbox("Model", ("Xgboost", "Adaboost", "Random Forest"))
+
+
     if st.sidebar.checkbox("Show raw data", False):
         st.subheader('Raw data')
-        st.write(labelled_df)
+        st.write(data.head(20))
+
+
 if __name__ == '__main__':
     main()
