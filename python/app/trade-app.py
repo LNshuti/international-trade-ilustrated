@@ -5,6 +5,7 @@ import polars as pl
 from sklearn.svm import SVC 
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import plot_confusion_matrix, plot_roc_curve, plot_precision_recall_curve
 from sklearn.metrics import accuracy_score, precision_score, recall_score 
 
 
@@ -28,7 +29,7 @@ def main():
 
         labelled_df = trade_data_all_years.merge(product_labs, left_on='sitc_product_code', right_on='parent_code', how='inner')
         # Summarize the trade_balance by location_code and product_description
-        labelled_df = labelled_df.groupby(['location_code',  'partner_code', 'description'])['trade_balance'].sum().reset_index()
+        #labelled_df = labelled_df.groupby(['location_code',  'partner_code', 'description'])['trade_balance'].sum().reset_index()
 
         return labelled_df
     
@@ -39,21 +40,30 @@ def main():
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
         return X_train, X_test, y_train, y_test
 
+    # def plot_metrics(metrics_list):
+    #     if 'Accuracy' in metrics_list:
+    #         st.subheader("Accuracy Score")
+    #         st.write(accuracy_score(y_test, y_pred))
+    #     if 'Precision' in metrics_list:
+    #         st.subheader("Precision Score")
+    #         st.write(precision_score(y_test, y_pred, average='weighted'))
+    #     if 'Recall' in metrics_list:
+    #         st.subheader("Recall Score")
+    #         st.write(recall_score(y_test, y_pred, average='weighted'))
+
+
     data = load_data()
     X_train, X_test, y_train, y_test = split(data)
 
     # Filter location_code to the USA, CHN, and RUS (China, Russia, and the United States)
     labelled_df = data[data['location_code'].isin(['RUS', 'CHN', 'UGA'])]
 
+
+    st.subheader('Test set')
+    st.write(X_test.head(10))
+
     if st.sidebar.checkbox("Show raw data", False):
         st.subheader('Raw data')
         st.write(labelled_df)
-
-        st.subheader('Training set')
-        st.write(X_train)
-
-        st.subheader('Test set')
-        st.write(X_test)
-
 if __name__ == '__main__':
     main()
