@@ -3,13 +3,14 @@ import pandas as pd
 import pyarrow.parquet as pq
 import polars as pl
 from sklearn.svm import SVC 
+from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score 
 
 
 def main(): 
     st.title("Trading Partners by Country")
-    st.sidebar.title("Trading Partners by Country")
+    st.sidebar.title("Country Code")
     st.markdown("Explore countries and their trading partners")
 
 
@@ -27,7 +28,7 @@ def main():
 
         labelled_df = trade_data_all_years.merge(product_labs, left_on='sitc_product_code', right_on='parent_code', how='inner')
         # Summarize the trade_balance by location_code and product_description
-        labelled_df = labelled_df.groupby(['location_code', 'parent_code', 'partner_code', 'description'])['trade_balance'].sum().reset_index()
+        labelled_df = labelled_df.groupby(['location_code',  'partner_code', 'description'])['trade_balance'].sum().reset_index()
 
         return labelled_df
     
@@ -39,3 +40,7 @@ def main():
     if st.sidebar.checkbox("Show raw data", False):
         st.subheader('Raw data')
         st.write(labelled_df)
+
+
+if __name__ == '__main__':
+    main()
