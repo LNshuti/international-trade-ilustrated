@@ -6,7 +6,7 @@ from sklearn.svm import SVC
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import plot_confusion_matrix, plot_roc_curve, plot_precision_recall_curve
-from sklearn.metrics import accuracy_score, precision_score, recall_score 
+from sklearn.metrics import explained_variance_score, r2_score, mean_absolute_error, mean_squared_error, mean_squared_log_error, median_absolute_error, max_error
 
 
 def main(): 
@@ -28,6 +28,15 @@ def main():
         trade_data_all_years['trade_balance'] = trade_data_all_years['export_value'] - trade_data_all_years['import_value']
 
         labelled_df = trade_data_all_years.merge(product_labs, left_on='sitc_product_code', right_on='parent_code', how='inner')
+
+        # Drop the following columns: year, location_id, partner_id, export_value, parent_code, description, code, product_code
+        labelled_df = labelled_df.drop(columns=['year', 'location_id', 'partner_id', 'export_value', 'parent_code', 'description', 'code'])
+        
+        # Use LabelEncoder to encode the categorical columns: location_code, partner_code
+        label = LabelEncoder()
+        for col in ['location_code', 'partner_code', 'sitc_product_code']:
+            labelled_df[col] = label.fit_transform(labelled_df[col])
+
         # Summarize the trade_balance by location_code and product_description
         #labelled_df = labelled_df.groupby(['location_code',  'partner_code', 'description'])['trade_balance'].sum().reset_index()
 
@@ -35,8 +44,8 @@ def main():
     
     @st.cache(persist=True)
     def split(df):
-        X = df.drop(columns=['trade_balance'])
-        y = df['trade_balance']
+        X = df.drop(columns=['import_value'])
+        y = df['import_value']
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
         return X_train, X_test, y_train, y_test
 
