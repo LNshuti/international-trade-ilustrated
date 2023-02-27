@@ -10,7 +10,7 @@ The purpose of this repository is to use available data to analyze the relative 
 * External order disorder cycle 
 * Acts of Nature 
 
-Attempting to measure innovation by country is too difficult a task to approach in this exercise. One interesting study on innovation which focuses mostly on US corporations is Kai Wu's paper on [Investing in Innovation](https://sparklinecapital.files.wordpress.com/2022/04/sparkline-innovation.pdf). Similarly, we won't attempt to explain the relative order/disorder between countries nor do we have the capability to predict Acts of Nature. Using macroeconomic literature and open source data, this repo attempts to rank countries by 1) the value of exported goods and services, debts levels(both public and private), and the strength of each country's currency.  
+Attempting to measure innovation by country is too difficult a task to approach in this exercise. One interesting study on innovation which focuses mostly on US corporations is Kai Wu's paper on [Investing in Innovation](https://sparklinecapital.files.wordpress.com/2022/04/sparkline-innovation.pdf). Similarly, we won't attempt to explain the relative order/disorder between countries nor do we have the capability to predict Acts of Nature. Using macroeconomic literature and open source data, this repo attempts to rank countries by 1) the value of exported goods and services, 2) debts levels(both public and private), and 3) the strength of each country's currency.  
 
 **Data Source**
 ---------------
