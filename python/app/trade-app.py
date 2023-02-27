@@ -28,3 +28,14 @@ def main():
         labelled_df = trade_data_all_years.merge(product_labs, left_on='sitc_product_code', right_on='parent_code', how='inner')
         # Summarize the trade_balance by location_code and product_description
         labelled_df = labelled_df.groupby(['location_code', 'parent_code', 'partner_code', 'description'])['trade_balance'].sum().reset_index()
+
+        return labelled_df
+    
+    data = load_data()
+
+    # Filter location_code to the USA, CHN, and RUS (China, Russia, and the United States)
+    labelled_df = data[data['location_code'].isin(['RUS', 'CHN', 'UGA'])]
+
+    if st.sidebar.checkbox("Show raw data", False):
+        st.subheader('Raw data')
+        st.write(labelled_df)
