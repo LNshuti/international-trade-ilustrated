@@ -32,7 +32,15 @@ def main():
 
         return labelled_df
     
+    @st.cache(persist=True)
+    def split(df):
+        X = df.drop(columns=['trade_balance'])
+        y = df['trade_balance']
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+        return X_train, X_test, y_train, y_test
+
     data = load_data()
+    X_train, X_test, y_train, y_test = split(data)
 
     # Filter location_code to the USA, CHN, and RUS (China, Russia, and the United States)
     labelled_df = data[data['location_code'].isin(['RUS', 'CHN', 'UGA'])]
@@ -41,6 +49,11 @@ def main():
         st.subheader('Raw data')
         st.write(labelled_df)
 
+        st.subheader('Training set')
+        st.write(X_train)
+
+        st.subheader('Test set')
+        st.write(X_test)
 
 if __name__ == '__main__':
     main()
