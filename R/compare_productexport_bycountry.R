@@ -143,7 +143,7 @@ country_ranking_ <-
 country_top10_ <- 
   country_ranking_ %>%
   arrange(rank) %>%
-  filter(country_name == "United States")
+  filter(country_name == "China")
 
 tab_1 <-
   country_ranking_ %>%
@@ -154,4 +154,4 @@ tab_1 <-
     currency = "USD"
   ) 
 
-tab_1 %>% gtsave("../output/usa_top10_imports.png", expand = 10)
+tab_1 %>% gtsave("../output/china_top10_imports.png", expand = 10)
