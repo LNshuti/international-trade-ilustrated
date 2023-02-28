@@ -74,7 +74,7 @@ def main():
         gamma = st.sidebar.number_input("Gamma (Minimum loss reduction)", 0, 3, step=1, key="gamma")
         max_depth = st.sidebar.radio("Maxiumum Tree Depth", (1, 6, 10), key='kernel')
 
-        metrics = st.sidebar.multiselect
+        st.sidebar.multiselect
 
         if st.sidebar.button("Run Regression", key="Regress"):
             st.subheader("Xgboost Results")
