@@ -32,9 +32,10 @@ allcountries_trade_df <-
         mutate_all(as.character)
   ) %>%
   bind_rows() %>%
-  mutate_at(c("export_value", "import_value"), as.numeric) %>%
-  group_by(product_name, year) %>%
-  summarise(imports = sum(import_value, na.rm = TRUE), exports = sum(export_value, na.rm = TRUE)) 
+  mutate_at(c("export_value", "import_value"), as.numeric) #%>%
+  # group_by(product_name, year) %>%
+  # summarise(imports = sum(import_value, na.rm = TRUE), 
+  #           exports = sum(export_value, na.rm = TRUE)) 
 
 pop_data <-
   read_csv('../data/processed/API_SP_POP_TOTL_DS2.csv', skip = 4) %>%
