@@ -31,23 +31,9 @@ In 2020, China had a surplus relative to the United States, Hong Kong, Great Bri
 Not all products are created equal. The plot above shows aggregated measures of exports but does not include details on what these traded products are. In the table below, we show the top exports for each of the countries from figure 1 classified by Maslow's hierarchy of needs. 
 
 
-**Figure 2: Product labels**
-
-|parent_code | description |
-:-----------------|:-----------|
-|7643| Transmission apparatus|      
-|6589| Clothing Products|      
-|7599| Parts & accessories|
-|6812| Rare Earth Metals(Platinum, Base metals, silver/gold, clad with platinum) |      
-|9710| Gold (including gold plated with platinum), Waste & scrap of gold |      
-|0342| Frozen Fish Products |     
-|6821| Copper |      
-|3222| Lignite |
-|6672| Diamonds |      
-|3352| Oils & other products |
-|5621| Ammonium nitrate |
-|5629| Fertilizers |
-|6841| Aluminium |
+**Figure 2: Top 10 Product Imports**
+**USA**
+![](output/usa_top10_imports.png)
 
 
 ### References 
