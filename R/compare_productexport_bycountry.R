@@ -148,8 +148,10 @@ country_top10_ <-
 tab_1 <-
   country_top10_ %>%
   select(-rank) %>%
+  group_by(country_name) %>%
   dplyr::slice(1:10) %>%
-  gt() %>%
+  ungroup() %>%
+  #gt() %>%
   gt(rowname_col = "country_name") %>% 
   fmt_currency(
     columns = import_value,
