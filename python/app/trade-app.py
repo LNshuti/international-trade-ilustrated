@@ -1,6 +1,9 @@
 import streamlit as st 
 import pandas as pd
 import pyarrow.parquet as pq
+import matplotlib.pyplot as plt
+from typing import List 
+from streamlit_searchbox import st_searchbox
 import polars as pl
 from sklearn.svm import SVC 
 from sklearn.preprocessing import LabelEncoder
@@ -58,12 +61,18 @@ def main():
 
     # Implement selector for partner_code 
     partner_code = st.sidebar.selectbox('Select partner_code', data['partner_code'].unique())
-
-    st.subheader('Test set')
-    st.write(X_test.shape)
-
-    st.subheader('Train set')
-    st.write(X_train.shape)
+    
+    data = data[data['location_code'] == location_code]
+    data = data[data['partner_code'] == partner_code]
+    # Plot a histogram of the total award 
+    # Write code below 
+    # st.write('''Total Government Contract Issuange by Agency''')
+    # fig, ax = plt.subplots()
+    # ax.hist(data['Total Award($)'], bins=20)
+    # ax.set_xlabel('Total Award($Millions)')
+    # ax.set_ylabel('Frequency')
+    # ax.set_title('Total Award Distribution')
+    # st.pyplot(fig)
 
     st.sidebar.subheader("Choose Model")
     model = st.sidebar.selectbox("Model", ("Xgboost", "Adaboost", "Random Forest"))

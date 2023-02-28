@@ -83,8 +83,8 @@ usa_brics <-
                              name), "food products", name)) %>%
   mutate(name = str_trim(name)) %>%
   mutate(len_name = str_length(name)) %>%
-  group_by(year) %>%
-  arrange(year, desc(imports)) %>%
+  group_by(country_name) %>%
+  arrange(name, desc(export_value)) %>%
   filter(!is.na(name)) %>%
   # assign ranking
   mutate(rank = 1:n()) %>%
@@ -94,7 +94,7 @@ dbWriteTable(con, "usa_brics", usa_brics, overwrite = TRUE)
 
 summary_df <-
   dbGetQuery(con, 
-             'SELECT "country_name", "partner_code",  SUM("export_value" - "import_value") as trade_balance FROM usa_brics GROUP BY "country_name", "partner_code"')
+             'SELECT "country_name", "partner_code", name,  SUM("export_value" - "import_value") as trade_balance FROM usa_brics GROUP BY "country_name", "partner_code", "name"')
 
 summary_tbl <- 
   summary_df %>% 
