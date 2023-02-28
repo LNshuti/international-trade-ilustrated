@@ -142,18 +142,17 @@ country_ranking_ <-
 
 country_top10_ <- 
   country_ranking_ %>%
-  arrange(rank) %>%
-  filter(country_name == "United States")
+  arrange(rank) 
 
 tab_1 <-
   country_top10_ %>%
   select(-rank) %>%
   dplyr::slice(1:10) %>%
   gt() %>%
-  #gt(rowname_col = "country_name") %>% 
+  gt(rowname_col = "country_name") %>% 
   fmt_currency(
     columns = import_value,
     currency = "USD"
   ) 
 
-tab_1 %>% gtsave("../output/usa_top10_imports.png", expand = 10)
+tab_1 %>% gtsave("../output/usa_brics_top10_imports.png", expand = 10)
