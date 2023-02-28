@@ -65,7 +65,7 @@ def main():
     data = data[data['location_code'] == location_code]
     data = data[data['partner_code'] == partner_code]
 
-    st.write(data, use_column_width=True)
+    st.write(data)
     # Plot a histogram of the total award 
     # Write code below 
     # st.write('''Total Government Contract Issuange by Agency''')
