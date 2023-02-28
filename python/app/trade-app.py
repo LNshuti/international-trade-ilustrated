@@ -53,7 +53,7 @@ def main():
     data = load_data()
     X_train, X_test, y_train, y_test = split(data)
 
-    # IMplement selector for state 
+    # Implement selector for state 
     location_code = st.sidebar.selectbox('Select location_code', data['location_code'].unique())
 
     # Implement selector for partner_code 
