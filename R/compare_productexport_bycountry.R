@@ -28,7 +28,49 @@ allcountries_trade_df <-
         mutate_all(as.character)
   ) %>%
   bind_rows() %>%
-  mutate_at(c("export_value", "import_value"), as.numeric)
+  mutate_at(c("export_value", "import_value"), as.numeric) %>%
+  group_by(product_name, year) %>%
+  summarise(imports = sum(import_value, na.rm = TRUE), exports = sum(export_value, na.rm = TRUE)) %>%
+  ungroup() %>%
+  rename(name = product_name) %>%
+  mutate(name = ifelse(grepl("gold|mineraks|aluminium|iron/st|steel|minerals|tin ores|base metal", name), " metals", name)) %>%
+  mutate(name = ifelse(grepl("cement|refract bricks", name), "cement & construct mat", name)) %>%
+  mutate(name = ifelse(grepl("kraft uncoat|printed matter|book|typewrirers|paper cartons", name), "books & paper", name)) %>%
+  mutate(name = ifelse(grepl("clothing ", name), "clothing",name)) %>%
+  mutate(name = ifelse(grepl("generator|dc motor|electric motors", name), "generator",name)) %>%
+  mutate(name = ifelse(grepl("aircraft|aircrft|airplanes|helicopters", name), "aircrafts", name)) %>%
+  mutate(name = ifelse(grepl("special tra|un special code", name), "special transactions", name)) %>%
+  mutate(name = ifelse(grepl("communication|radio|telecom|telephone|computers", name), "telecom", name)) %>%
+  mutate(name = ifelse(grepl("petroleum|petrol|crude oil|liquid propane", name), "petroleum", name)) %>%
+  mutate(name = ifelse(grepl("lifting|constr/mining|pulley", name), "construction", name)) %>%
+  mutate(name = ifelse(grepl("medicaments|glycosides|x-ray|pharmaceutical|pharmaceut", name), "healthcare goods", name)) %>%
+  mutate(name = ifelse(grepl("furniture", name), "furniture",name)) %>%
+  mutate(name = ifelse(grepl("musical", name), "musical instruments",name)) %>%
+  mutate(name = ifelse(grepl("garments", name), "garments",name)) %>%
+  mutate(name = ifelse(grepl("office equip", name), "office equipment",name)) %>%
+  mutate(name = ifelse(grepl("soap in form of bars", name), "bar soap",name)) %>%
+  mutate(name = ifelse(grepl("scientific instrumnt", name), "scientific instrument",name)) %>%
+  mutate(name = ifelse(grepl("machine parts|gas turb eng", name), "machine parts",name)) %>%
+  mutate(name = ifelse(grepl("indus wash", name), "industrial wash equip",name)) %>%
+  mutate(name = ifelse(grepl("acyclic monohyd alcohols", name), "acyclic monohyd alcohols",name)) %>%
+  mutate(name = ifelse(grepl("electro-thermic equipmnt", name), "electro-thermic equipment",name)) %>%
+  mutate(name = ifelse(grepl("textile|suits", name), "textiles",name)) %>%
+  mutate(name = ifelse(grepl("cigarettes", name), "cigarettes",name)) %>%
+  mutate(name = ifelse(grepl("plastic", name), "plastic",name)) %>%
+  mutate(name = ifelse(grepl("batteries", name), "batteries",name)) %>%
+  mutate(name = ifelse(grepl("leather", name), "leather",name)) %>%
+  mutate(name = ifelse(grepl("fertilizers", name), "fertilizers",name)) %>%
+  mutate(name = ifelse(grepl("vehicles|passenger|tyres|tires|motorcycles|buses|semi-trailer", name), "vehicles & parts", name)) %>%
+  mutate(name = ifelse(grepl("beans|legumes|cane|wheat|corn|maize|sugar|soy|meal|cereal|hydrogenated|beet|chocolate|food|strawberries|fish|ruit fresh|beef|groundnuts|nutmeg|milk|salt|vegetables|rice|beer|fixed veg oils|whey|mutton|spices|veg prod ne|malt|veg oil hydrogen|bread|pork|potatoes|coffee|vanilla|fixed veg oil|cinnamon",
+                             name), "food products", name)) %>%
+  mutate(name = str_trim(name)) %>%
+  mutate(len_name = str_length(name)) %>%
+  group_by(year) %>%  
+  arrange(year, desc(imports)) %>%  
+  filter(!is.na(name)) %>%
+  # assign ranking
+  mutate(rank = 1:n()) %>%  
+  ungroup() 
 
 pop_data <-
   read_csv('../data/processed/API_SP_POP_TOTL_DS2.csv', skip = 4) %>%
