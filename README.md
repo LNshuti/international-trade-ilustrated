@@ -33,11 +33,7 @@ Not all products are created equal. The plot above shows aggregated measures of 
 
 **Figure 2: Top 10 Product Imports**
 
-**USA**
-![](output/usa_top10_imports.png)
-
-**China**
-![](output/china_top10_imports.png)
+![](output/usa_brics_top10_imports.png)
 
 
 ### References 
