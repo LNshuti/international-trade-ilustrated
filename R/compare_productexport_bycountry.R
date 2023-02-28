@@ -157,9 +157,17 @@ tab_1 <-
     currency = "USD",
     decimals = 0
   ) %>%
-  gt::cols_label(import_value = "Import Value(USD)",
-             name = "Product Label", 
-             partner_code = "Exporter Country") 
+  tab_style(
+    style = list(
+      cell_fill(color = "lightcyan"),
+      "font-variant: small-caps;"
+    ),
+    locations = cells_body(columns = partner_code))
+  # ) %>%
+  # gt::cols_label(import_value = "Import Value(USD)",
+  #            name = "Product Label", 
+  #            partner_code = "Exporter Country") %>%
+  # 
 
 tab_1 %>%
-  gtsave(.data =.,"../output/usa_brics_top10_imports.png", expand = 10)
+  gtsave("../output/usa_brics_top10_imports.png", expand = 10)
