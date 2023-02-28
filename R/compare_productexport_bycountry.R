@@ -83,7 +83,7 @@ usa_brics <-
                              name), "food products", name)) %>%
   mutate(name = str_trim(name)) %>%
   mutate(len_name = str_length(name)) %>%
-  group_by(country_name) %>%
+  group_by(country_name, partner_code) %>%
   arrange(name, desc(export_value)) %>%
   filter(!is.na(name)) %>%
   # assign ranking
@@ -108,7 +108,7 @@ top_df <-
   filter(trade_balance > 0) %>%
   arrange(desc(trade_balance)) %>%
   group_by(country_name) %>%
-  slice(1:5) %>% 
+  slice(1:10) %>% 
   ungroup()
 
 bottom_df <- 
@@ -116,12 +116,26 @@ bottom_df <-
   filter(trade_balance < 0) %>%
   arrange(trade_balance) %>%
   group_by(country_name) %>%
-  slice(1:5) %>% 
+  slice(1:10) %>% 
   ungroup()
 
 top_bottom_df <- 
-  bind_rows(top_df, bottom_df) %>% 
-  arrange(trade_balance) %>%
+  bind_rows(top_df, bottom_df) %>%
+  #group_by(partner_code) %>%
+  arrange(partner_code, desc(trade_balance)) %>%
+  #ungroup() %>%
   mutate(trade_bal_abs = abs(trade_balance))
 
 deficit_cols <- c("1"="#2E74C0", "0"="#CB454A")
+
+deficit_plot <- 
+  ggplot(data = top_bottom_df,
+         aes(x=partner_code, y=trade_balance, color=hi_lo, fill=hi_lo)) +
+  geom_col() + 
+  guides(size="none", color="none") +
+  #scale_color_manual(values = deficit_cols) + 
+  facet_wrap(~ country_name, ncol = 1) +
+  labs(x=NULL, y = "Trade Balance In Billions $",  title = "Trade Balance In 2020") +
+  ggthemes::theme_fivethirtyeight() + 
+  theme(axis.text.x = element_blank())+
+  xlab("") 
