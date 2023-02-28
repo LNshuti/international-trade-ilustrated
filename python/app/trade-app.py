@@ -66,9 +66,9 @@ def main():
         st.sidebar.subheader("Model Hyperparameters")
         eta = st.sidebar.number_input("eta (Shrinkage parameter)", 0.01, 1.0, step=0.01, key="eta")
         gamma = st.sidebar.number_input("Gamma (Minimum loss reduction)", 0, 3, step=1, key="gamma")
-        max_depth = st.sidebar.radio("Maxiumum Tree Depth", ("1", "6", "10"), key='kernel')
+        max_depth = st.sidebar.radio("Maxiumum Tree Depth", (1, 6, 10), key='kernel')
 
-        metrics = st.sidebar.multiselect("Choose metrics to plot", ("ROC Curve"))
+        metrics = st.sidebar.multiselect
 
         if st.sidebar.button("Run Regression", key="Regress"):
             st.subheader("Xgboost Results")
