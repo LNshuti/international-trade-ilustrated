@@ -148,6 +148,10 @@ country_top10_ <-
 tab_1 <-
   country_ranking_ %>%
   dplyr::slice(1:5) %>%
-  gt(rowname_col = "country_name")
+  gt(rowname_col = "country_name") %>% 
+  fmt_currency(
+    columns = import_value,
+    currency = "USD"
+  ) 
 
 tab_1 %>% gtsave("../output/usa_top10_imports.png", expand = 10)
