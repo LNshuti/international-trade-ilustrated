@@ -87,7 +87,7 @@ usa_brics <-
   arrange(name, desc(export_value)) %>%
   filter(!is.na(name)) %>%
   # assign ranking
-  mutate(rank = 1:n()) %>%
+  # mutate(rank = 1:n()) %>%
   ungroup()
 
 dbWriteTable(con, "usa_brics", usa_brics, overwrite = TRUE)
@@ -126,16 +126,31 @@ top_bottom_df <-
   #ungroup() %>%
   mutate(trade_bal_abs = abs(trade_balance))
 
-deficit_cols <- c("1"="#2E74C0", "0"="#CB454A")
 
-deficit_plot <- 
-  ggplot(data = top_bottom_df,
-         aes(x=partner_code, y=trade_balance, color=hi_lo, fill=hi_lo)) +
-  geom_col() + 
-  guides(size="none", color="none") +
-  #scale_color_manual(values = deficit_cols) + 
-  facet_wrap(~ country_name, ncol = 1) +
-  labs(x=NULL, y = "Trade Balance In Billions $",  title = "Trade Balance In 2020") +
-  ggthemes::theme_fivethirtyeight() + 
-  theme(axis.text.x = element_blank())+
-  xlab("") 
+##################### For each country, find its top 10 product imports##################
+country_top10_ <- 
+  usa_brics %>% 
+  select(country_name, partner_code, import_value, name) %>%
+  group_by(country_name) %>%
+  arrange(desc(import_value)) %>%
+  # assign ranking
+  mutate(rank = 1:n()) %>%
+  ungroup()
+
+usa <- 
+  country_top10_ %>% 
+  filter(country_name == "United States")
+
+# deficit_cols <- c("1"="#2E74C0", "0"="#CB454A")
+# 
+# deficit_plot <- 
+#   ggplot(data = top_bottom_df,
+#          aes(x=partner_code, y=trade_balance, color=hi_lo, fill=hi_lo)) +
+#   geom_col() + 
+#   guides(size="none", color="none") +
+#   #scale_color_manual(values = deficit_cols) + 
+#   facet_wrap(~ country_name, ncol = 1) +
+#   labs(x=NULL, y = "Trade Balance In Billions $",  title = "Trade Balance In 2020") +
+#   ggthemes::theme_fivethirtyeight() + 
+#   theme(axis.text.x = element_blank())+
+#   xlab("") 

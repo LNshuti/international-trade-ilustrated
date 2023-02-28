@@ -64,6 +64,8 @@ def main():
     
     data = data[data['location_code'] == location_code]
     data = data[data['partner_code'] == partner_code]
+
+    st.write(data, use_column_width=True)
     # Plot a histogram of the total award 
     # Write code below 
     # st.write('''Total Government Contract Issuange by Agency''')
@@ -83,7 +85,7 @@ def main():
         gamma = st.sidebar.number_input("Gamma (Minimum loss reduction)", 0, 3, step=1, key="gamma")
         max_depth = st.sidebar.radio("Maxiumum Tree Depth", (1, 6, 10), key='kernel')
 
-        st.sidebar.multiselect
+        
 
         if st.sidebar.button("Run Regression", key="Regress"):
             st.subheader("Xgboost Results")
