@@ -150,12 +150,16 @@ tab_1 <-
   select(-rank) %>%
   group_by(country_name) %>%
   dplyr::slice(1:10) %>%
-  ungroup() %>%
-  #gt() %>%
-  gt(rowname_col = "country_name") %>% 
+  gt() %>%
+  #gt(rowname_col = "country_name") %>% 
   fmt_currency(
     columns = import_value,
-    currency = "USD"
-  ) 
+    currency = "USD",
+    decimals = 0
+  ) %>%
+  gt::cols_label(import_value = "Import Value(USD)",
+             name = "Product Label", 
+             partner_code = "Exporter Country") 
 
-tab_1 %>% gtsave("../output/usa_brics_top10_imports.png", expand = 10)
+tab_1 %>%
+  gtsave(.data =.,"../output/usa_brics_top10_imports.png", expand = 10)
