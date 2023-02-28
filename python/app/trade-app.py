@@ -49,9 +49,15 @@ def main():
             st.subheader("ROC Curve")
             plot_roc_curve(model, x_test, y_test, y_pred)
             st.pyplot()
-
+    
     data = load_data()
     X_train, X_test, y_train, y_test = split(data)
+
+    # IMplement selector for state 
+    location_code = st.sidebar.selectbox('Select location_code', data['location_code'].unique())
+
+    # Implement selector for partner_code 
+    partner_code = st.sidebar.selectbox('Select partner_code', data['partner_code'].unique())
 
     st.subheader('Test set')
     st.write(X_test.shape)
