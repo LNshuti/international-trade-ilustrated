@@ -44,11 +44,11 @@ def main():
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
         return X_train, X_test, y_train, y_test
 
-    # def plot_metrics(metrics_list):
-    #     if 'ROC Curve' in metrics_list:
-    #         st.subheader("ROC Curve")
-    #         plot_roc_curve(model, x_test, y_test, y_pred)
-    #         st.pyplot()
+    def plot_metrics(metrics_list):
+        if 'ROC Curve' in metrics_list:
+            st.subheader("ROC Curve")
+            plot_roc_curve(model, x_test, y_test, y_pred)
+            st.pyplot()
 
     data = load_data()
     X_train, X_test, y_train, y_test = split(data)
@@ -64,10 +64,15 @@ def main():
 
     if model == "Xgboost":
         st.sidebar.subheader("Model Hyperparameters")
-        C = st.sidebar.number_input("C (Regularization parameter)", 0.01, 10.0, step=0.01, key="C")
+        eta = st.sidebar.number_input("eta (Shrinkage parameter)", 0.01, 1.0, step=0.01, key="eta")
+        gamma = st.sidebar.number_input("Gamma (Minimum loss reduction)", 0, 3, step=1, key="gamma")
+        max_depth = st.sidebar.radio("Maxiumum Tree Depth", ("1", "6", "10"), key='kernel')
 
-        kernel = st.sidebar.radio("kernel", ("rbf", "linear"), key='kernel')
-        gamma = st.sidebar.radio("Gamma (Kernel Coefficient)", ("scale", "auto"), key="gamma")
+        metrics = st.sidebar.multiselect("Choose metrics to plot", ("ROC Curve"))
+
+        if st.sidebar.button("Run Regression", key="Regress"):
+            st.subheader("Xgboost Results")
+            
 
 
 
