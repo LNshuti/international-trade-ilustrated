@@ -54,17 +54,16 @@ def main():
     data = data[data['partner_code'] == partner_code]
     #data = data[data['description'] == description]
 
-    # Find the top 10 import_value by location_code and partner_code
-    data_top10 = data.sort_values(by='import_value', ascending=False).head(10)
-    
-    
     # Select distinct location_code and use it in the title 
     location_code = data['location_code'].unique()
     partner_code = data['partner_code'].unique()
 
+    # Find the top 10 import_value by location_code and partner_code
+    data_top10 = data.sort_values(by='import_value', ascending=False).head(10)
+
     # Append location_code to the title
     st.title('''Imports by ''' + str(location_code[0]) + ''' from ''' + str(partner_code[0]) + ''' in 2020''')
-    st.write(data)
+    st.write(data_top10)
 
     if st.sidebar.checkbox("Show raw data", False):
         st.subheader('Raw data')
