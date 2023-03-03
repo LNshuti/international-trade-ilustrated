@@ -48,7 +48,10 @@ Not all products are created equal. The plot above shows aggregated measures of 
 ![image](https://user-images.githubusercontent.com/13305262/222726256-b249f3e8-595b-4852-b320-a00e11505707.png)
 
 **Germany Exports**
-![image](https://user-images.githubusercontent.com/13305262/222730552-eb825273-3eff-482d-a1c7-8e5c03129e8d.png)
+
+
+**Germany Imports**
+![image](https://user-images.githubusercontent.com/13305262/222731468-13c021cb-0aed-430f-a7a6-88c28db9acb5.png)
 
 ### References 
 1. The Growth Lab at Harvard University. International Trade Data (SITC, Rev. 2). 2019-05-31. 2019. V5. Harvard Dataverse. URL. https://doi.org/10.7910/DVN/H8SFD2. doi/10.7910/DVN/H8SFD2
