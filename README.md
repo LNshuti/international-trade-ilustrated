@@ -43,3 +43,5 @@ Not all products are created equal. The plot above shows aggregated measures of 
 1. The Growth Lab at Harvard University. International Trade Data (SITC, Rev. 2). 2019-05-31. 2019. V5. Harvard Dataverse. URL. https://doi.org/10.7910/DVN/H8SFD2. doi/10.7910/DVN/H8SFD2
 
 2. Wu, Kai. September 2022. Liquid Venture Capital. Sparkline Capital. https://www.sparklinecapital.com/post/liquid-venture-capital
+
+3. Replicate Canada Export Plot. https://atlas.cid.harvard.edu/explore 
