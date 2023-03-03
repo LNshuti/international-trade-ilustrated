@@ -42,27 +42,28 @@ def main():
     
     data = load_data()
     # Implement selector for state 
-    location_code = st.sidebar.selectbox('Select location_code', data['location_code'].unique())
+    print(data.head(10))
+    location_code = st.sidebar.selectbox('Importer', data['location_code'].unique())
 
     # Implement selector for partner_code 
-    partner_code = st.sidebar.selectbox('Select partner_code', data['partner_code'].unique())
+    partner_code = st.sidebar.selectbox('Exporter', data['Country Name'].unique())
 
     # Implement selector for description 
     #description = st.sidebar.selectbox('Select description', data['description'].unique())
     
     data = data[data['location_code'] == location_code]
-    data = data[data['partner_code'] == partner_code]
+    data = data[data['Country Name'] == partner_code]
     #data = data[data['description'] == description]
 
     # Select distinct location_code and use it in the title 
     location_code = data['location_code'].unique()
-    partner_code = data['partner_code'].unique()
+    partner_code = data['Country Name'].unique()
 
     # Find the top 10 import_value by location_code and partner_code
     data_top10 = data.sort_values(by='import_value', ascending=False).head(10)
 
     # Append location_code to the title
-    st.title('''Imports by ''' + str(location_code[0]) + ''' from ''' + str(partner_code[0]) + ''' in 2020''')
+    #st.title('''Imports by ''' + str(location_code[0]) + ''' from ''' + str(partner_code[0]) + ''' in 2020''')
     st.write(data_top10)
 
     if st.sidebar.checkbox("Show raw data", False):
