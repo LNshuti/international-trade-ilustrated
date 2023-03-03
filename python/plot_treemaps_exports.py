@@ -1,5 +1,6 @@
 # Use python to plot treemaps of exports by country and by product
 import pyarrow.parquet as pq
+import plotly.express as px
 import pandas as pd
 import squarify
 import matplotlib.pyplot as plt
@@ -162,6 +163,19 @@ def main():
 
     # Call the function
     plot_top10_partners(labelled_df, 'ESP')
+
+    largest_countries = ['USA', 'CHN', 'GBR', 'CAN', 'JPN', 'ITA', 'DEU', 'FRA', 'RUS']
+
+    largest_countries_exports_2020 = labelled_df[labelled_df["location_code"].isin(largest_countries)]
+    total_exports_ = largest_countries_exports_2020.groupby(['partner_code', 'location_code']).agg({'export_value': ['sum']}).stb.flatten()
+
+    for country in largest_countries:
+        if country == "USA":
+            print(country + " Exports in 2020")
+            country_exports = px.treemap(total_exports_[total_exports_["location_code"] == country], path=['partner_code'], values='export_value_sum')
+            country_exports.show()
+        else: 
+            pass
 
 if __name__ == "__main__":
     main()
