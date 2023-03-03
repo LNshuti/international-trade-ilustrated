@@ -35,6 +35,9 @@ Not all products are created equal. The plot above shows aggregated measures of 
 
 ![](output/usa_brics_top10_imports.png)
 
+
+The charts below are taken from the Atlas for Economic Complexity website at Harvard University. For more details follow this [link](https://atlas.cid.harvard.edu/explore ).
+
 **Canadian Exports**
 ![image](https://user-images.githubusercontent.com/13305262/222723723-ab2710a0-22a9-43cb-9d91-34ec055d9c32.png)
 
