@@ -36,7 +36,7 @@ def main():
         labelled_df = labelled_df.merge(pop_data, left_on='partner_code', right_on='Country Code', how='inner')
 
         # Drop the following columns: year, location_id, partner_id, export_value, parent_code, description, code, product_code
-        labelled_df = labelled_df.drop(columns=['year', 'location_id','product_id','sitc_product_code', 'partner_id','partner_code', 'export_value', 'parent_code', 'code'])
+        labelled_df = labelled_df.drop(columns=['year', 'location_id','product_id','sitc_eci','sitc_coi', 'sitc_product_code', 'partner_id','partner_code', 'export_value', 'parent_code', 'code'])
         
         return labelled_df
     
