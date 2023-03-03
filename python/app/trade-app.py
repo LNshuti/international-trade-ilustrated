@@ -48,21 +48,18 @@ def main():
     data = load_data()
     # Implement selector for state 
     print(data.head(10))
-    location_code = st.sidebar.selectbox('Importer', data['location_code'].unique())
 
     # Implement selector for location_code 
     location_code = st.sidebar.selectbox('Exporter', data['Country Name'].unique())
 
     # Implement selector for description 
     #description = st.sidebar.selectbox('Select description', data['description'].unique())
-    
-    data = data[data['location_code'] == location_code]
+
     data = data[data['Country Name'] == location_code]
     #data = data[data['description'] == description]
 
     # Select distinct location_code and use it in the title 
-    #location_code = data['location_code'].unique()
-    #location_code = data['Country Name'].unique()
+    location_code = data['Country Name'].unique()
 
     # Find the top 10 import_value by location_code and location_code
     data_top10 = data.sort_values(by='import_value', ascending=False).head(10)
