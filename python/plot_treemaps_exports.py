@@ -77,17 +77,17 @@ def plot_top10_partners(df, location_code):
     #df = df.sort(by='avg_trade_bal_per_capita', reverse=True)
 
     # Make the font human readable 
-    sns.set(font_scale=1.5)
+    # sns.set(font_scale=1.5)
 
-    fig, ax = plt.subplots(figsize=(5, 8))
-    sns.set_style("whitegrid")
-    sns.catplot(x='avg_trade_bal_per_capita', y='location_code', data=df, palette='Blues_d', kind='bar')
-    plt.title('')
-    plt.xlabel('Trade Balance Per Capita in USD')
-    plt.ylabel('')
-    # Seaborn decreasethe font size of y labels 
-    plt.yticks(fontsize=8, color='grey')
-    plt.show()
+    # fig, ax = plt.subplots(figsize=(5, 8))
+    # sns.set_style("whitegrid")
+    # sns.catplot(x='avg_trade_bal_per_capita', y='location_code', data=df, palette='Blues_d', kind='bar')
+    # plt.title('')
+    # plt.xlabel('Trade Balance Per Capita in USD')
+    # plt.ylabel('')
+    # # Seaborn decreasethe font size of y labels 
+    # plt.yticks(fontsize=8, color='grey')
+    # plt.show()
     # plt.savefig('../output/top10partners_all_countries_df_' + location_code + '.png', dpi=900)
 
 def main():
