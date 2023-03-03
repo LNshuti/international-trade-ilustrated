@@ -6,9 +6,14 @@ from typing import List
 from streamlit_searchbox import st_searchbox
 import polars as pl
 
+
+
 def main(): 
-    st.title("Trading Partners by Country")
-    st.sidebar.title("Country Code")
+     # set streamlit theme to dark by default 
+    st.set_page_config(layout="wide", page_icon="📈", initial_sidebar_state="expanded")
+
+    st.title("Trade between Countries")
+    #st.sidebar.subtitle("Search by country or product")    
     st.markdown("Explore countries and their trading partners")
 
     st.cache(persist=True)
@@ -46,24 +51,31 @@ def main():
         return labelled_df
     
     data = load_data()
-    # Implement selector for state 
-    print(data.head(10))
+
+    #print(data.head(10))
 
     # Implement selector for location_code 
     location_code = st.sidebar.selectbox('Exporter', data['Country Name'].unique())
 
     # Implement selector for description 
-    #description = st.sidebar.selectbox('Select description', data['description'].unique())
+    description = st.sidebar.selectbox('Product description', data['description'].unique())
 
     data = data[data['Country Name'] == location_code]
-    #data = data[data['description'] == description]
+    data = data[data['description'] == description]
 
     # Select distinct location_code and use it in the title 
     location_code = data['Country Name'].unique()
 
-    # Find the top 10 import_value by location_code and location_code
-    data_top10 = data.sort_values(by='import_value', ascending=False).head(10)
+    # sort by import_value
+    data_top10 = data.sort_values(by='import_value', ascending=False)
 
+    # Rename Country Name to Exporter
+    data_top10 = data_top10.rename(columns={'Country Name': 'Importer', 'Population': 'pop_20'})
+    # Select columns in this order: Exporter, partner_code, partner, import_value, description
+    data_top10 = data_top10[['Importer', 'import_value', 'description']]
+
+    # Drop duplicated rows 
+    data_top10 = data_top10.drop_duplicates()
     # Append location_code to the title
     #st.title('''Imports by ''' + str(location_code[0]) + ''' from ''' + str(location_code[0]) + ''' in 2020''')
     st.write(data_top10)
