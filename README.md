@@ -56,6 +56,9 @@ The charts below are taken from the Atlas for Economic Complexity website at Har
 **USA Exports**
 ![image](https://user-images.githubusercontent.com/13305262/222726256-b249f3e8-595b-4852-b320-a00e11505707.png)
 
+**Russian Exports**
+![image](https://user-images.githubusercontent.com/13305262/222796825-141d333a-1d75-40b8-822a-45e247b88d49.png)
+
 **Germany Imports**
 ![image](https://user-images.githubusercontent.com/13305262/222731468-13c021cb-0aed-430f-a7a6-88c28db9acb5.png)
 
