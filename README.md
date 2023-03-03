@@ -62,6 +62,9 @@ The charts below are taken from the Atlas for Economic Complexity website at Har
 **Russian Imports**
 ![image](https://user-images.githubusercontent.com/13305262/222797098-7d85e1b0-4b21-4925-9c5f-db75ef910d7a.png)
 
+**Russian Trade Partners Circa 2020**
+![image](https://user-images.githubusercontent.com/13305262/222797482-2f3be7e8-1763-4f63-b24e-36d1d08af964.png)
+
 **Germany Imports**
 ![image](https://user-images.githubusercontent.com/13305262/222731468-13c021cb-0aed-430f-a7a6-88c28db9acb5.png)
 
