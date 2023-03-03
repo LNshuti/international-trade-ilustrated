@@ -33,10 +33,15 @@ def main():
         labelled_df = trade_data_all_years.merge(product_labs, left_on='sitc_product_code', right_on='parent_code', how='inner')
 
         # Join pop_data 
-        labelled_df = labelled_df.merge(pop_data, left_on='partner_code', right_on='Country Code', how='inner')
+        labelled_df = labelled_df.merge(pop_data, left_on='location_code', right_on='Country Code', how='inner')
+
+        # Drop population
+        #pop_data = pop_data.drop(columns=['pop_2020'])
+
+        #labelled_df = labelled_df.merge(pop_data, left_on='location_code', right_on='Country Code', how='inner')
 
         # Drop the following columns: year, location_id, partner_id, export_value, parent_code, description, code, product_code
-        labelled_df = labelled_df.drop(columns=['year', 'location_id','product_id','sitc_eci','sitc_coi', 'sitc_product_code', 'partner_id','partner_code', 'export_value', 'parent_code', 'code'])
+        labelled_df = labelled_df.drop(columns=['year', 'location_id','product_id','sitc_eci','sitc_coi', 'sitc_product_code', 'partner_id','location_code', 'export_value', 'parent_code', 'code'])
         
         return labelled_df
     
@@ -45,25 +50,25 @@ def main():
     print(data.head(10))
     location_code = st.sidebar.selectbox('Importer', data['location_code'].unique())
 
-    # Implement selector for partner_code 
-    partner_code = st.sidebar.selectbox('Exporter', data['Country Name'].unique())
+    # Implement selector for location_code 
+    location_code = st.sidebar.selectbox('Exporter', data['Country Name'].unique())
 
     # Implement selector for description 
     #description = st.sidebar.selectbox('Select description', data['description'].unique())
     
     data = data[data['location_code'] == location_code]
-    data = data[data['Country Name'] == partner_code]
+    data = data[data['Country Name'] == location_code]
     #data = data[data['description'] == description]
 
     # Select distinct location_code and use it in the title 
     location_code = data['location_code'].unique()
-    partner_code = data['Country Name'].unique()
+    location_code = data['Country Name'].unique()
 
-    # Find the top 10 import_value by location_code and partner_code
+    # Find the top 10 import_value by location_code and location_code
     data_top10 = data.sort_values(by='import_value', ascending=False).head(10)
 
     # Append location_code to the title
-    #st.title('''Imports by ''' + str(location_code[0]) + ''' from ''' + str(partner_code[0]) + ''' in 2020''')
+    #st.title('''Imports by ''' + str(location_code[0]) + ''' from ''' + str(location_code[0]) + ''' in 2020''')
     st.write(data_top10)
 
     if st.sidebar.checkbox("Show raw data", False):
