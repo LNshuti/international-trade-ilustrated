@@ -68,8 +68,11 @@ The charts below are taken from the Atlas for Economic Complexity website at Har
 **Russian Trade Partners Circa 2020. Exports by Russia**
 ![image](https://user-images.githubusercontent.com/13305262/222798408-4eff9d74-004b-419a-b809-2fca04cfdec2.png)
 
-**Germany Imports**
+**German Imports**
 ![image](https://user-images.githubusercontent.com/13305262/222731468-13c021cb-0aed-430f-a7a6-88c28db9acb5.png)
+
+**German Exports**
+![image](https://user-images.githubusercontent.com/13305262/222840334-14816075-056f-422d-b998-ad85ec50b034.png)
 
 ### References 
 1. The Growth Lab at Harvard University. International Trade Data (SITC, Rev. 2). 2019-05-31. 2019. V5. Harvard Dataverse. URL. https://doi.org/10.7910/DVN/H8SFD2. doi/10.7910/DVN/H8SFD2
