@@ -41,6 +41,12 @@ Not all products are created equal. The plot above shows aggregated measures of 
 **Canadian Imports**
 ![image](https://user-images.githubusercontent.com/13305262/222724364-f1d06c2f-a038-418f-a15b-5add1aa597dc.png)
 
+**USA Imports**
+![image](https://user-images.githubusercontent.com/13305262/222725045-b9e8ff4b-c6f5-496e-9002-5a51225c6dce.png)
+
+**USA Exports**
+![image](https://user-images.githubusercontent.com/13305262/222726256-b249f3e8-595b-4852-b320-a00e11505707.png)
+
 ### References 
 1. The Growth Lab at Harvard University. International Trade Data (SITC, Rev. 2). 2019-05-31. 2019. V5. Harvard Dataverse. URL. https://doi.org/10.7910/DVN/H8SFD2. doi/10.7910/DVN/H8SFD2
 
