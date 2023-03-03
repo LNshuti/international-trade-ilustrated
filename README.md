@@ -50,6 +50,10 @@ The charts below are taken from the Atlas for Economic Complexity website at Har
 **China Exports**
 ![image](https://user-images.githubusercontent.com/13305262/222734074-e476b741-0aa5-4b0a-9aa1-b526288ad4ee.png)
 
+**China Trade Partners**
+
+
+
 **USA Imports**
 ![image](https://user-images.githubusercontent.com/13305262/222725045-b9e8ff4b-c6f5-496e-9002-5a51225c6dce.png)
 
