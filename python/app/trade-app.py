@@ -10,7 +10,7 @@ import polars as pl
 
 def main(): 
      # set streamlit theme to dark by default 
-    st.set_page_config(layout="wide", page_icon="📈", initial_sidebar_state="expanded")
+    st.set_page_config(layout="wide", page_icon="plots/us_dollar.png", initial_sidebar_state="expanded")
 
     st.title("Trade between Countries")
     #st.sidebar.subtitle("Search by country or product")    
@@ -55,7 +55,7 @@ def main():
     #print(data.head(10))
 
     # Implement selector for location_code 
-    location_code = st.sidebar.selectbox('Exporter', data['Country Name'].unique())
+    location_code = st.sidebar.selectbox('Importer', data['Country Name'].unique())
 
     # Implement selector for description 
     description = st.sidebar.selectbox('Product description', data['description'].unique())
