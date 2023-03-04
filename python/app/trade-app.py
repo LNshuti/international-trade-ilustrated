@@ -49,7 +49,7 @@ def main():
         print(labelled_df.head(10))
         print(labelled_df.columns)
         #join pop_data to labelled_df
-        #labelled_df = labelled_df.merge(pop_data, left_on='partner_id', right_on='Country Code', how='inner')
+        labelled_df = labelled_df.merge(pop_data, left_on='partner_code', right_on='Country Code', how='inner')
         # Drop population
         #pop_data = pop_data.drop(columns=['pop_2020'])
 
