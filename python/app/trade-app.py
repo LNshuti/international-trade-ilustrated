@@ -40,6 +40,13 @@ def main():
         # Join pop_data 
         labelled_df = labelled_df.merge(pop_data, left_on='location_code', right_on='Country Code', how='inner')
 
+        # Keep only the following two columns from pop_data: Country Name, Country Code
+        pop_data = pop_data[['Country Name', 'Country Code']]
+        # Rename Country Name to Importer
+        pop_data = pop_data.rename(columns={'Country Name': 'Importer'})
+
+        #join pop_data to labelled_df
+        labelled_df = labelled_df.merge(pop_data, left_on='partner_id', right_on='Country Code', how='inner')
         # Drop population
         #pop_data = pop_data.drop(columns=['pop_2020'])
 
