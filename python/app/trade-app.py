@@ -46,7 +46,7 @@ def main():
         #labelled_df = labelled_df.merge(pop_data, left_on='location_code', right_on='Country Code', how='inner')
 
         # Drop the following columns: year, location_id, partner_id, export_value, parent_code, description, code, product_code
-        labelled_df = labelled_df.drop(columns=['year', 'location_id','product_id','sitc_eci','sitc_coi', 'sitc_product_code', 'partner_id','location_code', 'export_value', 'parent_code', 'code'])
+        labelled_df = labelled_df.drop(columns=['year', 'location_id','product_id','sitc_eci','sitc_coi', 'sitc_product_code','location_code', 'export_value', 'parent_code', 'code'])
         
         return labelled_df
     
@@ -57,10 +57,14 @@ def main():
     # Implement selector for location_code 
     location_code = st.sidebar.selectbox('Importer', data['Country Name'].unique())
 
+    # Implement selector for location_code 
+    partner_id = st.sidebar.selectbox('Exporter', data['partner_id'].unique())
+
     # Implement selector for description 
     description = st.sidebar.selectbox('Product description', data['description'].unique())
 
     data = data[data['Country Name'] == location_code]
+    data = data[data['partner_id'] == partner_id]
     data = data[data['description'] == description]
 
     # Select distinct location_code and use it in the title 
@@ -72,7 +76,7 @@ def main():
     # Rename Country Name to Exporter
     data_top10 = data_top10.rename(columns={'Country Name': 'Importer', 'Population': 'pop_20'})
     # Select columns in this order: Exporter, partner_code, partner, import_value, description
-    data_top10 = data_top10[['Importer', 'import_value', 'description']]
+    data_top10 = data_top10[['Importer','partner_id', 'import_value', 'description']]
 
     # Drop duplicated rows 
     data_top10 = data_top10.drop_duplicates()
