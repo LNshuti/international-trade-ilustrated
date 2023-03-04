@@ -76,7 +76,7 @@ def main():
     # Rename Country Name to Exporter
     data_top10 = data_top10.rename(columns={'Country Name': 'Importer', 'Population': 'pop_20'})
     # Select columns in this order: Exporter, partner_code, partner, import_value, description
-    data_top10 = data_top10[['Importer','partner_id', 'import_value', 'description']]
+    #data_top10 = data_top10[['Importer','partner_id', 'import_value', 'description']]
 
     # Drop duplicated rows 
     data_top10 = data_top10.drop_duplicates()
