@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from typing import List 
 from streamlit_searchbox import st_searchbox
 import polars as pl
-
+import seaborn as sns
 
 
 def main(): 
@@ -99,6 +99,17 @@ def main():
     # Append location_code to the title
     #st.title('''Imports by ''' + str(location_code[0]) + ''' from ''' + str(location_code[0]) + ''' in 2020''')
     st.write(data_top10)
+
+    def plot_deficits_bycountry(df, location_code):
+        # Plot bar plot andsave plot as png to output folder. Use seaborn for styling
+        fig, ax = plt.subplots(figsize=(5, 3))
+        sns.set_style("whitegrid")
+        sns.catplot(x='trade_balance_millions', y='partner_code', data=df, palette='Blues_d', kind='bar')
+        plt.title(location_code)
+        plt.xlabel('Trade Balance In Millions of USD')
+        plt.ylabel('')
+        # plt.savefig('../output/top10partners_' + location_code + '.png', dpi=300, bbox_inches='tight')
+
 
     if st.sidebar.checkbox("Show raw data", False):
         st.subheader('Raw data')
