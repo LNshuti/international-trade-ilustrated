@@ -61,6 +61,8 @@ Not all products are created equal. The plot above shows aggregated measures of 
 
 **Global Currencies and Reserves**
 
+<img width="813" alt="image" src="https://user-images.githubusercontent.com/13305262/222987949-74974087-0077-43ec-91d5-ed9f72de9213.png">
+
 **Appendix:**
 -------------
 
