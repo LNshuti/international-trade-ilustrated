@@ -129,7 +129,7 @@ def main():
         # Plot histogram of import_value
         sns.barplot(x="import_value", y="sitc_product_code", data=df.head(), palette="Blues_d")
 
-        ax.xaxis.set_major_formatter(mpl.ticker.StrMethodFormatter('${.0f}'))
+        ax.xaxis.set_major_formatter(mpl.ticker.StrMethodFormatter('${x:,.0f}'))
 
         # Set x-axis label
         plt.xlabel('Import value (USD)')
