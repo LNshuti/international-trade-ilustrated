@@ -30,6 +30,7 @@ In 2020, China had a surplus relative to the United States, Hong Kong, Great Bri
 
 Not all products are created equal. The plot above shows aggregated measures of exports but does not include details on what these traded products are. In the table below, we show the top exports for each of the countries from figure 1 classified by Maslow's hierarchy of needs. 
 
+**United States Trade Balance: 2.13 T - 2.72 T = 0.59 T Trade Deficit**
 
 **USA Imports**
 ![image](https://user-images.githubusercontent.com/13305262/222725045-b9e8ff4b-c6f5-496e-9002-5a51225c6dce.png)
