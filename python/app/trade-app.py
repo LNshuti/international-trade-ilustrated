@@ -77,11 +77,11 @@ def main():
     partner_id = st.sidebar.selectbox('Exporter', data['partner_code'].unique())
 
     # Implement selector for description 
-    description = st.sidebar.selectbox('Product description', data['description'].unique())
+    # description = st.sidebar.selectbox('Product description', data['description'].unique())
 
     data = data[data['Country Name'] == location_code]
     data = data[data['partner_code'] == partner_id]
-    data = data[data['description'] == description]
+    # data = data[data['description'] == description]
 
     # Select distinct location_code and use it in the title 
     location_code = data['Country Name'].unique()
