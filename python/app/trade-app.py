@@ -111,13 +111,30 @@ def main():
         
         # Convert import_value to numeric
         df["import_value"] = pd.to_numeric(df["import_value"], errors='coerce')
+
+        # select import_value, partner_code, sitc_product_code
+        df = df[['import_value', 'partner_code', 'sitc_product_code']]
+        # select first row by group
+        df = df.groupby(['partner_code', 'sitc_product_code']).first().reset_index()
+        # Sort by import_value descending
+        df = df.sort_values(by='import_value', ascending=False)
         print(df.head(10))
          # Plot bar plot andsave plot as png to output folder. Use seaborn for styling
         fig, ax = plt.subplots(figsize=(5, 3))
         sns.set_style(style="whitegrid") # set seaborn plot style
 
+        # Style x axis to dollars
+        import matplotlib as mpl
+       
         # Plot histogram of import_value
         sns.barplot(x="import_value", y="sitc_product_code", data=df.head(), palette="Blues_d")
+
+        ax.xaxis.set_major_formatter(mpl.ticker.StrMethodFormatter('${x:,.0f}'))
+
+        # Set x-axis label
+        plt.xlabel('Import value (USD)')
+        # Set y-axis label
+        plt.ylabel('Product code')
         # Set title
         st.write(fig)
         #plt.savefig('../output/top10partners_' + location_code + '.png', dpi=300, bbox_inches='tight')
