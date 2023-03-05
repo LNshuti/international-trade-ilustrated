@@ -40,24 +40,32 @@ def main():
         # Join pop_data 
         labelled_df = labelled_df.merge(pop_data, left_on='location_code', right_on='Country Code', how='inner')
 
+        # Drop Country Code 
+        labelled_df = labelled_df.drop(columns=['Country Code'])
+
         # Keep only the following two columns from pop_data: Country Name, Country Code
         pop_data = pop_data[['Country Name', 'Country Code']]
         # Rename Country Name to Importer
         pop_data = pop_data.rename(columns={'Country Name': 'Importer'})
 
-        print(pop_data.head(10))
-        print(labelled_df.head(10))
-        print(labelled_df.columns)
+        # Only keep the following columns from labelled_df: Importer, partner_code, partner, import_value, descrip
+        print(pop_data.columns)
         #join pop_data to labelled_df
-        labelled_df = labelled_df.merge(pop_data, left_on='partner_code', right_on='Country Code', how='inner')
+      
         # Drop population
         #pop_data = pop_data.drop(columns=['pop_2020'])
+        # From pop_data, keep only the following columns: Country Name, Country Code
+        # Only keep uniuqe rows
+        pop_data = pop_data[['Importer', 'Country Code']].drop_duplicates() 
 
+        print(pop_data.head())
         #labelled_df = labelled_df.merge(pop_data, left_on='location_code', right_on='Country Code', how='inner')
 
         # Drop the following columns: year, location_id, partner_id, export_value, parent_code, description, code, product_code
         labelled_df = labelled_df.drop(columns=['year', 'location_id','product_id','sitc_eci','sitc_coi', 'sitc_product_code','location_code', 'export_value', 'parent_code', 'code'])
-        
+        print(labelled_df.head())
+        #labelled_df = labelled_df.merge(pop_data, left_on='partner_code', right_on='Country Code', how='inner')
+    
         return labelled_df
     
     data = load_data()
@@ -68,7 +76,7 @@ def main():
     location_code = st.sidebar.selectbox('Importer', data['Country Name'].unique())
 
     # Implement selector for location_code 
-    partner_id = st.sidebar.selectbox('Exporter', data['partner_id'].unique())
+    partner_id = st.sidebar.selectbox('Exporter', data['partner_code'].unique())
 
     # Implement selector for description 
     description = st.sidebar.selectbox('Product description', data['description'].unique())
