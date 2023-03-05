@@ -105,11 +105,12 @@ def main():
         fig, ax = plt.subplots(figsize=(5, 3))
         sns.set_style(style="whitegrid") # set seaborn plot style
         sizes= df["import_value"].values# proportions of the categories
-        label=df["import_value"]
+        label=df["location_code"]
         squarify.plot(sizes=sizes, label=label, alpha=0.6).set(title='Treemap with Squarify')
         plt.axis('off')
         # plt.savefig('../output/top10partners_' + location_code + '.png', dpi=300, bbox_inches='tight')
         st.pyplot(fig)
+
     plot_deficits_bycountry(data_top10, location_code)
 
     if st.sidebar.checkbox("Show raw data", False):
