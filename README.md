@@ -59,6 +59,8 @@ Not all products are created equal. The plot above shows aggregated measures of 
 
 ![](output/usa_brics_top10_imports.png)
 
+**Global Currencies and Reserves**
+
 **Appendix:**
 -------------
 
