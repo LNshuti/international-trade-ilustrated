@@ -14,7 +14,6 @@ def main():
 
     st.title("Trade between Countries")
     #st.sidebar.subtitle("Search by country or product")    
-    st.markdown("Explore countries and their trading partners")
 
     st.cache(persist=True)
     def load_data():     
