@@ -95,7 +95,7 @@ def main():
     data_top10 = data_top10[['Importer', 'pop_2020','partner_code', 'import_value', 'description']]
 
     # Drop duplicated rows 
-    data_top10 = data_top10.drop_duplicates()
+    data_top10 = data_top10.reset_index().drop_duplicates()
 
     # Select first row by group 
     data_top10 = data_top10.groupby(['Importer', 'pop_2020','partner_code', 'description']).first().reset_index()
