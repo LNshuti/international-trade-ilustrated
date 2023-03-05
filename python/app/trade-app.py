@@ -80,7 +80,7 @@ def main():
     description = st.sidebar.selectbox('Product description', data['description'].unique())
 
     data = data[data['Country Name'] == location_code]
-    data = data[data['partner_id'] == partner_id]
+    data = data[data['partner_code'] == partner_id]
     data = data[data['description'] == description]
 
     # Select distinct location_code and use it in the title 
