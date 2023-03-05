@@ -6,7 +6,7 @@ from typing import List
 from streamlit_searchbox import st_searchbox
 import polars as pl
 import seaborn as sns
-
+import squarify
 
 def main(): 
      # set streamlit theme to dark by default 
@@ -103,11 +103,11 @@ def main():
     def plot_deficits_bycountry(df, location_code):
         # Plot bar plot andsave plot as png to output folder. Use seaborn for styling
         fig, ax = plt.subplots(figsize=(5, 3))
-        sns.set_style("whitegrid")
-        sns.catplot(x='import_value', y='description', data=df, palette='Blues_d', kind='bar')
-        plt.title(location_code)
-        plt.xlabel('Trade Balance In Millions of USD')
-        plt.ylabel('')
+        sns.set_style(style="whitegrid") # set seaborn plot style
+        sizes= df["import_value"].values# proportions of the categories
+        label=df["import_value"]
+        squarify.plot(sizes=sizes, label=label, alpha=0.6).set(title='Treemap with Squarify')
+        plt.axis('off')
         # plt.savefig('../output/top10partners_' + location_code + '.png', dpi=300, bbox_inches='tight')
         st.pyplot(fig)
     plot_deficits_bycountry(data_top10, location_code)
