@@ -37,6 +37,13 @@ Not all products are created equal. The plot above shows aggregated measures of 
 **USA Exports**
 ![image](https://user-images.githubusercontent.com/13305262/222726256-b249f3e8-595b-4852-b320-a00e11505707.png)
 
+
+**China Imports**
+![image](https://user-images.githubusercontent.com/13305262/222733866-612d0724-408e-450e-ac37-238903e94eb2.png)
+
+**China Exports**
+![image](https://user-images.githubusercontent.com/13305262/222734074-e476b741-0aa5-4b0a-9aa1-b526288ad4ee.png)
+
 **Figure 2: Top 10 Product Imports**
 
 ![](output/usa_brics_top10_imports.png)
@@ -50,11 +57,6 @@ The charts below are taken from the Atlas for Economic Complexity website at Har
 **Canadian Imports**
 ![image](https://user-images.githubusercontent.com/13305262/222724364-f1d06c2f-a038-418f-a15b-5add1aa597dc.png)
 
-**China Imports**
-![image](https://user-images.githubusercontent.com/13305262/222733866-612d0724-408e-450e-ac37-238903e94eb2.png)
-
-**China Exports**
-![image](https://user-images.githubusercontent.com/13305262/222734074-e476b741-0aa5-4b0a-9aa1-b526288ad4ee.png)
 
 **China Trade Partners**
 
