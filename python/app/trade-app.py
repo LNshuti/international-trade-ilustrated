@@ -61,7 +61,7 @@ def main():
         #labelled_df = labelled_df.merge(pop_data, left_on='location_code', right_on='Country Code', how='inner')
 
         # Drop the following columns: year, location_id, partner_id, export_value, parent_code, description, code, product_code
-        labelled_df = labelled_df.drop(columns=['year', 'location_id','product_id','sitc_eci','sitc_coi', 'sitc_product_code','location_code', 'export_value', 'parent_code', 'code'])
+        labelled_df = labelled_df.drop(columns=['year','pop_2020', 'location_id','product_id','sitc_eci','sitc_coi', 'sitc_product_code','location_code', 'export_value', 'parent_code', 'code'])
         #labelled_df = labelled_df.merge(pop_data, left_on='partner_code', right_on='Country Code', how='inner')
     
         return labelled_df
@@ -92,13 +92,13 @@ def main():
     # Rename Country Name to Exporter
     data_top10 = data_top10.rename(columns={'Country Name': 'Importer', 'Population': 'pop_20'})
     # Select columns in this order: Exporter, partner_code, partner, import_value, description
-    data_top10 = data_top10[['Importer', 'pop_2020','partner_code', 'import_value', 'description']]
+    data_top10 = data_top10[['Importer','partner_code', 'import_value', 'description']]
 
     # Drop duplicated rows 
     data_top10 = data_top10.reset_index().drop_duplicates()
 
     # Select first row by group 
-    data_top10 = data_top10.groupby(['Importer', 'pop_2020','partner_code', 'description']).first().reset_index()
+    data_top10 = data_top10.groupby(['Importer', 'partner_code', 'description']).first().reset_index()
 
     # Append location_code to the title
     #st.title('''Imports by ''' + str(location_code[0]) + ''' from ''' + str(location_code[0]) + ''' in 2020''')
