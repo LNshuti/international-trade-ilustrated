@@ -113,7 +113,7 @@ def main():
         # plt.savefig('../output/top10partners_' + location_code + '.png', dpi=300, bbox_inches='tight')
         st.pyplot(fig)
 
-    plot_deficits_bycountry(data_top10, location_code)
+    #plot_deficits_bycountry(data_top10, location_code)
 
     if st.sidebar.checkbox("Show raw data", False):
         st.subheader('Raw data')
