@@ -59,6 +59,8 @@ Not all products are created equal. The plot above shows aggregated measures of 
 
 ![](output/usa_brics_top10_imports.png)
 
+**Appendix:**
+-------------
 
 The charts below are taken from the Atlas for Economic Complexity website at Harvard University. For more details follow this [link](https://atlas.cid.harvard.edu/explore ).
 
