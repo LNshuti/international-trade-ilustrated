@@ -20,7 +20,7 @@ trade_data_all_years <-
   as_tibble() %>%
   filter(grepl(pattern = "partner_sitcproduct4digit", x = value)) %>%
   filter(grepl(pattern = ".parquet", x = value)) %>%
-  filter(grepl(pattern = "2020|2019", x = value)) %>%
+  filter(grepl(pattern = "2020", x = value)) %>%
   pull(value)
 
 allcountries_trade_df <-
@@ -46,7 +46,7 @@ pop_data <-
 
 usa_brics <-
   allcountries_trade_df %>% 
-  filter(location_code %in% c("USA", "CHN", "RUS", "IND", "ZAF")) %>%
+  filter(location_code %in% c("USA", "CHN", "RUS", "IND", "ZAF", "CAN")) %>%
   inner_join(pop_data, by = c("location_code" = "country_code")) %>% 
   left_join(product_labs, by = c("sitc_product_code" = "parent_code")) %>% 
   select(description, everything()) %>%
