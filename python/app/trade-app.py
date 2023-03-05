@@ -104,6 +104,8 @@ def main():
         # Plot bar plot andsave plot as png to output folder. Use seaborn for styling
         fig, ax = plt.subplots(figsize=(5, 3))
         sns.set_style(style="whitegrid") # set seaborn plot style
+        # Convert import_value to numeric
+        df["import_value"] = pd.to_numeric(df["import_value"], errors='coerce')
         sizes= df["import_value"].values# proportions of the categories
         #label=df["location_code"]
         squarify.plot(sizes=sizes, label=location_code, alpha=0.6).set(title='Treemap with Squarify')
