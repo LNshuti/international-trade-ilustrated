@@ -30,6 +30,21 @@ In 2020, China had a surplus relative to the United States, Hong Kong, Great Bri
 
 Not all products are created equal. The plot above shows aggregated measures of exports but does not include details on what these traded products are. In the table below, we show the top exports for each of the countries from figure 1 classified by Maslow's hierarchy of needs. 
 
+**United States Trade Balance: 2.13 T - 2.72 T = 0.59 T Trade Deficit**
+
+**USA Imports**
+![image](https://user-images.githubusercontent.com/13305262/222725045-b9e8ff4b-c6f5-496e-9002-5a51225c6dce.png)
+
+**USA Exports**
+![image](https://user-images.githubusercontent.com/13305262/222726256-b249f3e8-595b-4852-b320-a00e11505707.png)
+
+**China Trade Balance: 2.01 T - 2.81 T = 0.8 T Trade Deficit**
+
+**China Imports**
+![image](https://user-images.githubusercontent.com/13305262/222733866-612d0724-408e-450e-ac37-238903e94eb2.png)
+
+**China Exports**
+![image](https://user-images.githubusercontent.com/13305262/222734074-e476b741-0aa5-4b0a-9aa1-b526288ad4ee.png)
 
 **Figure 2: Top 10 Product Imports**
 
@@ -44,21 +59,8 @@ The charts below are taken from the Atlas for Economic Complexity website at Har
 **Canadian Imports**
 ![image](https://user-images.githubusercontent.com/13305262/222724364-f1d06c2f-a038-418f-a15b-5add1aa597dc.png)
 
-**China Imports**
-![image](https://user-images.githubusercontent.com/13305262/222733866-612d0724-408e-450e-ac37-238903e94eb2.png)
-
-**China Exports**
-![image](https://user-images.githubusercontent.com/13305262/222734074-e476b741-0aa5-4b0a-9aa1-b526288ad4ee.png)
 
 **China Trade Partners**
-
-
-
-**USA Imports**
-![image](https://user-images.githubusercontent.com/13305262/222725045-b9e8ff4b-c6f5-496e-9002-5a51225c6dce.png)
-
-**USA Exports**
-![image](https://user-images.githubusercontent.com/13305262/222726256-b249f3e8-595b-4852-b320-a00e11505707.png)
 
 **Russian Exports**
 ![image](https://user-images.githubusercontent.com/13305262/222796825-141d333a-1d75-40b8-822a-45e247b88d49.png)
