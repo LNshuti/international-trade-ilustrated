@@ -20,7 +20,7 @@ trade_data_all_years <-
   as_tibble() %>%
   filter(grepl(pattern = "partner_sitcproduct4digit", x = value)) %>%
   filter(grepl(pattern = ".parquet", x = value)) %>%
-  #filter(grepl(pattern = "2020", x = value)) %>%
+  filter(grepl(pattern = "2020|2019", x = value)) %>%
   pull(value)
 
 allcountries_trade_df <-
