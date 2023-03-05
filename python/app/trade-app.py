@@ -111,6 +111,8 @@ def main():
         
         # Convert import_value to numeric
         df["import_value"] = pd.to_numeric(df["import_value"], errors='coerce')
+        # divide by a millin 
+        df["import_value"] = df["import_value"] / 1000000
 
         # select import_value, partner_code, sitc_product_code
         df = df[['import_value', 'partner_code', 'sitc_product_code']]
@@ -129,10 +131,10 @@ def main():
         # Plot histogram of import_value
         sns.barplot(x="import_value", y="sitc_product_code", data=df.head(), palette="Blues_d")
 
-        ax.xaxis.set_major_formatter(mpl.ticker.StrMethodFormatter('${x:,.0f}'))
+        ax.xaxis.set_major_formatter(mpl.ticker.StrMethodFormatter('{x:,.0f}'))
 
         # Set x-axis label
-        plt.xlabel('Import value (USD)')
+        plt.xlabel('Import value (Millions USD)')
         # Set y-axis label
         plt.ylabel('Product code')
         # Set title
