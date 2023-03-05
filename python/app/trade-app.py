@@ -97,7 +97,10 @@ def main():
     data_top10 = data_top10.reset_index().drop_duplicates()
 
     # Select first row by group 
-    data_top10 = data_top10.groupby(['Importer', 'partner_code', 'description', 'sitc_product_code']).first().reset_index()
+    data_top10 = data_top10.groupby(['Importer', 'partner_code', 'description', 'sitc_product_code']).first().reset_index() 
+
+    # convert sitc_product_code to string 
+    data_top10['sitc_product_code'] = data_top10['sitc_product_code'].astype(str)
 
     # Append location_code to the title
     #st.title('''Imports by ''' + str(location_code[0]) + ''' from ''' + str(location_code[0]) + ''' in 2020''')
@@ -114,7 +117,7 @@ def main():
         sns.set_style(style="whitegrid") # set seaborn plot style
 
         # Plot histogram of import_value
-        sns.barplot(x="import_value", y="sitc_product_code", data=df, palette="Blues_d")
+        sns.barplot(x="import_value", y="sitc_product_code", data=df.head(), palette="Blues_d")
         # Set title
         st.write(fig)
         #plt.savefig('../output/top10partners_' + location_code + '.png', dpi=300, bbox_inches='tight')

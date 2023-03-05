@@ -95,7 +95,7 @@ dbWriteTable(con, "usa_brics", usa_brics, overwrite = TRUE)
 
 summary_df <-
   dbGetQuery(con, 
-             'SELECT "country_name", SUM("export_value" - "import_value") as trade_balance FROM usa_brics GROUP BY "country_name"')
+             'SELECT "country_name", "partner_code", SUM("export_value" - "import_value") as trade_balance FROM usa_brics GROUP BY "country_name", "partner_code"')
 
 summary_tbl <- 
   summary_df %>% 
@@ -108,7 +108,7 @@ top_df <-
   summary_tbl %>%
   filter(trade_balance > 0) %>%
   arrange(desc(trade_balance)) %>%
-  group_by(country_name) %>%
+  group_by(partner_code, country_name) %>%
   slice(1:10) %>% 
   ungroup()
 
@@ -116,7 +116,7 @@ bottom_df <-
   summary_tbl %>%
   filter(trade_balance < 0) %>%
   arrange(trade_balance) %>%
-  group_by(country_name) %>%
+  group_by(partner_code,country_name) %>%
   slice(1:10) %>% 
   ungroup()
 
