@@ -16,7 +16,7 @@ country_ids <-
 
 #Combine trade data from 2000 to 2020
 trade_data_all_years <-
-  list.files(paste0("../../dataverse_files"), recursive = TRUE) %>%
+  list.files(paste0("../../dataverse-files"), recursive = TRUE) %>%
   as_tibble() %>%
   filter(grepl(pattern = "partner_sitcproduct4digit", x = value)) %>%
   filter(grepl(pattern = ".parquet", x = value)) %>%
@@ -25,7 +25,7 @@ trade_data_all_years <-
 
 allcountries_trade_df <-
   trade_data_all_years %>%
-  map(~arrow::read_parquet(file = paste0("../../dataverse_files/",.x)) %>%
+  map(~arrow::read_parquet(file = paste0("../../dataverse-files/",.x)) %>%
         janitor::clean_names() %>% 
         # filter(location_code %in% c("USA", "CHN", "RUS", "BWA")) %>%
         as_tibble() %>%
@@ -95,7 +95,7 @@ dbWriteTable(con, "usa_brics", usa_brics, overwrite = TRUE)
 
 summary_df <-
   dbGetQuery(con, 
-             'SELECT "country_name", "partner_code", name, rank,  SUM("export_value" - "import_value") as trade_balance FROM usa_brics GROUP BY "country_name", "partner_code", "name", "rank"')
+             'SELECT "country_name", SUM("export_value" - "import_value") as trade_balance FROM usa_brics GROUP BY "country_name"')
 
 summary_tbl <- 
   summary_df %>% 
