@@ -98,7 +98,7 @@ def main():
     data_top10 = data_top10.drop_duplicates()
 
     # Select first row by group 
-    data_top10 = data_top10.groupby(['Importer', 'pop_2020','partner_code', 'description']).first().reset_index()
+    data_top10 = data_top10.groupby(['Importer', 'pop_2020','partner_code']).first().reset_index()
 
     # Append location_code to the title
     #st.title('''Imports by ''' + str(location_code[0]) + ''' from ''' + str(location_code[0]) + ''' in 2020''')
