@@ -46,7 +46,7 @@ Not all products are created equal. The plot above shows aggregated measures of 
 **China Trade Balance:**
 ```{python}
 2.01 T - 2.81 T = 0.8 T Trade Deficit
-0.8 T /  1.41 B = Deficit Per Person
+0.8 T /  1.41 B = $57 Deficit Per Person
 ```
 
 **China Imports**
