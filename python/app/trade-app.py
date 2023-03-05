@@ -49,7 +49,7 @@ def main():
         pop_data = pop_data.rename(columns={'Country Name': 'Importer'})
 
         # Only keep the following columns from labelled_df: Importer, partner_code, partner, import_value, descrip
-        print(pop_data.columns)
+    
         #join pop_data to labelled_df
       
         # Drop population
@@ -58,12 +58,10 @@ def main():
         # Only keep uniuqe rows
         pop_data = pop_data[['Importer', 'Country Code']].drop_duplicates() 
 
-        print(pop_data.head())
         #labelled_df = labelled_df.merge(pop_data, left_on='location_code', right_on='Country Code', how='inner')
 
         # Drop the following columns: year, location_id, partner_id, export_value, parent_code, description, code, product_code
         labelled_df = labelled_df.drop(columns=['year', 'location_id','product_id','sitc_eci','sitc_coi', 'sitc_product_code','location_code', 'export_value', 'parent_code', 'code'])
-        print(labelled_df.head())
         #labelled_df = labelled_df.merge(pop_data, left_on='partner_code', right_on='Country Code', how='inner')
     
         return labelled_df
