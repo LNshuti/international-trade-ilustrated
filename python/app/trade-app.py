@@ -107,10 +107,7 @@ def main():
     #st.title('''Imports by ''' + str(location_code[0]) + ''' from ''' + str(location_code[0]) + ''' in 2020''')
             # Drop "index" column  
     #df = df.groupby(['partner_code', 'sitc_product_code']).first().reset_index() 
-    data_top10 = data_top10.drop(columns=['index'])
-
-       # select first row by group
-    data_top10 = data_top10.groupby(['Importer','partner_code', 'sitc_product_code']).first()
+    data_top10 = data_top10.drop(columns=['index']).drop_duplicates()
     st.write(data_top10)
 
     def plot_deficits_bycountry(df, location_code):
