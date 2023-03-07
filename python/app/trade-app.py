@@ -6,6 +6,7 @@ from typing import List
 from streamlit_searchbox import st_searchbox
 import polars as pl
 import seaborn as sns
+import matplotlib as mpl
 import squarify
 
 def main(): 
@@ -104,10 +105,12 @@ def main():
 
     # Append location_code to the title
     #st.title('''Imports by ''' + str(location_code[0]) + ''' from ''' + str(location_code[0]) + ''' in 2020''')
+            # Drop "index" column  
+    #df = df.groupby(['partner_code', 'sitc_product_code']).first().reset_index() 
+    data_top10 = data_top10.drop(columns=['index'])
     st.write(data_top10)
 
     def plot_deficits_bycountry(df, location_code):
-       
         
         # Convert import_value to numeric
         df["import_value"] = pd.to_numeric(df["import_value"], errors='coerce')
@@ -117,17 +120,15 @@ def main():
         # select import_value, partner_code, sitc_product_code
         df = df[['import_value', 'partner_code', 'sitc_product_code']]
         # select first row by group
-        df = df.groupby(['partner_code', 'sitc_product_code']).first()
+        df = df.groupby(['partner_code', 'sitc_product_code']).first().reset_index()
         # Sort by import_value descending
         df = df.sort_values(by='import_value', ascending=False)
-        print(df.head(10))
+
+        print(df.head())
+        print(df.columns)
          # Plot bar plot andsave plot as png to output folder. Use seaborn for styling
         fig, ax = plt.subplots(figsize=(5, 3))
         sns.set_style(style="whitegrid") # set seaborn plot style
-
-        # Style x axis to dollars
-        import matplotlib as mpl
-       
         # Plot histogram of import_value
         sns.barplot(x="import_value", y="sitc_product_code", data=df.head(), palette="Blues_d")
 
