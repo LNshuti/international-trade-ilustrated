@@ -110,7 +110,7 @@ def main():
     data_top10 = data_top10.drop(columns=['index'])
 
        # select first row by group
-    data_top10 = data_top10.groupby(['partner_code', 'sitc_product_code']).first()
+    data_top10 = data_top10.groupby(['Importer','partner_code', 'sitc_product_code']).first()
     st.write(data_top10)
 
     def plot_deficits_bycountry(df, location_code):
