@@ -117,7 +117,7 @@ def main():
         # select import_value, partner_code, sitc_product_code
         df = df[['import_value', 'partner_code', 'sitc_product_code']]
         # select first row by group
-        df = df.groupby(['partner_code', 'sitc_product_code']).first().reset_index()
+        df = df.groupby(['partner_code', 'sitc_product_code']).first()
         # Sort by import_value descending
         df = df.sort_values(by='import_value', ascending=False)
         print(df.head(10))
