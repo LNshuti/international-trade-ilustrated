@@ -55,6 +55,10 @@ Not all products are created equal. The plot above shows aggregated measures of 
 **China Exports**
 ![image](https://user-images.githubusercontent.com/13305262/222734074-e476b741-0aa5-4b0a-9aa1-b526288ad4ee.png)
 
+**China Global Market Share**
+![image](https://user-images.githubusercontent.com/13305262/223608271-1ad12f22-2359-4eda-8866-ad275714e2de.png)
+
+
 **Figure 2: Top 10 Product Imports**
 
 ![](output/usa_brics_top10_imports.png)
