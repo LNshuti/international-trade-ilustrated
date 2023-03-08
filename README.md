@@ -58,6 +58,8 @@ Not all products are created equal. The plot above shows aggregated measures of 
 **China Global Market Share**
 ![image](https://user-images.githubusercontent.com/13305262/223608271-1ad12f22-2359-4eda-8866-ad275714e2de.png)
 
+**USA Global Market Share**
+![image](https://user-images.githubusercontent.com/13305262/223609254-be20685e-f174-41d5-ad37-f0500a8b3f95.png)
 
 **Figure 2: Top 10 Product Imports**
 
