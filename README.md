@@ -81,7 +81,8 @@ The charts below are taken from the Atlas for Economic Complexity website at Har
 **France Exports**
 ![image](https://user-images.githubusercontent.com/13305262/223588654-0f44b1f3-1e16-44e9-9946-d4f2f2610bbf.png)
 
-
+**France Imports**
+![image](https://user-images.githubusercontent.com/13305262/223589164-a3ad54ed-a9e7-47df-a237-43866d0859c5.png)
 
 **China Trade Partners**
 
