@@ -85,8 +85,11 @@ The charts below are taken from the Atlas for Economic Complexity website at Har
 ![image](https://user-images.githubusercontent.com/13305262/223589164-a3ad54ed-a9e7-47df-a237-43866d0859c5.png)
 
 **France Trade Partners**
+
 **Exports**
 ![image](https://user-images.githubusercontent.com/13305262/223589349-f752df34-a921-4efd-a392-fe1c16569444.png)
+
+**Imports**
 
 **Russian Exports**
 ![image](https://user-images.githubusercontent.com/13305262/222796825-141d333a-1d75-40b8-822a-45e247b88d49.png)
