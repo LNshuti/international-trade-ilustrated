@@ -128,8 +128,10 @@ def main():
         print(df.columns)
          # Plot bar plot andsave plot as png to output folder. Use seaborn for styling
         fig, ax = plt.subplots(figsize=(5, 3))
-        sns.set_style(style="darkgrid") # set seaborn plot style
+        sns.set_style(style="dark") # set seaborn plot style
         # List seaborn styles
+        # "darkgrid", "whitegrid", "dark", "white", and "ticks
+
         #sns.set_context("paper", font_scale=1.5, rc={"lines.linewidth": 2.5})
 
     
