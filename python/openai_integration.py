@@ -257,18 +257,8 @@ def main():
     # Call defined functions in order 
     # to create a chart of the embeddings.
     embeddings = get_embeddings()
-    labels = get_labels()
-
-    chart = chart_from_components(
-        components=pca_components_from_embeddings(embeddings),
-        strings=embeddings,
-        x_title="PCA 0",
-        y_title="PCA 1",
-        mark_size=5,
-        title="PCA of Embeddings",
-    )
-    chart.show()
-
+    components = pca_components_from_embeddings(embeddings)
+    components.shape()
 
 
 if __name__ == '__main__':
