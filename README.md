@@ -90,6 +90,7 @@ The charts below are taken from the Atlas for Economic Complexity website at Har
 ![image](https://user-images.githubusercontent.com/13305262/223589349-f752df34-a921-4efd-a392-fe1c16569444.png)
 
 **Imports**
+![image](https://user-images.githubusercontent.com/13305262/223589730-6c730a59-802c-479d-af12-e210882d23fb.png)
 
 **Russian Exports**
 ![image](https://user-images.githubusercontent.com/13305262/222796825-141d333a-1d75-40b8-822a-45e247b88d49.png)
