@@ -251,3 +251,25 @@ def chart_from_components_3D(
         **kwargs,
     ).update_traces(marker=dict(size=mark_size))
     return chart
+
+
+def main():
+    # Call defined functions in order 
+    # to create a chart of the embeddings.
+    embeddings = get_embeddings()
+    labels = get_labels()
+
+    chart = chart_from_components(
+        components=pca_components_from_embeddings(embeddings),
+        strings=embeddings,
+        x_title="PCA 0",
+        y_title="PCA 1",
+        mark_size=5,
+        title="PCA of Embeddings",
+    )
+    chart.show()
+
+
+
+if __name__ == '__main__':
+    main()
