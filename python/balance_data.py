@@ -12,7 +12,7 @@ def main():
     sample_with_target = sample.set_target(target)
 
     # Check basic diagnostics of sample vs target before adjusting:
-    # sample_with_target.covars().plot()
+    sample_with_target.covars().plot()
 
 if __name__ == '__main__':
     main()
