@@ -55,6 +55,13 @@ Not all products are created equal. The plot above shows aggregated measures of 
 **China Exports**
 ![image](https://user-images.githubusercontent.com/13305262/222734074-e476b741-0aa5-4b0a-9aa1-b526288ad4ee.png)
 
+**Mexico Imports**
+![image](https://user-images.githubusercontent.com/13305262/224182208-6521af51-d492-4a6f-8285-2d4812fccf81.png)
+
+**Mexico Exports**
+![image](https://user-images.githubusercontent.com/13305262/224182564-e7808558-97f1-46ed-bb2d-dd38fd37fd2f.png)
+
+
 ### Global Market Share
 -----------------------
 
