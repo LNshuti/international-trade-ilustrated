@@ -61,6 +61,9 @@ Not all products are created equal. The plot above shows aggregated measures of 
 **Mexico Exports**
 ![image](https://user-images.githubusercontent.com/13305262/224182564-e7808558-97f1-46ed-bb2d-dd38fd37fd2f.png)
 
+**Mexico Opportunities**
+![image](https://user-images.githubusercontent.com/13305262/224183500-945feb10-d81d-4960-8818-efdf7677f22c.png)
+
 
 ### Global Market Share
 -----------------------
