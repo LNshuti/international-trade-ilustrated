@@ -74,6 +74,8 @@ Not all products are created equal. The plot above shows aggregated measures of 
 **Russian Federation**
 ![image](https://user-images.githubusercontent.com/13305262/223883135-25d3f7a7-dd83-462a-a12c-3a087478fe1d.png)
 
+**Mexico**
+![image](https://user-images.githubusercontent.com/13305262/224182961-da9d4faf-eff1-409b-a045-857b3ccfbc24.png)
 
 **Figure 2: Top 10 Product Imports**
 
