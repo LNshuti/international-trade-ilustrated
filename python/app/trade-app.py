@@ -52,7 +52,7 @@ max_tokens = 8000  # the maximum for text-embedding-ada-002 is 8191
 
 def main(): 
      # set streamlit theme to dark by default 
-    st.set_page_config(layout="wide", page_icon="plots/us_dollar.png", initial_sidebar_state="expanded")
+    st.set_page_config(layout="wide", page_icon=":currency_exchange:", initial_sidebar_state="expanded")
 
     st.title("Trade between Countries")
     #st.sidebar.subtitle("Search by country or product")    
