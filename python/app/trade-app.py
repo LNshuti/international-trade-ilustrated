@@ -16,16 +16,16 @@ openai.api_key = "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"
 import   toml 
 
 # Create a config.toml file 
-# config   =   { 
-#     "theme" :   { 
-#         "primaryColor" :   "#f63366" , 
-#         "backgroundColor" :   "#f4f4f4" , 
-#         "secondaryBackgroundColor" :   "#ffffff" , 
-#         "textColor" :   "#262730" , 
-#         "font" :   "sans serif" , 
-#         "fontSize" :   "14px" 
-#     } 
-# } 
+config = { 
+    "theme": { 
+        "primaryColor": "#f63366", 
+        "backgroundColor": "#f4f4f4", 
+        "secondaryBackgroundColor": "#ffffff", 
+        "textColor": "#262730", 
+        "font": "sans serif", 
+        "fontSize": "10px" 
+    } 
+} 
 
 
 # import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap'); 
