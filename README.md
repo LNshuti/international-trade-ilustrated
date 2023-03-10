@@ -38,6 +38,9 @@ Not all products are created equal. The plot above shows aggregated measures of 
 git clone https://github.com/LNshuti/international-trade-ilustrated.git
 cd international-trade-ilustrated
 pip install -r requirements.txt
+
+cd python/app
+streamlit run trade-app.py
 ```
 **United States Trade Balance: 2020**
 ```{python}
