@@ -128,7 +128,7 @@ def main():
     df.drop("import_value", axis=1, inplace=True)
 
     encoding = tiktoken.get_encoding(embedding_encoding)
-    print(encoding)
+    encoding
     # omit reviews that are too long to embed
     # df["n_tokens"] = df.combined.apply(lambda x: len(encoding.encode(x)))
     # df = df[df.n_tokens <= max_tokens].tail(top_n)
