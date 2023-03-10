@@ -73,6 +73,8 @@ def main():
         #labelled_df = labelled_df.merge(pop_data, left_on='location_code', right_on='Country Code', how='inner')
 
         # Drop the following columns: year, location_id, partner_id, export_value, parent_code, description, code, product_code
+        # Drop rows with pop_2020 < 500000
+        labelled_df = labelled_df[labelled_df['pop_2020'] > 500000]
         labelled_df = labelled_df.drop(columns=['year','pop_2020', 'location_id','product_id','sitc_eci','sitc_coi','location_code', 'export_value', 'parent_code', 'code'])
         #labelled_df = labelled_df.merge(pop_data, left_on='partner_code', right_on='Country Code', how='inner')
     
@@ -120,6 +122,7 @@ def main():
             # Drop "index" column  
     #df = df.groupby(['partner_code', 'sitc_product_code']).first().reset_index() 
     data_top10 = data_top10.reset_index(drop=True)
+    print(data_top10)
     data_top10 = data_top10.sort_values(by='import_value', ascending=False)
     data_top10 = data_top10.drop(columns=['index', 'Importer']).drop_duplicates()
     st.write(data_top10)
@@ -153,7 +156,7 @@ def main():
         print(df.head())
         print(df.columns)
          # Plot bar plot andsave plot as png to output folder. Use seaborn for styling
-        fig, ax = plt.subplots(figsize=(1.8, 1.1))
+        fig, ax = plt.subplots(figsize=(3, 2))
         sns.set_style(style="dark") # set seaborn plot style
         # List seaborn styles
         # "darkgrid", "whitegrid", "dark", "white", and "ticks
