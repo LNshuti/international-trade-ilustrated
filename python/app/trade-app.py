@@ -3,7 +3,7 @@ import pandas as pd
 import pyarrow.parquet as pq
 import matplotlib.pyplot as plt
 from typing import List 
-from streamlit_searchbox import st_searchbox
+#from streamlit_searchbox import st_searchbox
 import polars as pl
 import seaborn as sns
 import matplotlib as mpl
