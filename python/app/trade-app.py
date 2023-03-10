@@ -119,7 +119,9 @@ def main():
     #st.title('''Imports by ''' + str(location_code[0]) + ''' from ''' + str(location_code[0]) + ''' in 2020''')
             # Drop "index" column  
     #df = df.groupby(['partner_code', 'sitc_product_code']).first().reset_index() 
-    data_top10 = data_top10.drop(columns=['index', '']).drop_duplicates()
+    data_top10 = data_top10.reset_index(drop=True)
+    data_top10 = data_top10.sort_values(by='import_value', ascending=False)
+    data_top10 = data_top10.drop(columns=['index', 'Importer']).drop_duplicates()
     st.write(data_top10)
 
     # subsample to 1k most recent reviews and remove samples that are too long
@@ -128,7 +130,7 @@ def main():
     df.drop("import_value", axis=1, inplace=True)
 
     encoding = tiktoken.get_encoding(embedding_encoding)
-    encoding
+
     # omit reviews that are too long to embed
     # df["n_tokens"] = df.combined.apply(lambda x: len(encoding.encode(x)))
     # df = df[df.n_tokens <= max_tokens].tail(top_n)
@@ -151,7 +153,7 @@ def main():
         print(df.head())
         print(df.columns)
          # Plot bar plot andsave plot as png to output folder. Use seaborn for styling
-        fig, ax = plt.subplots(figsize=(3, 1.5))
+        fig, ax = plt.subplots(figsize=(1.8, 1.1))
         sns.set_style(style="dark") # set seaborn plot style
         # List seaborn styles
         # "darkgrid", "whitegrid", "dark", "white", and "ticks
