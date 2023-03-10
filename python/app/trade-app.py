@@ -119,7 +119,7 @@ def main():
     #st.title('''Imports by ''' + str(location_code[0]) + ''' from ''' + str(location_code[0]) + ''' in 2020''')
             # Drop "index" column  
     #df = df.groupby(['partner_code', 'sitc_product_code']).first().reset_index() 
-    data_top10 = data_top10.drop(columns=['index']).drop_duplicates()
+    data_top10 = data_top10.drop(columns=['index', '']).drop_duplicates()
     st.write(data_top10)
 
     # subsample to 1k most recent reviews and remove samples that are too long
