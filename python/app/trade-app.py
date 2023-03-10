@@ -158,7 +158,7 @@ def main():
     # Select first row by group
     data_top10 = data_top10.groupby(['partner_code', 'sitc_product_code']).first().reset_index()
     # Set table width 
-    st.write(data_top10, width=1000)
+    st.write(data_top10, width=1500)
 
     # subsample to 1k most recent reviews and remove samples that are too long
     top_n = 1000
