@@ -27,6 +27,8 @@ config = {
     } 
 } 
 
+# Streamlit set theme 
+st.markdown( """ <style> # MainMenu {visibility: hidden;} footer {visibility: hidden;} </style> """)
 
 # import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap'); 
 
