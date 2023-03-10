@@ -154,7 +154,7 @@ def main():
     data_top10 = data_top10.drop(columns=['index', 'Importer']).drop_duplicates()
 
     # Select first row by group
-    data_top10 = data_top10.groupby(['partner_code', 'description']).first().reset_index()
+    data_top10 = data_top10.groupby(['partner_code', 'sitc_product_code']).first().reset_index()
     st.write(data_top10)
 
     # subsample to 1k most recent reviews and remove samples that are too long
