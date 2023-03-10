@@ -188,7 +188,7 @@ def main():
         print(df.head())
         print(df.columns)
          # Plot bar plot andsave plot as png to output folder. Use seaborn for styling
-        fig, ax = plt.subplots(figsize=(3, 2))
+        fig, ax = plt.subplots(figsize=(10, 10))
         sns.set_style(style="dark") # set seaborn plot style
         # List seaborn styles
         # "darkgrid", "whitegrid", "dark", "white", and "ticks
@@ -214,6 +214,7 @@ def main():
         plt.ylabel('Product code')
         # Set title
         st.write(fig)
+
         #plt.savefig('../output/top10partners_' + location_code + '.png', dpi=300, bbox_inches='tight')
        # st.pyplot(fig)
 
