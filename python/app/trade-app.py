@@ -13,6 +13,23 @@ import openai
 openai.api_key = "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"
 
 
+import   toml 
+
+# Create a config.toml file 
+config   =   { 
+    "theme" :   { 
+        "primaryColor" :   "#f63366" , 
+        "backgroundColor" :   "#f4f4f4" , 
+        "secondaryBackgroundColor" :   "#ffffff" , 
+        "textColor" :   "#262730" , 
+        "font" :   "sans serif" , 
+        "fontSize" :   "14px" 
+    } 
+} 
+
+with open('config.toml', 'w')   as   f : 
+    toml.dump( config, f)
+
 import tiktoken
 from openai.embeddings_utils import get_embedding
 # embedding model parameters
