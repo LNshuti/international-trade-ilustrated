@@ -44,9 +44,13 @@ pop_data <-
   select('country_name', 'country_code', 'x2020') %>%
   rename(pop_2020='x2020') 
 
-usa_brics <-
+all_countries_labelled <-
   allcountries_trade_df %>% 
+<<<<<<< Updated upstream
   filter(location_code %in% c("USA", "CHN", "RUS", "IND", "ZAF", "CAN")) %>%
+=======
+ # filter(location_code %in% c("USA", "CHN", "RUS", "IND", "ZAF")) %>%
+>>>>>>> Stashed changes
   inner_join(pop_data, by = c("location_code" = "country_code")) %>% 
   left_join(product_labs, by = c("sitc_product_code" = "parent_code")) %>% 
   select(description, everything()) %>%
@@ -91,11 +95,15 @@ usa_brics <-
   # mutate(rank = 1:n()) %>%
   ungroup()
 
-dbWriteTable(con, "usa_brics", usa_brics, overwrite = TRUE)
+dbWriteTable(con, "all_countries_labelled", all_countries_labelled, overwrite = TRUE)
 
 summary_df <-
   dbGetQuery(con, 
+<<<<<<< Updated upstream
              'SELECT "country_name", "partner_code", SUM("export_value" - "import_value") as trade_balance FROM usa_brics GROUP BY "country_name", "partner_code"')
+=======
+             'SELECT "country_name", SUM("export_value" - "import_value") as trade_balance FROM all_countries_labelled GROUP BY "country_name"')
+>>>>>>> Stashed changes
 
 summary_tbl <- 
   summary_df %>% 
@@ -171,3 +179,7 @@ tab_1 <-
 
 tab_1 %>%
   gtsave("../output/usa_brics_top10_imports.png", expand = 10)
+
+summary_df %>% 
+  head()
+
