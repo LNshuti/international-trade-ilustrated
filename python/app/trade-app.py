@@ -19,7 +19,7 @@ import   toml
 config = { 
     "theme": { 
         "primaryColor": "#f63366", 
-        "backgroundColor": "#f4f4f4", 
+        "backgroundColor": "#edf6f7", 
         "secondaryBackgroundColor": "#ffffff", 
         "textColor": "#262730", 
         "font": "sans serif", 
