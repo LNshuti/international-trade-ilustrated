@@ -55,6 +55,16 @@ Not all products are created equal. The plot above shows aggregated measures of 
 **China Exports**
 ![image](https://user-images.githubusercontent.com/13305262/222734074-e476b741-0aa5-4b0a-9aa1-b526288ad4ee.png)
 
+**Mexico Imports**
+![image](https://user-images.githubusercontent.com/13305262/224182208-6521af51-d492-4a6f-8285-2d4812fccf81.png)
+
+**Mexico Exports**
+![image](https://user-images.githubusercontent.com/13305262/224182564-e7808558-97f1-46ed-bb2d-dd38fd37fd2f.png)
+
+**Mexico Opportunities**
+![image](https://user-images.githubusercontent.com/13305262/224183500-945feb10-d81d-4960-8818-efdf7677f22c.png)
+
+
 ### Global Market Share
 -----------------------
 
@@ -67,6 +77,8 @@ Not all products are created equal. The plot above shows aggregated measures of 
 **Russian Federation**
 ![image](https://user-images.githubusercontent.com/13305262/223883135-25d3f7a7-dd83-462a-a12c-3a087478fe1d.png)
 
+**Mexico**
+![image](https://user-images.githubusercontent.com/13305262/224182961-da9d4faf-eff1-409b-a045-857b3ccfbc24.png)
 
 **Figure 2: Top 10 Product Imports**
 
