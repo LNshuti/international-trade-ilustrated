@@ -125,6 +125,9 @@ def main():
     print(data_top10)
     data_top10 = data_top10.sort_values(by='import_value', ascending=False)
     data_top10 = data_top10.drop(columns=['index', 'Importer']).drop_duplicates()
+
+    # Select first row by group
+    data_top10 = data_top10.groupby(['partner_code', 'description']).first().reset_index()
     st.write(data_top10)
 
     # subsample to 1k most recent reviews and remove samples that are too long
@@ -160,12 +163,19 @@ def main():
         sns.set_style(style="dark") # set seaborn plot style
         # List seaborn styles
         # "darkgrid", "whitegrid", "dark", "white", and "ticks
+        # List seaborn fonts 
+        # "paper", "notebook", "talk", and "poster"
+        # List seaborn palettes
+        # "deep", "muted", "pastel", "bright", "dark", "colorblind"
+        # List seaborn barplot palettes
+
 
         #sns.set_context("paper", font_scale=1.5, rc={"lines.linewidth": 2.5})
-
+        # List barplot width and height 
+        #sns.barplot(x="import_value", y="partner_code", data=df.head(), palette="colorblind", width=0.5, height=0.5)
     
         # Plot histogram of import_value
-        sns.barplot(x="import_value", y="sitc_product_code", data=df.head(), palette="Blues_d")
+        sns.barplot(x="import_value", y="sitc_product_code", data=df.head(), palette="colorblind")
 
         ax.xaxis.set_major_formatter(mpl.ticker.StrMethodFormatter('{x:,.0f}'))
 
