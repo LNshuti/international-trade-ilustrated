@@ -151,7 +151,7 @@ def main():
         print(df.head())
         print(df.columns)
          # Plot bar plot andsave plot as png to output folder. Use seaborn for styling
-        fig, ax = plt.subplots(figsize=(5, 3))
+        fig, ax = plt.subplots(figsize=(3, 1.5))
         sns.set_style(style="dark") # set seaborn plot style
         # List seaborn styles
         # "darkgrid", "whitegrid", "dark", "white", and "ticks
