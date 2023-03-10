@@ -7,13 +7,14 @@ from typing import List
 import polars as pl
 import seaborn as sns
 import matplotlib as mpl
+import toml 
 import squarify
 import openai
 
+import tiktoken
+from openai.embeddings_utils import get_embedding
+
 openai.api_key = "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"
-
-
-import   toml 
 
 # Create a config.toml file 
 config = { 
@@ -27,28 +28,10 @@ config = {
     } 
 } 
 
-# Streamlit set theme 
-
-
-# import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap'); 
-
-# html, body, [class*="css"] {
-#     font-family: 'Roboto', sans-serif; 
-#     font-size: 18px;
-#     font-weight: 500;
-#     color: #091747;
-# }
-
-# with open('config.toml', 'w')   as   f : 
-#     toml.dump( config, f)
-
-import tiktoken
-from openai.embeddings_utils import get_embedding
 # embedding model parameters
 embedding_model = "text-embedding-ada-002"
 embedding_encoding = "cl100k_base"  # this the encoding for text-embedding-ada-002
 max_tokens = 8000  # the maximum for text-embedding-ada-002 is 8191
-
 
 def main(): 
      # set streamlit theme to dark by default 
@@ -89,11 +72,6 @@ def main():
         # Rename Country Name to Importer
         pop_data = pop_data.rename(columns={'Country Name': 'Importer'})
 
-        # Only keep the following columns from labelled_df: Importer, partner_code, partner, import_value, descrip
-    
-        #join pop_data to labelled_df
-      
-        # Drop population
         #pop_data = pop_data.drop(columns=['pop_2020'])
         # From pop_data, keep only the following columns: Country Name, Country Code
         # Only keep uniuqe rows
@@ -146,12 +124,9 @@ def main():
     # convert sitc_product_code to string 
     data_top10['sitc_product_code'] = data_top10['sitc_product_code'].astype(str)
 
-    # Append location_code to the title
-    #st.title('''Imports by ''' + str(location_code[0]) + ''' from ''' + str(location_code[0]) + ''' in 2020''')
-            # Drop "index" column  
     #df = df.groupby(['partner_code', 'sitc_product_code']).first().reset_index() 
     data_top10 = data_top10.reset_index(drop=True)
-    print(data_top10)
+    #print(data_top10)
     data_top10 = data_top10.sort_values(by='import_value', ascending=False)
     data_top10 = data_top10.drop(columns=['index', 'Importer']).drop_duplicates()
 
@@ -166,11 +141,6 @@ def main():
     df.drop("import_value", axis=1, inplace=True)
 
     encoding = tiktoken.get_encoding(embedding_encoding)
-
-    # omit reviews that are too long to embed
-    # df["n_tokens"] = df.combined.apply(lambda x: len(encoding.encode(x)))
-    # df = df[df.n_tokens <= max_tokens].tail(top_n)
-    # len(df)
 
     def plot_deficits_bycountry(df, location_code):
         
@@ -192,18 +162,6 @@ def main():
         fig, ax = plt.subplots(figsize=(5, 5))
         sns.set_style(style="dark") # set seaborn plot style
         # List seaborn styles
-        # "darkgrid", "whitegrid", "dark", "white", and "ticks
-        # List seaborn fonts 
-        # "paper", "notebook", "talk", and "poster"
-        # List seaborn palettes
-        # "deep", "muted", "pastel", "bright", "dark", "colorblind"
-        # List seaborn barplot palettes
-
-
-        #sns.set_context("paper", font_scale=1.5, rc={"lines.linewidth": 2.5})
-        # List barplot width and height 
-        #sns.barplot(x="import_value", y="partner_code", data=df.head(), palette="colorblind", width=0.5, height=0.5)
-    
         # Plot histogram of import_value
         sns.barplot(x="import_value", y="sitc_product_code", data=df.head(), palette="colorblind")
 
@@ -215,9 +173,6 @@ def main():
         plt.ylabel('Product code')
         # Set title
         st.write(fig)
-
-        #plt.savefig('../output/top10partners_' + location_code + '.png', dpi=300, bbox_inches='tight')
-       # st.pyplot(fig)
 
     plot_deficits_bycountry(data_top10, location_code)
 
