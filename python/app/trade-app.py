@@ -28,7 +28,14 @@ config = {
 } 
 
 # Streamlit set theme 
-st.markdown( """ <style> # MainMenu {visibility: hidden;} footer {visibility: hidden;} </style> """)
+st.themes.THEMES['my_theme'] = { 
+    'primaryColor': '#f63366', 
+    'backgroundColor': '#f4f4f4', 
+    'secondaryBackgroundColor': '#ffffff', 
+    'textColor': '#262730', 
+    'font': 'sans serif', 
+    'fontSize': '10px' 
+}
 
 # import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap'); 
 
