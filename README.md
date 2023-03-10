@@ -35,7 +35,9 @@ Not all products are created equal. The plot above shows aggregated measures of 
 
 **How to run Interactive App on your local machine**
 ```{python}
-
+git clone https://github.com/LNshuti/international-trade-ilustrated.git
+cd international-trade-ilustrated
+pip install -r requirements.txt
 ```
 **United States Trade Balance: 2020**
 ```{python}
