@@ -31,7 +31,7 @@ In 2020, China had a surplus relative to the United States, Hong Kong, Great Bri
 Not all products are created equal. The plot above shows aggregated measures of exports but does not include details on what these traded products are. In the table below, we show the top exports for each of the countries from figure 1 classified by Maslow's hierarchy of needs. 
 
 **Interactive Application**
-# TODO: Paste Video Demo here 
+![Demo](https://github.com/Faizun-Faria/Thief-Robber-Landlord-Police/blob/main/Preview/gif_english.gif)
 
 **How to run Interactive App on your local machine**
 ```{python}
