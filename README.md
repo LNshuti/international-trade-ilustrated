@@ -125,6 +125,8 @@ streamlit run trade-app.py
  
 **Source:** https://data.imf.org/?sk=E6A5F467-C14B-4AA8-9F6D-5A09EC4E62A4
 
+![App](https://www.loom.com/share/3a51af3bd7f64a10a6db2eee8c78a872)
+
 **Appendix:**
 -------------
 
