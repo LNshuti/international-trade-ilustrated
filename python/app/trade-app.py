@@ -14,20 +14,6 @@ import openai
 import tiktoken
 from openai.embeddings_utils import get_embedding
 
-openai.api_key = "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"
-
-# list models
-models = openai.Model.list()
-
-# print the first model's id
-print(models.data[0].id)
-
-# create a completion
-completion = openai.Completion.create(model="ada", prompt="Hello world")
-
-# print the completion
-print(completion.choices[0].text)
-
 
 # Create a config.toml file 
 config = { 
