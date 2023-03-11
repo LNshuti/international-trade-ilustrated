@@ -32,7 +32,9 @@ Not all products are created equal. The plot above shows aggregated measures of 
 
 **Interactive Application**
 
-![Demo](https://github.com/Faizun-Faria/Thief-Robber-Landlord-Police/blob/main/Preview/gif_english.gif)
+![Demo]
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/3a51af3bd7f64a10a6db2eee8c78a872" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
 **How to run Interactive App on your local machine**
 ```{python}
