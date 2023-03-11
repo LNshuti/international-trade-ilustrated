@@ -89,7 +89,7 @@ def main():
     
     data = load_data()
 
-    #print(data.head(10))
+    ## print(data.head(10))
 
     # Implement selector for location_code 
     location_code = st.sidebar.selectbox('Importer', data['Country Name'].unique())
@@ -126,7 +126,7 @@ def main():
 
     #df = df.groupby(['partner_code', 'sitc_product_code']).first().reset_index() 
     data_top10 = data_top10.reset_index(drop=True)
-    #print(data_top10)
+    ## print(data_top10)
     data_top10 = data_top10.sort_values(by='import_value', ascending=False)
     data_top10 = data_top10.drop(columns=['index', 'Importer']).drop_duplicates()
 
@@ -156,8 +156,8 @@ def main():
         # Sort by import_value descending
         df = df.sort_values(by='import_value', ascending=False)
 
-        print(df.head())
-        print(df.columns)
+        # print(df.head())
+        # print(df.columns)
          # Plot bar plot andsave plot as png to output folder. Use seaborn for styling
         fig, ax = plt.subplots(figsize=(5, 5))
         sns.set_style(style="dark") # set seaborn plot style
