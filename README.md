@@ -108,6 +108,10 @@ streamlit run trade-app.py
 **SouthEastern Asia**
 <img width="1089" alt="image" src="https://user-images.githubusercontent.com/13305262/224470902-cd4c5514-73ee-453d-ac8b-a03e84b28873.png">
 
+**North Europe**
+<img width="1099" alt="image" src="https://user-images.githubusercontent.com/13305262/224471002-e1a04cd6-912e-4c0f-9ecc-90001ee7b855.png">
+
+
 **Figure 2: Top 10 Product Imports**
 
 ![](output/usa_brics_top10_imports.png)
