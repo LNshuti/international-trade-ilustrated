@@ -96,6 +96,9 @@ streamlit run trade-app.py
 **Rising Asia**
 <img width="1100" alt="image" src="https://user-images.githubusercontent.com/13305262/224469997-41a1d565-b298-4b8b-b802-83d12ee99fef.png">
 
+**Declining Museum**
+<img width="1097" alt="image" src="https://user-images.githubusercontent.com/13305262/224470336-2fe72fb6-1c3d-4a59-b85e-2e8820b8e78b.png">
+
 
 **Figure 2: Top 10 Product Imports**
 
