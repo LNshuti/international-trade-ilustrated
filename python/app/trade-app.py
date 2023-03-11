@@ -1,16 +1,15 @@
 import streamlit as st 
 import pandas as pd
 import pyarrow.parquet as pq
+import matplotlib as mpl
 import matplotlib.pyplot as plt
 from typing import List 
 #from streamlit_searchbox import st_searchbox
 import polars as pl
 import seaborn as sns
-import matplotlib as mpl
 import toml 
 import squarify
 import openai
-
 import tiktoken
 from openai.embeddings_utils import get_embedding
 
@@ -165,7 +164,7 @@ def main():
         sns.barplot(x="import_value", y="sitc_product_code", data=df.head(), palette="colorblind")
 
         ax.xaxis.set_major_formatter(mpl.ticker.StrMethodFormatter('{x:,.0f}'))
-
+        ax.tick_params(labelsize=8)
         # Set x-axis label
         plt.xlabel('Import value (Millions USD)')
         # Set y-axis label
