@@ -99,6 +99,14 @@ streamlit run trade-app.py
 **Declining Museum**
 <img width="1097" alt="image" src="https://user-images.githubusercontent.com/13305262/224470336-2fe72fb6-1c3d-4a59-b85e-2e8820b8e78b.png">
 
+**South America**
+<img width="1100" alt="image" src="https://user-images.githubusercontent.com/13305262/224470461-f6f5e8a9-6c7e-433f-b6f8-5413cc8fddd1.png">
+
+**USA USA USA**
+<img width="823" alt="image" src="https://user-images.githubusercontent.com/13305262/224470573-a55adc14-3199-4c84-8eaa-76fb5bccb723.png">
+
+**SouthEastern Asia**
+<img width="1089" alt="image" src="https://user-images.githubusercontent.com/13305262/224470902-cd4c5514-73ee-453d-ac8b-a03e84b28873.png">
 
 **Figure 2: Top 10 Product Imports**
 
