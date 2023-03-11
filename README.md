@@ -93,6 +93,10 @@ streamlit run trade-app.py
 **Mexico**
 ![image](https://user-images.githubusercontent.com/13305262/224182961-da9d4faf-eff1-409b-a045-857b3ccfbc24.png)
 
+**Rising Asia**
+<img width="1100" alt="image" src="https://user-images.githubusercontent.com/13305262/224469997-41a1d565-b298-4b8b-b802-83d12ee99fef.png">
+
+
 **Figure 2: Top 10 Product Imports**
 
 ![](output/usa_brics_top10_imports.png)
