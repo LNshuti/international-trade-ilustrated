@@ -46,11 +46,7 @@ pop_data <-
 
 all_countries_labelled <-
   allcountries_trade_df %>% 
-<<<<<<< Updated upstream
-  filter(location_code %in% c("USA", "CHN", "RUS", "IND", "ZAF", "CAN")) %>%
-=======
  # filter(location_code %in% c("USA", "CHN", "RUS", "IND", "ZAF")) %>%
->>>>>>> Stashed changes
   inner_join(pop_data, by = c("location_code" = "country_code")) %>% 
   left_join(product_labs, by = c("sitc_product_code" = "parent_code")) %>% 
   select(description, everything()) %>%
@@ -99,11 +95,7 @@ dbWriteTable(con, "all_countries_labelled", all_countries_labelled, overwrite = 
 
 summary_df <-
   dbGetQuery(con, 
-<<<<<<< Updated upstream
              'SELECT "country_name", "partner_code", SUM("export_value" - "import_value") as trade_balance FROM usa_brics GROUP BY "country_name", "partner_code"')
-=======
-             'SELECT "country_name", SUM("export_value" - "import_value") as trade_balance FROM all_countries_labelled GROUP BY "country_name"')
->>>>>>> Stashed changes
 
 summary_tbl <- 
   summary_df %>% 
@@ -182,4 +174,3 @@ tab_1 %>%
 
 summary_df %>% 
   head()
-
