@@ -55,6 +55,9 @@ streamlit run trade-app.py
 
 ![image](https://user-images.githubusercontent.com/13305262/225175665-afd602ce-0a14-4957-9b7e-aaff10be89a0.png)
 
+
+**Figure 3 GDP per capita (current US$)**
+
 <img width="587" alt="image" src="https://user-images.githubusercontent.com/13305262/225187962-8233cdde-02da-4e50-912c-48935734320b.png">
 
 
