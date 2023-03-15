@@ -53,8 +53,10 @@ streamlit run trade-app.py
 
 **Figure 2: Top 20 Indebtness by Country**
 
-
 ![image](https://user-images.githubusercontent.com/13305262/225175665-afd602ce-0a14-4957-9b7e-aaff10be89a0.png)
+
+<img width="587" alt="image" src="https://user-images.githubusercontent.com/13305262/225187962-8233cdde-02da-4e50-912c-48935734320b.png">
+
 
 **USA Imports**
 ![image](https://user-images.githubusercontent.com/13305262/222725045-b9e8ff4b-c6f5-496e-9002-5a51225c6dce.png)
