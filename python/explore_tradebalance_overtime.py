@@ -3,6 +3,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.datasets import make_classification
+from BorutaShap import BorutaShap, load_data
+
 
 # Define function that loads data in parquet format 
 def load_data(filename):
@@ -47,6 +51,15 @@ def main():
     x_train, x_test, y_train, y_test = train_test_split(trade_data_all_years.iloc[:, 1:6], trade_data_all_years.iloc[:,0],test_size = 0.25)
     x_train=x_train.replace([np.inf, -np.inf], 9999).dropna(axis=0)
     x_test=x_test.replace([np.inf, -np.inf], 9999).dropna(axis=0)
+
+    model = RandomForestClassifier(class_weight = 'balanced')
+
+    # no model selected default is Random Forest, if classification is False it is a Regression problem
+    Feature_Selector = BorutaShap(model=model,
+                                importance_measure='shap',
+                                classification=True)
+
+    Feature_Selector.fit(X=x_train, y=y_train, n_trials=100, random_state=0)
 
     print(x_train)
 # Call the main function
