@@ -1,0 +1,38 @@
+Resources:
+  MySecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow SSH and Streamlit access
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 8501
+          ToPort: 8501
+          CidrIp: 0.0.0.0/0
+
+  MyInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: g4dn.xlarge
+      ImageId: ami-xxxxxxxx
+      SecurityGroupIds:
+        - !Ref MySecurityGroup
+      Tags:
+        - Key: Name
+          Value: GovGpt chat
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          set -e
+          # Install Python and pip
+          yum -y update
+          yum -y install python3
+          curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+          python3 get-pip.py --user
+          # Install pre-built PyTorch environment
+          pip3 install torch torchvision torchaudio
+          # Install additional libraries
+          pip3 install transformers streamlit
