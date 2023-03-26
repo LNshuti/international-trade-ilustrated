@@ -60,13 +60,6 @@ streamlit run trade-app.py
 
 <img width="587" alt="image" src="https://user-images.githubusercontent.com/13305262/225187962-8233cdde-02da-4e50-912c-48935734320b.png">
 
-
-**USA Imports**
-![image](https://user-images.githubusercontent.com/13305262/222725045-b9e8ff4b-c6f5-496e-9002-5a51225c6dce.png)
-
-**USA Exports**
-![image](https://user-images.githubusercontent.com/13305262/222726256-b249f3e8-595b-4852-b320-a00e11505707.png)
-
 **China Trade Balance:**
 ```{python}
 2.01 T - 2.81 T = 0.8 T Trade Deficit
