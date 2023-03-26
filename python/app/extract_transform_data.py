@@ -55,7 +55,11 @@ def load_transform_data():
 def main():
     data = load_transform_data()
     
-    data.write_csv("processed_country_partner_df.csv")
+    # Save data to csv 
+    #data.to_csv("processed_country_partner_df.csv")
+
+    # Save data to parquet
+    data.to_parquet("processed_country_partner_df.parquet")
     
 
 if __name__ == '__main__':

@@ -31,8 +31,11 @@ def main():
 
     st.cache(persist=True)
     def load_data():     
-        
-    
+
+        # Read in the data from parquet 
+        labelled_df = pq.ParquetDataset('processed_country_partner_df.parquet').read_pandas().to_pandas()
+
+        #labelled_df = pd.read_csv("processed_country_partner_df.csv")
         return labelled_df
     
     data = load_data()
@@ -80,15 +83,16 @@ def main():
 
     # Select first row by group
     data_top10 = data_top10.groupby(['partner_code', 'sitc_product_code']).first().reset_index()
+
+    # Sort by import_value descending
+    data_top10 = data_top10.sort_values(by='import_value', ascending=False)
+
+    # Drop rows where import_value is 0
+    data_top10 = data_top10[data_top10['import_value'] != 0]
+
     # Set table width 
     st.write(data_top10)
 
-    # subsample to 1k most recent reviews and remove samples that are too long
-    top_n = 1000
-    df = data_top10.sort_values("import_value").tail(top_n * 2)  # first cut to first 2k entries, assuming less than half will be filtered out
-    df.drop("import_value", axis=1, inplace=True)
-
-    encoding = tiktoken.get_encoding(embedding_encoding)
 
     def plot_deficits_bycountry(df, location_code):
         
