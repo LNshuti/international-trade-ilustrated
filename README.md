@@ -43,28 +43,6 @@ pip install -r requirements.txt
 cd python/app
 streamlit run trade-app.py
 ```
-**United States Trade Balance: 2020**
-```{python}
-    2.13 T - 2.72 T = 0.59 T Trade Deficit
-    
-    0.59 T / 330 M = $1788 Deficit Per Person
-```
-
-
-**Figure 2: Top 20 Indebtness by Country**
-
-![image](https://user-images.githubusercontent.com/13305262/225175665-afd602ce-0a14-4957-9b7e-aaff10be89a0.png)
-
-
-**Figure 3 GDP per capita (current US$)**
-
-<img width="587" alt="image" src="https://user-images.githubusercontent.com/13305262/225187962-8233cdde-02da-4e50-912c-48935734320b.png">
-
-**China Trade Balance:**
-```{python}
-2.01 T - 2.81 T = 0.8 T Trade Deficit
-0.8 T /  1.41 B = $57 Deficit Per Person
-```
 
 ### References 
 1. The Growth Lab at Harvard University. International Trade Data (SITC, Rev. 2). 2019-05-31. 2019. V5. Harvard Dataverse. URL. https://doi.org/10.7910/DVN/H8SFD2. doi/10.7910/DVN/H8SFD2
