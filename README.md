@@ -30,6 +30,11 @@ In 2020, China exported $200+ Billion dollars worth of products and services in 
 **Figure 2: 2020 Chinese Exports to the US**
 ![What did United States of America import from China in 2020](https://user-images.githubusercontent.com/13305262/233839790-0c38a57b-1e1b-46b3-a893-2830cfc4df81.png)
 
+**Figure 3: Russian Exports to the US**
+![What did United States of America import from Russia in 2020](https://user-images.githubusercontent.com/13305262/233840120-b46a86d5-1cff-459d-b06a-dfa8ed2c0abd.png)
+
+**Figure 4: US exports to Russia** 
+![What did United States of America export to Russia in 2020](https://user-images.githubusercontent.com/13305262/233840141-e48b1b5f-59c1-458b-b41e-9d5dda461713.png)
 
 **Interactive Application**
 
