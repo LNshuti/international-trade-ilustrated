@@ -22,7 +22,7 @@ We use the Atlas of Economic Complexity from the Growth Lab at Harvard Universit
 
 Below we plot trade relationships between the United States, China, and Russia. For this plot, we sum data for the latest available year, 2020. The trade balance is measured in Billions of US dollars.
 
-In 2020, China had a surplus relative to the United States, Hong Kong, Great Britain, India, and the Netherlands. With the United States, China exported $200+ Billion dollars worth of products and services in excess of the value of products/services China imported from the United States. Interestingly, Russia and the US had negligible differences in terms of the monetary value of their bilateral imports/exports.
+In 2020, China exported $200+ Billion dollars worth of products and services in excess of the value of products/services China imported from the United States. Interestingly, Russia and the US had negligible differences in terms of the monetary value of their bilateral imports/exports.
 
 **Figure 1: 2020 US Exports to China**
 ![What did United States of America export to China in 2020](https://user-images.githubusercontent.com/13305262/233839682-0bfd688d-83e3-41f1-aa77-b246768751a5.png)
