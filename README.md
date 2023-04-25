@@ -20,6 +20,9 @@ We use the Atlas of Economic Complexity from the Growth Lab at Harvard Universit
 **Exploratory Data Analysis**
 --------------------------------
 
+**FIgure 0: US Global Market Share**
+![United States of America’s Global Market Share, 1995 – 2020](https://user-images.githubusercontent.com/13305262/234189278-91c88385-a54b-43a6-870c-213d8caa33c4.png)
+
 
 **Figure 1: United States Economic Size**
 ![What did United States of America export in 2020](https://user-images.githubusercontent.com/13305262/234188787-d6185e20-bfcb-40a8-9d8d-b93fa9b614c1.png)
