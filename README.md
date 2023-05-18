@@ -48,6 +48,9 @@ In 2020, China exported $200+ Billion dollars worth of products and services in 
 
 https://www.loom.com/share/3a51af3bd7f64a10a6db2eee8c78a872
 
+**Rising and Falling Countries**
+![image](https://github.com/LNshuti/international-trade-ilustrated/assets/13305262/0c08202b-f662-45a7-a9aa-aa7134c579d4)
+
 
 **How to run Interactive App on your local machine**
 ```{python}
