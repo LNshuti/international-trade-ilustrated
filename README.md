@@ -11,8 +11,8 @@ The purpose of this repository is to use available data to analyze the relative 
 * Acts of Nature
 
 Attempting to measure innovation by country is too difficult a task to approach in this exercise. One interesting study on innovation which focuses mostly on US corporations is Kai Wu's paper on Investing in Innovation. Similarly, we won't attempt to explain the relative order/disorder between countries nor do we have the capability to predict Acts of Nature. Using macroeconomic literature and open source data, this repo attempts to rank countries by 1) the value of exported goods and services, 2) debt levels(both public and private), and 3) the strength of each country's currency.
-**Data Source**
 
+**Data Source**
 ---------------
 We use the Atlas of Economic Complexity from the Growth Lab at Harvard University because this data source is: 1) Detailed down to the product level that each country in the World trades from 1962 to 2020. 2) Standardized to simplify the process of building a time series to track changes over time. 3) Regularly used and highly cited source with over eighty thousand downloads. It is also publicly available and can be downloaded here.
 
@@ -48,7 +48,7 @@ In 2020, China exported $200+ Billion dollars worth of products and services in 
 
 https://www.loom.com/share/3a51af3bd7f64a10a6db2eee8c78a872
 
-**Rising and Falling Countries**
+
 ![image](https://github.com/LNshuti/international-trade-ilustrated/assets/13305262/0c08202b-f662-45a7-a9aa-aa7134c579d4)
 
 
