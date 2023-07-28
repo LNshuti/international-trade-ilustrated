@@ -44,6 +44,18 @@ In 2020, China exported $200+ Billion dollars worth of products and services in 
 **Figure 5: US exports to Russia** 
 ![What did United States of America export to Russia in 2020](https://user-images.githubusercontent.com/13305262/233840141-e48b1b5f-59c1-458b-b41e-9d5dda461713.png)
 
+**Figure 6: Chinese Exports to France**
+
+**Figure 7: US Exports to France**
+
+**Figure 8: French Exports**
+![image](https://github.com/LNshuti/international-trade-ilustrated/assets/13305262/9d76bb68-3b2b-4757-8c64-fa747a40f0a9)
+
+**Figure 9: French Imports**
+![image](https://github.com/LNshuti/international-trade-ilustrated/assets/13305262/1337bf49-ce43-4b8c-bb2c-fd2a5ff8742c)
+
+
+
 **Interactive Application**
 
 https://www.loom.com/share/3a51af3bd7f64a10a6db2eee8c78a872
