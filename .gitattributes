@@ -1,1 +1,6 @@
 data/processed/country_partner_sitcproduct4digit_year_all.parquet filter=lfs diff=lfs merge=lfs -text
+data/raw/Who[[:space:]]exported[[:space:]]Stone[[:space:]]in[[:space:]]2021_.csv filter=lfs diff=lfs merge=lfs -text
+data/raw/Who[[:space:]]exported[[:space:]]Agriculture[[:space:]]in[[:space:]]2021_.csv filter=lfs diff=lfs merge=lfs -text
+data/raw/Who[[:space:]]exported[[:space:]]Chemicals[[:space:]]in[[:space:]]2021_.csv filter=lfs diff=lfs merge=lfs -text
+data/raw/Who[[:space:]]exported[[:space:]]Electronics[[:space:]]in[[:space:]]2021_.csv filter=lfs diff=lfs merge=lfs -text
+data/raw/Who[[:space:]]exported[[:space:]]Machinery[[:space:]]in[[:space:]]2021_.csv filter=lfs diff=lfs merge=lfs -text
