@@ -1,0 +1,15 @@
+name: metals-trade
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - pip
+  - pip:
+    - pandas
+    - numpy
+    - matplotlib
+    - seaborn
+    - jupyter
+    - scikit-learn
+    - xgboost
