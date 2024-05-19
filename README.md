@@ -66,17 +66,6 @@ In 2020, China exported $200+ Billion dollars worth of products and services in 
 
 ![image](https://github.com/LNshuti/international-trade-ilustrated/assets/13305262/1337bf49-ce43-4b8c-bb2c-fd2a5ff8742c)
 
-**Figure 10: Singapore**
-![image](https://github.com/LNshuti/international-trade-ilustrated/assets/13305262/494d6272-2b8b-414e-bf89-7bd73826aac9)
-
-**Interactive Application**
-
-https://www.loom.com/share/3a51af3bd7f64a10a6db2eee8c78a872
-
-
-![image](https://github.com/LNshuti/international-trade-ilustrated/assets/13305262/0c08202b-f662-45a7-a9aa-aa7134c579d4)
-
-
 **How to run Interactive App on your local machine**
 ```{python}
 git clone https://github.com/LNshuti/international-trade-ilustrated.git
