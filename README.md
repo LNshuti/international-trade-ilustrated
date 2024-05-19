@@ -20,11 +20,6 @@ We use the Atlas of Economic Complexity from the Growth Lab at Harvard Universit
 **Exploratory Data Analysis**
 --------------------------------
 
-**Figure 1: United States Economic Size**
-
-![What did United States of America export in 2020](https://user-images.githubusercontent.com/13305262/234188787-d6185e20-bfcb-40a8-9d8d-b93fa9b614c1.png)
-
-
 Below we plot trade relationships between the China, France, and Russia. For this plot, we sum data for the latest available year, 2020. The trade balance is measured in Billions of US dollars.
 
 **Figure 1: Chinese Exports to France**
