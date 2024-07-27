@@ -22,19 +22,11 @@ We use the Atlas of Economic Complexity from the Growth Lab at Harvard Universit
 
 Below we plot trade relationships between the China, France, and Russia. For this plot, we sum data for the latest available year, 2020. The trade balance is measured in Billions of US dollars.
 
-**Figure 1: Chinese Exports to France**
-
-![image](https://github.com/LNshuti/international-trade-ilustrated/assets/13305262/f67bd2b8-bf46-4c33-81f5-2a93162ccd4b)
-
-**Figure 2: US Exports to France**
-
-![image](https://github.com/LNshuti/international-trade-ilustrated/assets/13305262/dc894a6e-4d2f-4a80-8187-59f688bbae4f)
-
-**Figure 3: French Exports**
+**Figure 1:French Exports**
 
 ![image](https://github.com/LNshuti/international-trade-ilustrated/assets/13305262/9d76bb68-3b2b-4757-8c64-fa747a40f0a9)
 
-**Figure 4: French Imports**
+**Figure 2: French Imports**
 
 ![image](https://github.com/LNshuti/international-trade-ilustrated/assets/13305262/1337bf49-ce43-4b8c-bb2c-fd2a5ff8742c)
 
