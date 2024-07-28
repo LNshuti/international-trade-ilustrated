@@ -4,11 +4,11 @@
 ---------------
 The purpose of this repository is to use available data to analyze the relative strength of countries. With the increasing geopolitical uncertainty notably the war in Ukraine and associated chatter about WW3, competition between powerful countries is heating up. According to Ray Dalio's book The Changing World Order, the five most important measures that determine a Nation's present and future changes in wealth and income are the following:
 
-* Innovation
-* The capital market cycle
-* Internal order/disorder cycle
-* External order-disorder cycle
-* Acts of Nature
+1. Innovation
+2. The capital market cycle
+3. Internal order/disorder cycle
+4. External order-disorder cycle
+5. Acts of Nature
 
 Attempting to measure innovation by country is too difficult a task to approach in this exercise. One interesting study on innovation which focuses mostly on US corporations is Kai Wu's paper on Investing in Innovation. Similarly, we won't attempt to explain the relative order/disorder between countries nor do we have the capability to predict Acts of Nature. Using macroeconomic literature and open source data, this repo attempts to rank countries by 1) the value of exported goods and services, 2) debt levels(both public and private), and 3) the strength of each country's currency.
 
